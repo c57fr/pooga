@@ -25,18 +25,18 @@ class Database {
 	 */
 	private $dbHost;
 
-
-	public function __construct( array $params = [
-		'dbName' => 'pooga',
-		'dbUser' => 'root',
-		'dbPass' => '',
-		'dbHost' => 'localhost'
-	] )
+	/**
+	 * @param params array assoc
+	 *    ['dbName'=>..., 'dbUser'=>..., 'dbPass'=>..., 'dbHost'=>...]
+	 * Chaque attribut est indépendant: On peut indiquer (que) celui souhaité
+	 *
+	 */
+	public function __construct( Array $params = [] )
 	{
-		$this->dbName = $params[ 'dbName' ];
-		$this->dbUser = $params[ 'dbUser' ];
-		$this->dbPass = $params[ 'dbPass' ];
-		$this->dbHost = $params[ 'dbHost' ];
+		$this->dbName = $params[ 'dbName' ] ?? 'pooga';
+		$this->dbUser = $params[ 'dbUser' ] ?? 'root';
+		$this->dbPass = $params[ 'dbPass' ] ?? '';
+		$this->dbHost = $params[ 'dbHost' ] ?? 'localhost';
 	}
 	
 	private function getPDO()
