@@ -14,7 +14,7 @@
 	<style>
 
 	</style>
-	<link rel="stylesheet" href="src/blog/public/css/style.css">
+	<link rel="stylesheet" href="blog/public/css/style.css">
 </head>
 
 <body>

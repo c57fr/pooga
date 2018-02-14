@@ -1,6 +1,6 @@
-<?php namespace Blog;
+<?php
 
-const BASE_DIR = './src/blog/';
+const BASE_DIR = './blog/';
 
 $p = $_GET[ 'p' ] ?? 'home';
 
@@ -14,4 +14,5 @@ elseif ( $p === 'single' ) {
 	require BASE_DIR . 'pages/single.php';
 }
 $content = ob_get_clean();
+
 require BASE_DIR . 'pages/template/default.php';

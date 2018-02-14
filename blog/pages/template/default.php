@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="">
-	<meta name="author" content="">
+	<meta name="author" content="LC">
 	<title>POO</title>
 
 	<!-- Bootstrap core CSS -->
@@ -14,7 +14,7 @@
 	<style>
 
 	</style>
-	<link rel="stylesheet" href="src/blog/public/css/style.css">
+	<link rel="stylesheet" href="blog/public/css/style.css">
 </head>
 
 <body>
@@ -28,7 +28,7 @@
 </div>
 
 <div class="container">
-	<?=$content;?>
+	<?= $content ?>
 </div>
 </body>
 </html>

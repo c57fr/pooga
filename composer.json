@@ -11,7 +11,7 @@
       "Gc7\\": "src/",
       "Gc7\\HTML\\": "src/html/",
       "Gc7\\Personnage\\": "src/personnage/",
-      "Blog\\": "src/blog/"
+      "Blog\\App\\": "blog/app/"
     }
   },
   "require": {}

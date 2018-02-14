@@ -1,2 +1,4 @@
 <?php
-require './src/blog/public/index.php';
+require './vendor/autoload.php';
+
+require './blog/public/index.php';
