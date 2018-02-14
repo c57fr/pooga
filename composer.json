@@ -1,0 +1,18 @@
+{
+  "name": "Gc7/pooga",
+  "authors": [
+    {
+      "name": "COTE",
+      "email": "GrCOTE7@GMail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Gc7\\": "src/",
+      "Gc7\\HTML\\": "src/html/",
+      "Gc7\\Personnage\\": "src/personnage/",
+      "Blog\\": "src/blog/"
+    }
+  },
+  "require": {}
+}
