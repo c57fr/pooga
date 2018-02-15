@@ -11,8 +11,10 @@
       "Gc7\\": "src/",
       "Gc7\\HTML\\": "src/html/",
       "Gc7\\Personnage\\": "src/personnage/",
-      "Blog\\App\\": "blog/app/"
+      "Gc7\\Blog\\": "blog/app/"
     }
   },
-  "require": {}
+  "require": {
+    "jbroadway/urlify": "^1.1"
+  }
 }

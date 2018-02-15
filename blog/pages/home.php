@@ -1,15 +1,11 @@
 <div class="container">
 	<h1>Home Page</h1>
-	<a href="index.php?p=single">Single Page</a>
+	<!--<a href="index.php?p=single">Single Page</a>-->
 	<hr/>
-	<?php
-	use Blog\App\Database;
+	<?php foreach ( $db->query( 'SELECT * FROM blog_articles LIMIT 99', 'Gc7\Blog\Table\Article' ) as $post ): ?>
 
-	$db  = new Database();
-	$res = $db->query( 'SELECT * FROM blog_articles' );
+		<h2><a href="<?= $post->url ?>"><?= $post->titre ?></a></h2>
+		<p><?= $post->extrait ?></p>
 
-	foreach ( $res as $article ) {
-		echo $article->titre . '<br>';
-	}
-	?>
+	<?php endforeach; ?>
 </div>
