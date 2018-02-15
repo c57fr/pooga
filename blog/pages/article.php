@@ -1,5 +1,5 @@
 <?php
-var_dump($_GET);
+//var_dump($_GET);
 $post=$db->prepare('SELECT * FROM blog_articles WHERE id = ? ', [$_GET['id']], 'Gc7\Blog\Table\Article')[0];
 //var_dump($post);
 ?>
