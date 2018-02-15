@@ -73,6 +73,7 @@ class Database {
 		$req = $this->getPDO()->prepare( $statement );
 		$req->execute( $attributes );
 		$datas = $req->fetchAll( PDO::FETCH_CLASS, $className );
+
 		return $datas;
 	}
 }

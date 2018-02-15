@@ -6,7 +6,7 @@ $p = $_GET[ 'p' ] ?? 'home';
 //var_dump($_GET);
 
 // Initialisation des objets
-$db  = new Database();
+//$db  = new Database();
 
 ob_start();
 if ( $p === 'home' ) {
