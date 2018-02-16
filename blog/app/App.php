@@ -15,7 +15,7 @@ class App {
 	{
 		//$app    = $this->getInstance();
 		self::$confs = Config::getInstance();
-		var_dump( self::$confs );
+		//var_dump( self::$confs );
 	}
 	
 	static public function getInstance()
