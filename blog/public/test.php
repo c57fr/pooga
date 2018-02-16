@@ -1,19 +1,10 @@
 <div class="container">
 	<?php
-
-
-	use Gc7\Blog\Demo\Car;
-	use Gc7\Blog\Demo\CarCitadine;
-
 	$app->setTitle( 'Test' );
-	//var_dump( $app );
 
 
-	$v = new Car;
-	var_dump($v);
-
-	$v = new CarCitadine;
-	var_dump($v);
+	//require './blog/demo/TableFactory.php';
+	require './blog/demo/CarFactory.php';
 
 
 	//echo $app->settings->settings->dbUser;
