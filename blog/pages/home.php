@@ -1,12 +1,29 @@
 <div class="container">
-	<h1>Home Page</h1>
-	<!--<a href="index.php?p=single">Single Page</a>-->
-	<hr/>
-	<?php foreach ( Gc7\Blog\App::getDb()
-	                         ->query( 'SELECT * FROM blog_articles LIMIT 99', 'Gc7\Blog\Table\Article' ) as $post ): ?>
+	<div class="row">
+		<div class="col-sm-8">
+			<h1>Home Page</h1>
+			<hr/>
+			<?php
+			use Gc7\Blog\App;
 
-		<h2><a href="<?= $post->url ?>"><?= $post->titre ?></a></h2>
-		<p><?= $post->extrait ?></p>
+			App::setTitle('Articles');
+			foreach ( \Gc7\Blog\Table\Article::getLast() as $post ): ?>
 
-	<?php endforeach; ?>
+				<h2><a href="<?= $post->url ?>"><?= $post->titre ?></a></h2>
+				<h4><em><?= $post->categorie ?></em></h4>
+				<p><?= $post->extrait ?></p>
+
+			<?php endforeach; ?>
+		</div>
+		<div class="col-sm-4">
+			<h3>Categories</h3>
+			<ul>
+				<?php
+				foreach ( Gc7\Blog\Table\Categorie::all() as $categorie ) {
+					echo '<li><a href="' . $categorie->url . '">' . $categorie->categorie . '</a></li>';
+				}
+				?>
+			</ul>
+		</div>
+	</div>
 </div>

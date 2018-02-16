@@ -15,6 +15,11 @@ if ( $p === 'home' ) {
 elseif ( $p === 'article' ) {
 	require BASE_DIR . 'pages/article.php';
 }
+elseif ( $p === 'categorie' ) {
+	require BASE_DIR . 'pages/categorie.php';
+}elseif ( $p === '404' ) {
+	echo '<h1>Cette page n\'existe pas !</h1>';
+}
 $content = ob_get_clean();
 
 require BASE_DIR . 'pages/template/default.php';

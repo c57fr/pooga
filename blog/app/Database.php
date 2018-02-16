@@ -35,6 +35,8 @@ class Database {
 	 *               ['dbName'=>..., 'dbUser'=>..., 'dbPass'=>..., 'dbHost'=>...]
 	 *               Chaque attribut est indépendant: On peut indiquer (que) celui souhaité
 	 *
+	 * Ici, fait un peu doubmlon avec les modifs de GA en chapitre 13 (https://www.grafikart.fr/formations/programmation-objet-php/tp-tables)
+	 *
 	 */
 	public function __construct( Array $params = [ ] )
 	{
@@ -59,21 +61,30 @@ class Database {
 		return $this->pdo;
 	}
 
-	public function query( $statement, $className )
+	public function query( $statement, $className, $one = FALSE )
 	{
-		//var_dump( 'QUERY' );
+		//var_dump( $statement, $className );
 
-		return $this->getPDO()
-		            ->query( $statement )
-		            ->fetchAll( PDO::FETCH_CLASS, $className );
+		$req = $this->getPDO()->query( $statement );
+		$req->setFetchMode( PDO::FETCH_CLASS, $className );
+		if ( $one ) {
+			return $req->fetch();
+		}
+		else {
+			return $req->fetchAll();
+		}
 	}
-	
-	public function prepare( $statement, $attributes, $className )
+
+	public function prepare( $statement, $attributes, $className, $one = FALSE )
 	{
 		$req = $this->getPDO()->prepare( $statement );
 		$req->execute( $attributes );
-		$datas = $req->fetchAll( PDO::FETCH_CLASS, $className );
-
-		return $datas;
+		$req->setFetchMode( PDO::FETCH_CLASS, $className );
+		if ( $one ) {
+			return $req->fetch();
+		}
+		else {
+			return $req->fetchAll();
+		}
 	}
 }

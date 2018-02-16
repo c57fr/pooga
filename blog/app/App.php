@@ -9,7 +9,9 @@ class App {
 	const DB_HOST = 'localhost';
 
 	private static $database;
-	
+	private static $title = 'POOGA';
+
+
 	public static function getDb()
 	{
 		if ( null === self::$database ) {
@@ -22,6 +24,25 @@ class App {
 		}
 
 		return self::$database;
+	}
+	
+	public static function notFound()
+	{
+		header( "HTTP/1.0 404 Not Found" );
+		header( "Location:index.php?p=404" );
+	}
+	
+	static public function getTitle()
+	{
+		return self::$title;
+	}
+
+	/**
+	 * @param mixed $title
+	 */
+	public static function setTitle( $title )
+	{
+		self::$title = $title . ' | ' . self::$title;
 	}
 
 }

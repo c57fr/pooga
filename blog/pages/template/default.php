@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="">
 	<meta name="author" content="LC">
-	<title>POO</title>
+	<title><?= \Gc7\Blog\App::getTitle() ?></title>
 
 	<!-- Bootstrap core CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -22,7 +22,7 @@
 
 <div class="navbar navbar-inverse navbar-fixed-top">
 	<div class="container">
-		<a class="brand" href="/"><p class="siteName">POO</p></a>
+		<a class="brand" href="/"><p class="siteName">POOGA</p></a>
 	</div>
 </div>
 </div>
