@@ -3,13 +3,12 @@
 
 use Gc7\Blog\App;
 use Gc7\Blog\Table\Article;
-use Gc7\Blog\Table\Categorie;
 
 $post = Article::find( $_GET[ 'id' ] );
 if ( ! $post ) {
 	App::notFound();
 }
-App::setTitle( $post->titre );
+$app->setTitle( $post->titre );
 
 //var_dump($post);
 ?>
@@ -17,7 +16,7 @@ App::setTitle( $post->titre );
 
 	<h1><?= $post->titre ?></h1>
 
-	<h3><?= $post->categorie ?></h3>
+	<h3><em><?= $post->categorie ?></em></h3>
 
 	<p><?= $post->contenu ?></p>
 

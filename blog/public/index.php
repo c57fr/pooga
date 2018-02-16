@@ -1,12 +1,16 @@
 <?php
+
+use Gc7\Blog\App;
 use Gc7\Blog\Database;
+
+$app=App::getInstance();
 const BASE_DIR = './blog/';
 
 $p = $_GET[ 'p' ] ?? 'home';
 //var_dump($_GET);
 
 // Initialisation des objets
-//$db  = new Database();
+$db  = new Database();
 
 ob_start();
 if ( $p === 'home' ) {
@@ -17,7 +21,12 @@ elseif ( $p === 'article' ) {
 }
 elseif ( $p === 'categorie' ) {
 	require BASE_DIR . 'pages/categorie.php';
-}elseif ( $p === '404' ) {
+}
+elseif ( $p === 'test' ) {
+	echo 'ooo';
+	require BASE_DIR . 'public/test.php';
+}
+elseif ( $p === '404' ) {
 	echo '<h1>Cette page n\'existe pas !</h1>';
 }
 $content = ob_get_clean();

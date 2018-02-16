@@ -5,9 +5,10 @@ body {
 }
 
 .siteName {
+    display: inline-block;
     font-size: 1.7em;
     color: red;
-    padding-top: 10px;
+    padding-top: 7px;
 }
 
 p {

@@ -6,7 +6,7 @@
 			<?php
 			use Gc7\Blog\App;
 
-			App::setTitle('Articles');
+			$app->title= 'Articles';
 			foreach ( \Gc7\Blog\Table\Article::getLast() as $post ): ?>
 
 				<h2><a href="<?= $post->url ?>"><?= $post->titre ?></a></h2>

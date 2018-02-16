@@ -11,7 +11,8 @@
       "Gc7\\": "src/",
       "Gc7\\HTML\\": "src/html/",
       "Gc7\\Personnage\\": "src/personnage/",
-      "Gc7\\Blog\\": "blog/app/"
+      "Gc7\\Blog\\": "blog/app/",
+      "Gc7\\Blog\\Demo\\": "blog/demo/"
     }
   },
   "require": {

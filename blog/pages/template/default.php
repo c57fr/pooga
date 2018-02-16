@@ -6,11 +6,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="">
 	<meta name="author" content="LC">
-	<title><?= \Gc7\Blog\App::getTitle() ?></title>
+	<title><?= $app->title ?></title>
 
 	<!-- Bootstrap core CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-	      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<style>
 
 	</style>
@@ -19,16 +18,16 @@
 
 <body>
 
-
 <div class="navbar navbar-inverse navbar-fixed-top">
 	<div class="container">
-		<a class="brand" href="/"><p class="siteName">POOGA</p></a>
+		<a class="brand" href="/"><span class="siteName">POOGA</span></a>
+		 | <a href="/?p=test">Test</a>
 	</div>
-</div>
 </div>
 
 <div class="container">
 	<?= $content ?>
 </div>
+
 </body>
 </html>

@@ -9,7 +9,7 @@ $categorie = Categorie::find( $_GET[ 'id' ] );
 if ( ! $categorie ) {
 	App::notFound();
 }
-App::setTitle( $categorie->categorie );
+$app->setTitle( $categorie->categorie );
 $articles   = Article::dernierParCategorie( $_GET[ 'id' ] );
 $categories = Categorie::all();
 
@@ -22,6 +22,7 @@ $categories = Categorie::all();
 
 		<div class="col-sm-8">
 			<?php
+			//var_dump($articles);
 			foreach ( $articles as $post ): ?>
 				<h2><a href="<?= $post->url ?>"><?= $post->titre ?></a></h2>
 				<h4><em><?= $post->categorie ?></em></h4>

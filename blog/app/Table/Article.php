@@ -40,7 +40,7 @@ ORDER BY ba.date DESC
 	public static function dernierParCategorie( $category_id )
 	{
 		return self::query( '
-SELECT * FROM blog_articles ba
+SELECT ba.id, ba.titre, ba.contenu, bc.categorie FROM blog_articles ba
 	LEFT JOIN blog_categories bc
 	ON categorie_id = bc.id
 WHERE categorie_id = ?
