@@ -1,7 +1,6 @@
 <?php
 
 use Gc7\Blog\App;
-use Gc7\Blog\Database;
 
 $app = App::getInstance();
 const BASE_DIR = './blog/';
@@ -10,7 +9,7 @@ $p = $_GET[ 'p' ] ?? 'home';
 //var_dump($_GET);
 
 // Initialisation des objets
-$db = new Database();
+//$db = new Database();
 
 ob_start();
 if ( $p === 'home' ) {

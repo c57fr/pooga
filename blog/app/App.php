@@ -5,8 +5,7 @@ class App {
 
 	public         $title = 'POOGA';
 	private static $_instance;
-	private static $database;
-	static         $confs;
+	private        $_dbInstance;
 
 	/**
 	 * App constructor.
@@ -14,7 +13,7 @@ class App {
 	private function __construct()
 	{
 		//$app    = $this->getInstance();
-		self::$confs = Config::getInstance();
+		//self::$confs = Config::getInstance();
 		//var_dump( self::$confs );
 	}
 	
@@ -26,9 +25,33 @@ class App {
 
 		return self::$_instance;
 	}
+	
+	public function getTable( $name )
+	{
+		$className = __NAMESPACE__ . '\\Table\\' . ucfirst( $name );
 
+		return new $className( $this->getDb());
+	}
 
-	public static function getDb()
+	public function getDb()
+	{
+		$config = Config::getInstance();
+		if ( null === $this->_dbInstance ) {
+
+			return $this->_dbInstance = new Database( [
+				                                           $config->get( 'dbName' ),
+				                                           $config->get( 'dbUser' ),
+				                                           $config->get( 'dbPass' ),
+				                                           $config->get( 'dbHost' )
+			                                           ] );
+
+		}
+
+		return $this->_dbInstance;
+		var_dump( $config );
+	}
+
+	public static function getDbUuu()
 	{
 		if ( null === self::$database ) {
 			self::$database = new Database();
@@ -36,7 +59,6 @@ class App {
 
 		return self::$database;
 	}
-
 
 	//
 	//publicstatic function notFound()
@@ -50,6 +72,7 @@ class App {
 	//	return self::$title;
 	//}
 	//
+
 	/**
 	 * @param mixed $title
 	 */

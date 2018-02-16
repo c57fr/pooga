@@ -22,13 +22,13 @@ CREATE TABLE IF NOT EXISTS `blog_articles` (
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 -- Export de données de la table pooga.blog_articles : ~4 rows (environ)
-/*!40000 ALTER TABLE `blog_articles` DISABLE KEYS */;
-INSERT INTO `blog_articles` (`id`, `titre`, `contenu`, `date`, `categorie_id`) VALUES
+/*!40000 ALTER TABLE blog_posts DISABLE KEYS */;
+INSERT INTO blog_posts (`id`, `titre`, `contenu`, `date`, `categorie_id`) VALUES
 	(1, 'Mon titre 1', 'Lorem 1 ipsum dolor sit amet, consectetur adipisicing elit. Adipisci amet at aut corporis dicta dolor\n 		earum, eligendi eum id maiores minima nam nobis nulla officiis quis, recusandae, temporibus ut voluptatem.', '2018-02-14 05:02:24', 1),
 	(2, 'Mon titre 2', 'Lorem 2 ipsum dolor sit amet, consectetur adipisicing elit. Adipisci amet at aut corporis dicta dolor\n 		earum, eligendi eum id maiores minima nam nobis nulla officiis quis, recusandae, temporibus ut voluptatem.', '2018-02-14 05:02:30', 2),
 	(3, 'Mon titre 3', 'Lorem 3 ipsum dolor sit amet, consectetur adipisicing elit. Adipisci amet at aut corporis dicta dolor\n 		earum, eligendi eum id maiores minima nam nobis nulla officiis quis, recusandae, temporibus ut voluptatem.', '2018-02-14 05:02:35', 2),
 	(4, 'Mon titre 4', 'Lorem 4 ipsum dolor sit amet, consectetur adipisicing elit. Adipisci amet at aut corporis dicta dolor\n 		earum, eligendi eum id maiores minima nam nobis nulla officiis quis, recusandae, temporibus ut voluptatem.', '2018-02-14 05:02:40', 2);
-/*!40000 ALTER TABLE `blog_articles` ENABLE KEYS */;
+/*!40000 ALTER TABLE blog_posts ENABLE KEYS */;
 
 -- Export de la structure de la table pooga. blog_categories
 CREATE TABLE IF NOT EXISTS `blog_categories` (

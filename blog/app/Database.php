@@ -61,12 +61,16 @@ class Database {
 		return $this->pdo;
 	}
 
-	public function query( $statement, $className, $one = FALSE )
+	public function query( $statement, $className = null, $one = FALSE )
 	{
 		//var_dump( $statement, $className );
 
 		$req = $this->getPDO()->query( $statement );
-		$req->setFetchMode( PDO::FETCH_CLASS, $className );
+		if ( null === $className ) {
+			$req->setFetchMode( PDO::FETCH_OBJ);
+		}else{
+			$req->setFetchMode( PDO::FETCH_CLASS, $className);
+		}
 		if ( $one ) {
 			return $req->fetch();
 		}

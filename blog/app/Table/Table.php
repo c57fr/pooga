@@ -1,43 +1,26 @@
 <?php namespace Gc7\Blog\Table;
 
-use Gc7\Blog\App;
+use Gc7\Blog\Database;
 
 
 class Table {
 
-	protected static $table;
+	protected $table;
+	protected $db;
 
-	public static function find( $id )
+	public function __construct( Database $db )
 	{
-		return static::query( 'SELECT * FROM ' . static::$table . ' WHERE id = ? ', [ $id ], get_called_class(),1 );
+		$this->db = $db;
+		if ( null === $this->table ) {
+			$table       = explode( '\\', get_class( $this ) );
+			$this->table = 'blog_' . strtolower( end( $table ) );
+		}
 	}
 	
-	public static function query( $statement, $attributes = null, $one = FALSE )
+	public function all()
 	{
-		if ( $attributes ) {
-			return App::getDb()
-			          ->prepare( $statement, $attributes, get_called_class(), $one );
-		}
-		else {
-			return App::getDb()
-			          ->query( $statement, get_called_class(), $one );
+		return $this->db->query( 'SELECT * FROM blog_posts' );
 
-		}
-
-	}
-
-	public static function all()
-	{
-		return App::getDb()
-		          ->query( 'SELECT * FROM ' . static::$table, get_called_class() );
-	}
-
-	public function __get( $key )
-	{
-		$method     = 'get' . ucfirst( $key );
-		$this->$key = $this->$method();
-
-		return $this->$key;
 	}
 
 }

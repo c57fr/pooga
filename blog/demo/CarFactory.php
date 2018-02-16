@@ -4,9 +4,9 @@ class CarFactory {
 
 	public static function create( $type )
 	{
-		$classe = __NAMESPACE__ . '\Car' . ucfirst( strtolower( $type ) );
+		$className = __NAMESPACE__ . '\Car' . ucfirst( strtolower( $type ) );
 
-		return new $classe();
+		return new $className();
 	}
 
 }
