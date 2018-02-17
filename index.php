@@ -1,7 +1,7 @@
 <?php
 
 // Lancement du Blog
-//require './blog/public/index.php';
+require './blog/public/index.php';
 
 // Lancement des différents petits tests
-require './divers/index.php';
+//require './divers/index.php';

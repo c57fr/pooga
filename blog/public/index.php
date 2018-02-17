@@ -4,7 +4,8 @@ require './vendor/autoload.php';
 define( 'ROOT', str_replace( '\\', '/', './blog' ) . '/' );
 require ROOT . 'app/App.php';
 var_dump( ROOT );
-//App::load();
+
+App::load();
 
 $app = App::getInstance();
 

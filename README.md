@@ -2,7 +2,7 @@
 
 Révision PHP - Tuto GA (GrafikArt)
 
-Référence: [Formation POO by GrafikArt](https://www.grafikart.fr/formations/programmation-objet-php/objets-poo)
+Référence: [Formation **POO** by **G**rafik**A**rt](https://www.grafikart.fr/formations/programmation-objet-php/objets-poo)
 
 ## Guide d'installation rapide
 
@@ -12,7 +12,7 @@ Référence: [Formation POO by GrafikArt](https://www.grafikart.fr/formations/pr
 2. Clôner VOTRE copie du projet
 
 ```ini
-[en mode console, dans le dossier de votre virtual host (www*) : ]
+[en mode console, dans le dossier de votre virtual localhost : ]
 git clone URL_de_votre_dépôt_GitHub_de_VH
 ```
 
