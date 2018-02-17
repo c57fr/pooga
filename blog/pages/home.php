@@ -5,10 +5,8 @@
 			<hr/>
 			<?php
 
-			use Gc7\Blog\App;
-
 			$posts = $app->getTable( 'Posts' );
-			//var_dump($posts);
+			var_dump($posts);
 			$posts = $posts->all();
 			var_dump( $posts );
 			//var_dump( $app->getTable( 'Categories' ));

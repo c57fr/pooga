@@ -1,7 +1,7 @@
 <?php namespace Gc7\Blog\Table;
 
-use Gc7\Blog\App;
 use URLify;
+use Gc7\Core\Table\Table;
 
 
 class Categories extends Table {

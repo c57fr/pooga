@@ -1,12 +1,4 @@
-<?php
-/**
- * Created by C7.
- * User: Li
- * Date: 14/02/2018
- * Time: 02:01
- */
-
-namespace Gc7\Personnage;
+<?php namespace Gc7\Divers\Personnage;
 
 
 /**

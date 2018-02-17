@@ -1,4 +1,4 @@
-<?php namespace Gc7\HTML;
+<?php namespace Gc7\Divers\HtmlForm;
 
 /**
  * Class Form

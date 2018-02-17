@@ -1,10 +1,12 @@
-<?php namespace Gc7\Blog;
+<?php
 
+use Gc7\Core\Config;
+use Gc7\Core\Database\MysqlDatabase;
 
 class App {
 
 	public         $title = 'POOGA';
-	private static $_instance;
+	public static $_instance;
 	private        $_dbInstance;
 
 	/**
@@ -25,25 +27,38 @@ class App {
 
 		return self::$_instance;
 	}
-	
+
+	/**
+	 * session_start + autoload core
+	 */
+	public static function load()
+	{
+		//session_start();
+		// Juste pour démo les classes de core
+		// ne sont pas autoloadées par l'autoloader de composer
+		//require ROOT.'core/Autoloader.php';
+		//Gc7\Core\Autoloader::register();
+	}
+
 	public function getTable( $name )
 	{
-		$className = __NAMESPACE__ . '\\Table\\' . ucfirst( $name );
+		$className = '\\Gc7\\Blog\\Table\\' . ucfirst( $name );
+		var_dump( $className );
 
-		return new $className( $this->getDb());
+		return new $className( $this->getDb() );
 	}
 
 	public function getDb()
 	{
-		$config = Config::getInstance();
+		$config = Config::getInstance(ROOT.'config/config.php');
 		if ( null === $this->_dbInstance ) {
 
-			return $this->_dbInstance = new Database( [
-				                                           $config->get( 'dbName' ),
-				                                           $config->get( 'dbUser' ),
-				                                           $config->get( 'dbPass' ),
-				                                           $config->get( 'dbHost' )
-			                                           ] );
+			return $this->_dbInstance = new MysqlDatabase( [
+				                                          $config->get( 'dbName' ),
+				                                          $config->get( 'dbUser' ),
+				                                          $config->get( 'dbPass' ),
+				                                          $config->get( 'dbHost' )
+			                                          ] );
 
 		}
 

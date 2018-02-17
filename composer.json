@@ -8,11 +8,10 @@
   ],
   "autoload": {
     "psr-4": {
-      "Gc7\\": "src/",
-      "Gc7\\HTML\\": "src/html/",
-      "Gc7\\Personnage\\": "src/personnage/",
+      "Gc7\\Blog\\Table\\": "blog/app/Table/",
       "Gc7\\Blog\\": "blog/app/",
-      "Gc7\\Blog\\Demo\\": "blog/demo/"
+      "Gc7\\Core\\Table\\": "blog/core/Table/",
+      "Gc7\\Core\\": "blog/core/"
     }
   },
   "require": {

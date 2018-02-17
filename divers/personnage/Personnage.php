@@ -1,4 +1,4 @@
-<?php namespace Gc7\Personnage;
+<?php namespace Gc7\Divers\Personnage;
 
 /**
  * Class Personnage

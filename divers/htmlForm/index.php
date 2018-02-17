@@ -1,9 +1,5 @@
 <?php
-require './src/Autoloader.php';
-
-use Gc7\Divers\Html\BootstrapForm;
-use Gc7\Divers\Html\Form;
-
+use Gc7\Divers\HtmlForm\BootstrapForm;
 
 $form = new BootstrapForm( $_POST );
 echo '<form method="post" action="#">

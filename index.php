@@ -1,8 +1,7 @@
 <?php
-require './vendor/autoload.php';
 
-require './blog/public/index.php';
+// Lancement du Blog
+//require './blog/public/index.php';
 
-//require './indexPersonnage.php';
-
-//require './indexForm.php';
+// Lancement des différents petits tests
+require './divers/index.php';

@@ -1,7 +1,6 @@
 <?php
 //var_dump( $_GET );
 
-use Gc7\Blog\App;
 use Gc7\Blog\Table\Article;
 
 $post = Article::find( $_GET[ 'id' ] );

@@ -1,7 +1,7 @@
 body {
     padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
     font-size: 1.5em;
-    font-family: Trebuchet MS;
+    font-family: Trebuchet MS, arial, serif;
 }
 
 .siteName {
@@ -14,3 +14,6 @@ body {
 p {
     text-align: justify;
 }
+
+a:hover {
+    text-decoration: none;

@@ -1,4 +1,4 @@
-<?php namespace Gc7\Blog;
+<?php namespace Gc7\Core;
 
 class Config {
 
@@ -10,16 +10,16 @@ class Config {
 	/**
 	 * Config constructor.
 	 */
-	private function __construct()
+	private function __construct($file)
 	{
 		//$this->id = uniqid();
-		$this->settings = require dirname( __DIR__ ) . '/config/config.php';
+		$this->settings = require dirname( __DIR__ ) . '/config/'.$file;
 	}
 
-	public static function getInstance()
+	public static function getInstance($file)
 	{
 		if ( null === self::$_instance ) {
-			self::$_instance = new Config();
+			self::$_instance = new Config($file);
 		}
 
 		return self::$_instance;

@@ -1,9 +1,8 @@
-<?php namespace Gc7\Blog;
-
+<?php namespace Gc7\Core\Database;
 use PDO;
 
 
-class Database {
+class MysqlDatabase extends Database {
 
 	/**
 	 * @var string
@@ -44,6 +43,7 @@ class Database {
 		$this->dbUser = $params[ 'dbUser' ] ?? 'root';
 		$this->dbPass = $params[ 'dbPass' ] ?? '';
 		$this->dbHost = $params[ 'dbHost' ] ?? 'localhost';
+		var_dump('DB');
 	}
 	
 	private function getPDO()

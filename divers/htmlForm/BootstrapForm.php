@@ -1,4 +1,4 @@
-<?php namespace Gc7\HTML;
+<?php namespace Gc7\Divers\HtmlForm;
 
 
 class BootstrapForm extends Form {
