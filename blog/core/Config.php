@@ -10,16 +10,17 @@ class Config {
 	/**
 	 * Config constructor.
 	 */
-	private function __construct($file)
+	private function __construct( $file )
 	{
 		//$this->id = uniqid();
-		$this->settings = require dirname( __DIR__ ) . '/config/'.$file;
+		//var_dump( $file, dirname(  __DIR__ . '/config/' . $file ));
+		$this->settings = require $file;
 	}
 
-	public static function getInstance($file)
+	public static function getInstance( $file )
 	{
 		if ( null === self::$_instance ) {
-			self::$_instance = new Config($file);
+			self::$_instance = new Config( $file );
 		}
 
 		return self::$_instance;
@@ -30,9 +31,9 @@ class Config {
 		return $this->settings[ $key ] ?? null;
 	}
 
-	public function detailsKey($key)
+	public function detailsKey( $key )
 	{
-		return '$' . $key . ' = ' . $this->get($key);
+		return '$' . $key . ' = ' . $this->get( $key );
 	}
 
 }

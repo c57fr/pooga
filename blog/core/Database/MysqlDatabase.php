@@ -43,7 +43,7 @@ class MysqlDatabase extends Database {
 		$this->dbUser = $params[ 'dbUser' ] ?? 'root';
 		$this->dbPass = $params[ 'dbPass' ] ?? '';
 		$this->dbHost = $params[ 'dbHost' ] ?? 'localhost';
-		var_dump('DB');
+		//var_dump('Initialise DB');
 	}
 	
 	private function getPDO()

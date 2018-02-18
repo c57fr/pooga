@@ -6,13 +6,13 @@ use Gc7\Core\Database\MysqlDatabase;
 
 class Table {
 
-	//protected $table;
-	protected $db;
+	//protected $table et $db;
+	protected $table,$db;
 
 	public function __construct( MysqlDatabase $db )
 	{
 		$this->db = $db;
-		if ( null === $this->table ) {
+		if ( !isset( $this->table) && null === $this->table ) {
 			$table       = explode( '\\', get_class( $this ) );
 			$this->table = 'blog_' . strtolower( end( $table ) );
 			var_dump( $this->table );

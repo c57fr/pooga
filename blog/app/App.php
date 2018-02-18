@@ -1,5 +1,4 @@
 <?php
-
 use Gc7\Core\Config;
 use Gc7\Core\Database\MysqlDatabase;
 
@@ -43,7 +42,7 @@ class App {
 	public function getTable( $name )
 	{
 		$className = '\\Gc7\\Blog\\Table\\' . ucfirst( $name );
-		var_dump( $className );
+		//var_dump( $className );
 
 		return new $className( $this->getDb() );
 	}

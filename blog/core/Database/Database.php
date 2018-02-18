@@ -1,4 +1,4 @@
-<?php namespace Gc7\Blog\Core\Database;
+<?php namespace Gc7\Core\Database;
 
 
 class Database {
