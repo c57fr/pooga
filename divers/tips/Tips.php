@@ -7,16 +7,49 @@ class Tips {
 	
 	public static function div()
 	{
+echo __DIR__;
+?>
+<div class="cadreOrange">
 
+		<?php
 		$arr = function ( ...$n ) {
 			$nb = func_num_args();
-			var_dump($n);
-			return $n;
+			var_dump( 'Params', $n );
+
+			return $nb;
 		};
 
-		var_dump( $arr(1,2) );
+		$values       = range( 3, 5 );
+		$autresParams = [ range( 1, 3 ), [ 'Class' => self::class, 'Fonction en cours' => __FUNCTION__ . '()' ], 'Fin' ];
 
+		echo 'Nbre de params: ' . $arr( 'Début', array_merge( [ 1, 2 ], $values ), ...$autresParams ).'</div>';
 
+		
+	}
+	
+	public static function sum( $array, $max )
+	{   //For Reference, use:  "&$array"
+		$sum = 0;
+		for ( $i = 0; $i < 2; $i ++ ) {
+			//$array[$i]++;        //Uncomment this line to modify the array within the function.
+			$sum += $array[ $i ];
+		}
+
+		return ( $sum );
+	}
+	
+	public static function testChronoSum()
+	{
+		
+		$max  = 1E7;                  //10 M data points.
+		$data = range( 0, $max, 1 );
+		var_dump( count( $data ) );
+		$start = microtime( TRUE );
+		for ( $x = 0; $x < 100; $x ++ ) {
+			$sum = self::sum( $data, $max );
+		}
+		$end = microtime( TRUE );
+		echo "Time: " . ( $end - $start ) . " s\n";
 	}
 
 	public static function generatorFibonacci( $nbr )

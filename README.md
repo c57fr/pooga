@@ -25,3 +25,11 @@ NB: Outils conseillés: **[ungit](https://github.com/FredrikNoren/ungit)** (Int�
 Penser à y ajouter ce dépôt, **POOGA** pour synchroniser facilement votre dépôt (Ex. dans Ungit: ***Add Remote*** et l'URL de ce dépôt)
 
 5. [Aide](https://github.com/c57fr/pooga/issues/new)
+
+## Pour AutoMenu
+1. Activer dans index.php à la racine
+2. Dans cet exemple de base, tout se passe dans un dossier nommé 'divers':
+
+      Faites-y un dossier et placez obligatoirement un fichier index.php
+      
+3. Pour créer votre propre dossier, dupliquez ce dossier et adpatez le fichier index
