@@ -1,6 +1,7 @@
 <h1>Tips</h1><?php
 use Gc7\Divers\Tips\Tips;
 
+Tips::div();
 
 Tips::simpleGenerator( 1, 3 );
 

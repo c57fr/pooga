@@ -3,7 +3,21 @@
 class Tips {
 
 	const STYLE_CADRE = 'cadreOrange';
+	
+	
+	public static function div()
+	{
 
+		$arr = function ( ...$n ) {
+			$nb = func_num_args();
+			var_dump($n);
+			return $n;
+		};
+
+		var_dump( $arr(1,2) );
+
+
+	}
 
 	public static function generatorFibonacci( $nbr )
 	{
