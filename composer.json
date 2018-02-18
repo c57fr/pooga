@@ -1,5 +1,5 @@
 {
-  "name": "Gc7/pooga",
+  "name": "Gc7/PooGA",
   "authors": [
     {
       "name": "COTE",
@@ -9,9 +9,9 @@
   "autoload": {
     "psr-4": {
       "Gc7\\Blog\\Table\\": "blog/app/Table/",
+      "Gc7\\Core\\Table\\": "blog/core/Table/",
       "Gc7\\Blog\\": "blog/app/",
-      "Gc7\\Core\\": "blog/core/",
-      "Gc7\\Core\\Table\\": "blog/core/Table/"
+      "Gc7\\Core\\": "blog/core/"
     }
   },
   "require": {

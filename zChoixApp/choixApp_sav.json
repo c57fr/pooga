@@ -1,0 +1,13 @@
+{
+  "apps": [
+    {
+      "name": "blog",
+      "chemin": "./blog/public/index.php"
+    },
+    {
+      "name": "tests",
+      "chemin": "./divers/index.php"
+    }
+  ],
+  "activeApp": 0
+}

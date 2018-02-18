@@ -1,12 +1,13 @@
 <?php
+
 use Gc7\Core\Config;
 use Gc7\Core\Database\MysqlDatabase;
 
 class App {
 
-	public         $title = 'POOGA';
+	public        $title = 'POOGA';
 	public static $_instance;
-	private        $_dbInstance;
+	private       $_dbInstance;
 
 	/**
 	 * App constructor.
@@ -33,36 +34,37 @@ class App {
 	public static function load()
 	{
 		//session_start();
-		// Juste pour démo les classes de core
-		// ne sont pas autoloadées par l'autoloader de composer
+		// Juste par à démo GA: Les classes de blog(app + core)
+		// sont autoloadées par l'autoloader de composer
+		// Sinon, décommenter les 2 lignes ci-dessous
 		//require ROOT.'core/Autoloader.php';
 		//Gc7\Core\Autoloader::register();
 	}
 
 	public function getTable( $name )
 	{
-		$className = '\\Gc7\\Blog\\Table\\' . ucfirst( $name );
-		//var_dump( $className );
+		$className = '\\Gc7\\Blog\\Table\\' . ucfirst( $name . 's' );
+		var_dump( $className );
 
 		return new $className( $this->getDb() );
 	}
 
 	public function getDb()
 	{
-		$config = Config::getInstance(ROOT.'config/config.php');
+		$config = Config::getInstance( ROOT . 'config/config.php' );
 		if ( null === $this->_dbInstance ) {
 
 			return $this->_dbInstance = new MysqlDatabase( [
-				                                          $config->get( 'dbName' ),
-				                                          $config->get( 'dbUser' ),
-				                                          $config->get( 'dbPass' ),
-				                                          $config->get( 'dbHost' )
-			                                          ] );
+				                                               $config->get( 'dbName' ),
+				                                               $config->get( 'dbUser' ),
+				                                               $config->get( 'dbPass' ),
+				                                               $config->get( 'dbHost' )
+			                                               ] );
 
 		}
 
 		return $this->_dbInstance;
-		var_dump( $config );
+		//var_dump( $config );
 	}
 
 	public static function getDbUuu()

@@ -25,7 +25,7 @@ class MysqlDatabase extends Database {
 	private $dbHost;
 
 	/**
-	 * @var
+	 * @var PDO
 	 */
 	private $pdo;
 
@@ -34,7 +34,7 @@ class MysqlDatabase extends Database {
 	 *               ['dbName'=>..., 'dbUser'=>..., 'dbPass'=>..., 'dbHost'=>...]
 	 *               Chaque attribut est indépendant: On peut indiquer (que) celui souhaité
 	 *
-	 * Ici, fait un peu doubmlon avec les modifs de GA en chapitre 13 (https://www.grafikart.fr/formations/programmation-objet-php/tp-tables)
+	 * Ici, fait un peu doublon avec les modifs de GA en chapitre 13 (https://www.grafikart.fr/formations/programmation-objet-php/tp-tables)
 	 *
 	 */
 	public function __construct( Array $params = [ ] )
@@ -58,7 +58,7 @@ class MysqlDatabase extends Database {
 			$this->pdo = $pdo;
 		}
 
-		return $this->pdo;
+		return $pdo;
 	}
 
 	public function query( $statement, $className = null, $one = FALSE )

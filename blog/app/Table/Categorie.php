@@ -4,7 +4,7 @@ use Gc7\Blog\App;
 use URLify;
 
 
-class Categorie extends Table {
+class Category extends Table {
 
 	protected static $table='blog_categories';
 

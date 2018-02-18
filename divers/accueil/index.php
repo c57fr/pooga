@@ -16,8 +16,3 @@ $title = 'Accueil';
 		</li>
 	</ul>
 </h3>
-
-
-
-
-

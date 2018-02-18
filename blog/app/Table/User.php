@@ -2,6 +2,6 @@
 
 use Gc7\Core\Table\Table;
 
-class Users extends Table {
+class User extends Table {
 
 }

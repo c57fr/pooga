@@ -17,3 +17,31 @@ p {
 
 a:hover {
     text-decoration: none;
+}
+
+.cadreOrange {
+    border: 3px solid orange;
+    border-radius: 7px;
+    margin: 15px;
+    padding: 13.17px 20px;
+}
+
+pre {
+    overflow: unset;
+}
+
+#divers table.gc7Table {
+    color: #333;
+    text-align: center;
+}
+
+#divers table.gc7Table td:nth-of-type(1) {
+    border: 1px solid #aeaeae;
+    padding: 0 10px;
+}
+
+#divers table.gc7Table td:nth-of-type(2) {
+    background-color: cornsilk;
+    padding: 0 150px;
+    border: 1px solid #aeaeae;
+}

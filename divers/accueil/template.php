@@ -25,8 +25,9 @@
 	</div>
 </div>
 
-<div class="container">
+<div class="container" id="divers">
 	<?= $content ?>
+
 </div>
 
 </body>
