@@ -3,8 +3,6 @@ use Gc7\Divers\Tips\Tips;
 
 Tips::div();
 
-
-
 Tips::testChronoSum();
 
 Tips::simpleGenerator( 1, 3 );

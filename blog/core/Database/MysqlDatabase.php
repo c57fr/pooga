@@ -1,4 +1,5 @@
 <?php namespace Gc7\Core\Database;
+
 use PDO;
 
 
@@ -67,9 +68,10 @@ class MysqlDatabase extends Database {
 
 		$req = $this->getPDO()->query( $statement );
 		if ( null === $className ) {
-			$req->setFetchMode( PDO::FETCH_OBJ);
-		}else{
-			$req->setFetchMode( PDO::FETCH_CLASS, $className);
+			$req->setFetchMode( PDO::FETCH_OBJ );
+		}
+		else {
+			$req->setFetchMode( PDO::FETCH_CLASS, $className );
 		}
 		if ( $one ) {
 			return $req->fetch();

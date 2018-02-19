@@ -7,10 +7,9 @@ class Tips {
 	
 	public static function div()
 	{
-echo __DIR__;
 ?>
 <div class="cadreOrange">
-
+<h2>Opérateur de décomposition</h2>
 		<?php
 		$arr = function ( ...$n ) {
 			$nb = func_num_args();

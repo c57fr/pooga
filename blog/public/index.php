@@ -10,7 +10,7 @@ App::load();
 $app = App::getInstance();
 
 $p = $_GET[ 'p' ] ?? 'home';
-var_dump( $_GET, $p );
+//var_dump( $_GET, $p );
 
 // Initialisation des objets
 //$db = new Database();

@@ -2,7 +2,7 @@
 
 use Gc7\Core\Table\Table;
 
-class Post extends Table {
+class Posts extends Table {
 
 	public function getUrl()
 	{
