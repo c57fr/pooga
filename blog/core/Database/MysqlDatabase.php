@@ -1,96 +1,84 @@
-<?php namespace Gc7\Core\Database;
+<?php
+/**
+ * Created by PhpStorm.
+ * User: mhamm
+ * Date: 10/11/2016
+ * Time: 12:30
+ */
 
-use PDO;
+namespace Core\Database;
+
+use \PDO;
 
 
-class MysqlDatabase extends Database {
+class MysqlDatabase extends Database
+{
 
-	/**
-	 * @var string
-	 */
-	private $dbName;
+    private $db_name;
+    private $db_user;
+    private $db_host;
+    private $db_pass;
 
-	/**
-	 * @var string
-	 */
-	private $dbUser;
+    /**
+     * @var \PDO
+     */
+    private $pdo;
 
-	/**
-	 * @var string
-	 */
-	private $dbPass;
+    public function __construct($db_name, $db_user='root', $db_host = 'mysqlserver', $db_pass = 'docker')
+    {
+        $this->db_host = $db_host;
+        $this->db_user = $db_user;
+        $this->db_name = $db_name;
+        $this->db_pass = $db_pass;
+    }
 
-	/**
-	 * @var string
-	 */
-	private $dbHost;
+    private function getPDO()
+    {
+        if($this->pdo === null){
+            $pdo = new PDO("mysql:dbname=". $this->db_name .";host=". $this->db_host , $this->db_user, $this->db_pass);
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $this->pdo = $pdo;
+        }
+        return $this->pdo;
+    }
 
-	/**
-	 * @var PDO
-	 */
-	private $pdo;
+    public function query($statement, $className = null, $one = false)
+    {
+        $pdo = $this->getPDO();
+        $res = $pdo->query($statement);
+        if ($className === null)
+        {
+            $res->setFetchMode(PDO::FETCH_OBJ);
+        }
+        else
+        {
+            $res->setFetchMode(PDO::FETCH_CLASS, $className);
+        }
+        if ($one)
+        {
+            $data = $res->fetch();
+        } else
+        {
+            $data = $res->fetchAll();
+        }
+        return $data;
 
-	/*
-	 * @param array $params  assoc
-	 *               ['dbName'=>..., 'dbUser'=>..., 'dbPass'=>..., 'dbHost'=>...]
-	 *               Chaque attribut est indépendant: On peut indiquer (que) celui souhaité
-	 *
-	 * Ici, fait un peu doublon avec les modifs de GA en chapitre 13 (https://www.grafikart.fr/formations/programmation-objet-php/tp-tables)
-	 *
-	 */
-	public function __construct( Array $params = [ ] )
-	{
-		$this->dbName = $params[ 'dbName' ] ?? 'pooga';
-		$this->dbUser = $params[ 'dbUser' ] ?? 'root';
-		$this->dbPass = $params[ 'dbPass' ] ?? '';
-		$this->dbHost = $params[ 'dbHost' ] ?? 'localhost';
-		//var_dump('Initialise DB');
-	}
-	
-	private function getPDO()
-	{
-		if ( null === $this->pdo ) {
-			$pdo = new PDO(
-				'mysql:dbname=' . $this->dbName . '; host=' . $this->dbHost,
-				$this->dbUser,
-				$this->dbPass
-			);
-			$pdo->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-			$this->pdo = $pdo;
-		}
+    }
 
-		return $pdo;
-	}
+    public function prepare($statement, $param, $class_name, $one = false)
+    {
+        $pdo = $this->getPDO();
+        $req = $pdo->prepare($statement);
+        $req->execute($param);
+        $req->setFetchMode(PDO::FETCH_CLASS, $class_name);
+        if($one){
+            $data = $req->fetch();
+        }
+        else{
+            $data = $req->fetchAll();
+        }
 
-	public function query( $statement, $className = null, $one = FALSE )
-	{
-		//var_dump( $statement, $className );
 
-		$req = $this->getPDO()->query( $statement );
-		if ( null === $className ) {
-			$req->setFetchMode( PDO::FETCH_OBJ );
-		}
-		else {
-			$req->setFetchMode( PDO::FETCH_CLASS, $className );
-		}
-		if ( $one ) {
-			return $req->fetch();
-		}
-		else {
-			return $req->fetchAll();
-		}
-	}
-
-	public function prepare( $statement, $attributes, $className, $one = FALSE )
-	{
-		$req = $this->getPDO()->prepare( $statement );
-		$req->execute( $attributes );
-		$req->setFetchMode( PDO::FETCH_CLASS, $className );
-		if ( $one ) {
-			return $req->fetch();
-		}
-		else {
-			return $req->fetchAll();
-		}
-	}
+        return $data;
+    }
 }

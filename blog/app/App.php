@@ -1,100 +1,51 @@
 <?php
 
-use Gc7\Core\Config;
-use Gc7\Core\Database\MysqlDatabase;
+use Core\Database\MysqlDatabase;
 
 class App {
+	private static $_instance;
+	private        $db_instance;
 
-	public        $title = 'POOGA';
-	public static $_instance;
-	private       $_dbInstance;
+	public $title = 'Blog POOGA';
 
-	/**
-	 * App constructor.
-	 */
-	private function __construct()
+	private function __Construct()
 	{
-		//$app    = $this->getInstance();
-		//self::$confs = Config::getInstance();
-		//var_dump( self::$confs );
+
 	}
-	
-	static public function getInstance()
+
+
+	public static function load()
 	{
-		if ( null === self::$_instance ) {
-			self::$_instance = new App;
+		session_start();
+		require './vendor/autoload.php';
+
+	}
+
+	public static function getInstance()
+	{
+		if ( empty( self::$_instance ) ) {
+			self::$_instance = new App();
 		}
 
 		return self::$_instance;
 	}
 
-	/**
-	 * session_start + autoload core
-	 */
-	public static function load()
-	{
-		//session_start();
-		// Juste par à démo GA: Les classes de blog(app + core)
-		// sont autoloadées par l'autoloader de composer
-		// Sinon, décommenter les 2 lignes ci-dessous
-		//require ROOT.'core/Autoloader.php';
-		//Gc7\Core\Autoloader::register();
-	}
-
 	public function getTable( $name )
 	{
-		$className = '\\Gc7\\Blog\\Table\\' . ucfirst( $name . 's' );
-		var_dump( $className );
+		$class_name = '\\App\\Table\\' . ucfirst( strtolower( $name ) ) . 'Table';
 
-		return new $className( $this->getDb() );
+		return new $class_name( $name, $this->getDB() );
 	}
 
-	public function getDb()
+	public function getDB()
 	{
-		$config = Config::getInstance( ROOT . 'config/config.php' );
-		if ( null === $this->_dbInstance ) {
-
-			return $this->_dbInstance = new MysqlDatabase( [
-				                                               $config->get( 'dbName' ),
-				                                               $config->get( 'dbUser' ),
-				                                               $config->get( 'dbPass' ),
-				                                               $config->get( 'dbHost' )
-			                                               ] );
-
+		$config = \Core\Config::getInstance( "./blog/app/config/config.php" );
+		if ( empty( $this->db_instance ) ) {
+			$this->db_instance = new MysqlDatabase( $config->get( 'db_name' ), $config->get( 'db_user' ), $config->get( 'db_host' ), $config->get( 'db_pass' ) );
 		}
 
-		return $this->_dbInstance;
-		//var_dump( $config );
+		return $this->db_instance;
 	}
 
-	public static function getDbUuu()
-	{
-		if ( null === self::$database ) {
-			self::$database = new Database();
-		}
-
-		return self::$database;
-	}
-
-	//
-	//publicstatic function notFound()
-	//{
-	//	header( "HTTP/1.0 404 Not Found" );
-	//	header( "Location:index.php?p=404" );
-	//}
-	//
-	//static public function getTitle()
-	//{
-	//	return self::$title;
-	//}
-	//
-
-	/**
-	 * @param mixed $title
-	 */
-	public function setTitle( $title )
-	{
-		$this->title = $title . ' | ' . $this->title;
-	}
 
 }

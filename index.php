@@ -35,7 +35,6 @@ endswitch;
 */
 
 
-
 // Lancement du Blog
 require './blog/public/index.php';
 

@@ -1,28 +1,56 @@
-<?php namespace Gc7\Core\Table;
+<?php
+/**
+ * Created by PhpStorm.
+ * User: mhamm
+ * Date: 12/11/2016
+ * Time: 11:45
+ */
 
-use Gc7\Core\Database\Database;
-use Gc7\Core\Database\MysqlDatabase;
+namespace Core\Table;
 
 
-class Table {
 
-	protected $table;
-	protected $db;
+use Core\Database\MysqlDatabase;
 
-	public function __construct( MysqlDatabase $db )
-	{
-		$this->db = $db;
-		if ( null === $this->table ) {
-			$table       = explode( '\\', get_class( $this ) );
-			$this->table = 'blog_' . strtolower( end( $table ) );
-			//var_dump( $this->table );
-		}
-	}
+class Table
+{
 
-	public function all()
-	{
-		return $this->db->query( 'SELECT * FROM blog_posts' );
+    protected $table ;
+    protected $db;
 
-	}
+    public function __construct($name, MysqlDatabase  $db)
+    {
+        $this->db = $db;
+        if(empty($this->table))
+        {
+            $this->table = $name;
+        }
+    }
 
+    public function all()
+    {
+        return $this->query('SELECT * FROM ' . $this->table);
+    }
+
+    public function query($statement, $attributes = null, $one = false ){
+        $entity_class_name = str_replace('Table', 'Entity', get_class($this));
+        if ($attributes){
+            return $this->db->prepare(
+                $statement,
+                $attributes,
+                $entity_class_name,
+                $one
+            );
+        }else{
+            return $this->db->query(
+                $statement,
+                $entity_class_name,
+                $one
+            );
+        }
+    }
+
+    public function find($id){
+        return $this->query('SELECT * FROM ' . $this->table . ' WHERE id = ?', array($id), true);
+    }
 }

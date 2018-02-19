@@ -1,39 +1,42 @@
-<?php namespace Gc7\Core;
+<?php
+/**
+ * Created by PhpStorm.
+ * User: mhamm
+ * Date: 12/11/2016
+ * Time: 10:05
+ */
 
-class Config {
-
-	private $settings = [ ];
-
-	private static $_instance;
+namespace Core;
 
 
-	/**
-	 * Config constructor.
-	 */
-	private function __construct( $file )
-	{
-		//$this->id = uniqid();
-		//var_dump( $file, dirname(  __DIR__ . '/config/' . $file ));
-		$this->settings = require $file;
-	}
+class Config
+{
+    private $settings = array();
 
-	public static function getInstance( $file )
-	{
-		if ( null === self::$_instance ) {
-			self::$_instance = new Config( $file );
-		}
+    private static $_instance;
 
-		return self::$_instance;
-	}
-	
-	public function get( $key )
-	{
-		return $this->settings[ $key ] ?? null;
-	}
 
-	public function detailsKey( $key )
-	{
-		return '$' . $key . ' = ' . $this->get( $key );
-	}
+    private function __construct($file)
+    {
+        $this->settings = require $file;
+
+    }
+
+    public static function getInstance($file)
+    {
+        if (empty(self::$_instance)){
+            self::$_instance = new Config($file);
+        }
+        return self::$_instance;
+    }
+
+    public function get($key)
+    {
+        if (!isset($this->settings[$key]))
+        {
+            return null;
+        }
+        return $this->settings[$key];
+    }
 
 }
