@@ -5,7 +5,7 @@
       "chemin": "./blog/public/index.php"
     },
     {
-      "name": "tests",
+      "name": "divers",
       "chemin": "./divers/index.php"
     }
   ],

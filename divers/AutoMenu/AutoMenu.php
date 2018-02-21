@@ -1,5 +1,7 @@
 <?php namespace Gc7\Divers\AutoMenu;
 
+//use 'Gc7Ga/Gc7';
+use Gc7Ga\Gc7;
 
 /**
  * Class AutoMenu
@@ -12,7 +14,7 @@
  * @version 1.0.0
  * @author  GC7
  */
-class AutoMenu {
+class AutoMenu extends Gc7 {
 
 	/**
 	 * @var string Le code HTML du menu
@@ -32,6 +34,8 @@ class AutoMenu {
 	 * @var string Title de la page
 	 */
 	public $title;
+
+	public $page;
 
 
 	/**

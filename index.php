@@ -1,42 +1,29 @@
 <?php
-/*
- *
- * // TODOLI @ finir !
- *
-$fichierJson = "./zChoixApp/choixApp.json";
-$choixApp    = json_decode( file_get_contents( $fichierJson ) );
 
-var_dump( $choixApp );
+use Gc7Ga\Admin;
 
-echo 'App activée: ' . $choixApp->{'apps'}[ $choixApp->{'activeApp'} ]->{'name'} . '<hr>';
+//require 'Gc7Ga/Gc7.php';
+require 'Gc7Ga/Admin.php';
 
-$choixApp->activeApp = 0;
+$adm = Admin::getInstance();
+$adm->gereChange();
 
-echo 'App activée: ' . $choixApp->{'apps'}[ $choixApp->{'activeApp'} ]->{'name'} . '<hr>';
-
-file_put_contents( $fichierJson, json_encode( $choixApp ) );
+// Ne sera que qd 'c' demandé
+$adm->getNotif();
 
 
-echo $choixApp->activeApp;
+//$appALancer = Gc7Ga\Gc7::getInstance();
+//echo var_dump($adm->getNotif());
+//$appALancer->gereChange();
+//$adm->aff();
 
-exit;
-$file     = fopen( 'zChoixApp/appEnCours.txt', 'r+' );
-$choixApp = trim( fgets( $file, 10 ) );
-var_dump( $choixApp );
-fclose( $file );
 
-switch ( $choixApp ):
-	case 'blog':
-		echo 'blog';
-		break;
-	default:
-		echo 'tests';
-endswitch;
-*/
-
+//echo '<h1>' . $appALancer->lancer() . '</h1>';
 
 // Lancement du Blog
-require './blog/public/index.php';
+//require './blog/public/index.php';
 
 // Lancement des différents petits tests
 //require './divers/index.php';
+//$appALancer->title= 'lologa';
+//var_dump( $appALancer );

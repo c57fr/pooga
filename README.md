@@ -2,6 +2,8 @@
 
 Révision PHP - Tuto GA (GrafikArt)
 
+Nécessite PHP7.1+
+
 Référence: [Formation **POO** by **G**rafik**A**rt](https://www.grafikart.fr/formations/programmation-objet-php/objets-poo)
 
 ## Guide d'installation rapide

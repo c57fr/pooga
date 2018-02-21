@@ -12,25 +12,31 @@
 define( 'ROOT', dirname( __DIR__ ) . '\\' );
 //var_dump( ROOT );
 
-require ROOT."app/App.php";
+require ROOT . "app/App.php";
 App::load();
 
-if ( isset( $_GET[ 'page' ] ) ) {
-	$page = $_GET[ 'page' ];
+if ( isset( $_GET[ 'p' ] ) ) {
+	$p = $_GET[ 'p' ];
 }
 else {
-	$page = 'home';
+	$p = 'home';
 }
 
 ob_start();
-if ( $page === 'home' ) {
+if ( $p === 'home' ) {
 	require ROOT . 'public/pages/articles/home.php';
 }
-elseif ( $page === 'article' ) {
+elseif ( $p === 'article' ) {
 	require ROOT . 'public/pages/articles/single.php';
 }
-elseif ( $page === 'categorie' ) {
+elseif ( $p === 'categorie' ) {
 	require ROOT . 'public/pages/articles/categorie.php';
+}
+elseif ( $p === 'test' ) {
+	require './blog/public/test.php';
+}
+else {
+	echo '<h1>Oups.... Cette page n\'existe pas !</h1>';
 }
 $content = ob_get_clean();
 require ROOT . 'public/pages/templates/default.php';

@@ -5,22 +5,25 @@ body {
     font-family: Trebuchet MS, arial, serif;
 }
 
-h2{
+h2 {
     margin: 5px 0 10px;
 }
-.gc7col-sm-8 {
+
+.gc7Main {
     display: inline-block;
     /* border:1px solid blue; */
     width: 65%;
     margin-left: 3%;
 }
 
-.gc7col-sm-4 {
+.gc7AsideD {
     display: inline-block;
     /* border:1px solid red; */
     float: right;
     width: 20%;
     margin-right: 10%;
+    margin-top: 10px;
+    line-height: .7;
 }
 
 .siteName {

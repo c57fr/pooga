@@ -1,5 +1,6 @@
 <?php
 require 'Autoloader.php';
+
 use Gc7\Divers\AutoMenu\AutoMenu;
 
 $p = $_GET[ 'p' ] ?? 'accueil';

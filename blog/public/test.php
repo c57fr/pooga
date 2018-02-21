@@ -1,11 +1,15 @@
 <div class="container">
 	<?php
-	$app->setTitle( 'Test' );
+	$app        = App::getInstance();
+	$app->title = 'Test';
 
-
-	//require './blog/demo/TableFactory.php';
-	require './blog/demo/CarFactory.php';
-
-
+	$goodVar = $inexistanteVar ?? 2 ** 3;
 	?>
+
+	<h1>Page pour Test rapide</h1>
+
+
+	<p>Un octet contient <?= $goodVar ?> bits... ;-)...</p>
+
+
 </div>

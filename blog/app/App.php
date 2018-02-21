@@ -2,13 +2,13 @@
 
 use Core\Database\MysqlDatabase;
 
-class App {
+class App extends \Gc7Ga\Gc7{
 	private static $_instance;
 	private        $db_instance;
 
 	public $title = 'Blog POOGA';
 
-	private function __Construct()
+	protected function __Construct()
 	{
 
 	}
@@ -16,7 +16,7 @@ class App {
 
 	public static function load()
 	{
-		session_start();
+		//session_start();
 		require './vendor/autoload.php';
 
 	}
