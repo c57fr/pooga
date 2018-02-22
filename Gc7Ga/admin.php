@@ -128,11 +128,17 @@ class Admin extends Gc7 {
 	
 	public function newService ( $newSce ) {
 
-
 		// Création du dossier
+		echo 'Création dossier '.$newSce;
 		include 'assets/helpers/functions/recursiveCopy.php';
-		//recursiveCopy(__DIR__ . '/assets/helpers/folderTemplate', __DIR__ . '/../NN');
 
+		$source = './Gc7Ga/assets/helpers/folderTemplate';
+		$destination = './' . $newSce;
+
+		var_dump($source, $destination);
+
+		//var_dump($this->getAnySce($destination));
+		recursiveCopy( $source, $destination );
 
 		// Ajout dans le Json
 		if ( 0 ) {
