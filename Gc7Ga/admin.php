@@ -73,13 +73,11 @@ class Admin extends Gc7 {
 	}
 
 	public function Html () {
-
 		// Code HTML
 		$html = "\n";
 		foreach ( $this->folders as $d ) {
 			$html .= ' | <a href="/?p=' . $d . '">' . ucfirst( $d ) . '</a>' . "\n";
 		}
-		//$this->autoMenu = $html;
 		//var_dump( $html );
 	}
 
@@ -132,7 +130,7 @@ class Admin extends Gc7 {
 		//recursiveCopy( $source, $destination );
 
 		// Ajout dans le Json
-		var_dump( $this->oApp );
+		//var_dump( $this->oApp );
 
 
 		if ( recursiveCopy( $source, $destination ) ) {
