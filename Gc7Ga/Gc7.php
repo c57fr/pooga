@@ -6,24 +6,13 @@ class Gc7 {
 	const GC7_COOKIE = 'Gc7AppEnCours';
 	const GC7_JSON   = 'choixApp.json';
 
-	public $appActuelle, $appALancer, $c, $cookie, $file;
+	public $c;
 
 	public static $pageTitle = 'POOGA';
 
-	protected $apps, $json;
+	protected $json, $apps, $cookie, $file;
 
 	private static $_appEnCours;
-
-
-	/**
-	 * Gc7 constructor.
-	 *
-	 * @param $c
-	 */
-	protected function __construct () {
-		//$this->gereChange();
-	}
-
 
 	public static function getInstance () {
 		if ( ! self::$_appEnCours ) {
@@ -33,6 +22,8 @@ class Gc7 {
 		return self::$_appEnCours;
 	}
 
+	protected function __construct () {
+	}
 
 	public function gereChange () {
 		//unset( $_GET[ 'c' ] );
@@ -42,20 +33,20 @@ class Gc7 {
 		//$this->apps = $this->recJson();
 		//setcookie( self::NOM_COOKIE, $this->apps[ 0 ]->chemin, time() + 10 ** 7 );
 
+		//$this->c      = $this->getChangement();
+		//var_dump( [ 'c', $this->c ], [ 'cookie', $this->cookie ] );
 
-		$this->c      = $this->getChangement();
-		$this->cookie = $this->getCookie();
 
-		if ( $this->c ) { // Chgt demandé... À gérer
+		if ( $this->getChange() ) { // Chgt demandé... À gérer !
 
-			if ( $this->c == 'admin' ) {
-				unset( $this->file );
-			}
-			else {
-
+			if ( $this->c !== 'admin' ) {
 
 				// réc json
-				$this->apps = $this->getJson( TRUE );
+				$this->json = $this->getJson();
+				//var_dump( $this->json );
+
+				$this->apps = $this->getApps();
+				//var_dump( $this->apps );
 
 				// No re-écrire cookie pour F5 change au début
 
@@ -64,38 +55,39 @@ class Gc7 {
 				// réc url -> $this->file;
 
 
-				if ( in_array( $this->c, $this->apps->apps ) ) {
+				if ( in_array( $this->c, $this->apps ) ) {
 					// L'app demandée est explicitement nommée dans c
-					echo '<h1>App ' . $this->c . ' demandé</h1>';
+					echo '<h1>App ' . $this->c . ' demandée explicitement</h1>';
 				}
 				else {
 					// L'app demandée n'est pas explicitement demandée ou ne correspoind à rien
 					// Dans ce cas, on prends l'app suivante
-					//echo '<h1>App ' . $this->c . ' demandé (N\'existe pas)</h1>';
-					$nbApps   = count( $this->apps->apps );
-					$newAppId = ( $this->apps->activeApp + 1 ) % $nbApps;
+					//echo '<h2>' . $this->c . ' demandé (App Indéfinie => Suivante !)</h2>';
+					$nbApps   = count( $this->apps );
+					$newAppId = ( $this->json->activeApp + 1 ) % $nbApps;
 
-					$newApp     = $this->apps->apps[ $newAppId ]->chemin;
-					$this->file = $newApp;
-
+					$this->file = $this->json->apps[ $newAppId ]->chemin;
+					//var_dump( $this->file );
 
 					// Écriture cookie
 					$this->setCookie( $newAppId );
-					$this->apps->activeApp = $newAppId;
+					$this->json->activeApp = $newAppId;
 
 					// Écriture du Json
-					file_put_contents( './Gc7Ga/choixApp.json', json_encode( $this->apps, JSON_UNESCAPED_SLASHES ) );
+					file_put_contents( './Gc7Ga/' . $this::GC7_JSON, json_encode( $this->json, JSON_UNESCAPED_SLASHES ) );
 
 
-					//var_dump( [ 'c' => $this->c, 'apps' => $this->apps->apps, 'ActiveApp' => $this->apps->activeApp ] );
+					//var_dump( [ 'c' => $this->c, 'apps' => $this->apps[$newAppId], 'ActiveApp' => $newAppId );
 
 
 				}
 			}
-
-
+			else {
+				unset( $this->file );
+				header( 'Location: ./Gc7Ga/adminGc7.php' );
+			}
 		}
-		elseif ( $this->cookie ) { // Utiliser cookie
+		elseif ( $this->getCookie() ) { // Utiliser cookie
 
 			// réc cookie dans $this->file;
 			$this->file = $this->cookie;
@@ -106,7 +98,7 @@ class Gc7 {
 			$this->apps = $this->getJson();
 
 			// Écriture cookie
-			setcookie( self::GC7_COOKIE, $this->apps[ 0 ]->chemin, time() + 10 ** 7 );
+			$this->setCookie( $this->apps[ 0 ]->chemin );
 
 			$this->file  = $this->apps[ 0 ]->chemin;
 			$_GET[ 'p' ] = 'home';
@@ -115,39 +107,42 @@ class Gc7 {
 		//$this->appALancer = $this->appActuelle = $this->file;
 		if ( isset( $this->file ) ) {
 			require "$this->file";
-
 		}
 		else {
-
-			header( 'Location: ./Gc7Ga/adminGc7.php' );
-			//require 'Admin.php';
-			$admin = Admin::getInstance();
-			//Admin::getInstance();
+			die( '<h1>Err 404 : Page Not Found !</h1>' );
 		}
 	}
 
-
 	public function getCookie () {
-		return $_COOKIE[ 'Gc7AppEnCours' ] ?? null;
+
+		$this->cookie = $_COOKIE[ $this::GC7_COOKIE ] ?? null;
+
+		return $this->cookie;
 	}
 
 	public function setCookie ( $appId = 0 ) {
-		$cookie       = $this->apps->apps[ $appId ]->chemin;
+		$cookie       = $this->json->apps[ $appId ]->chemin;
 		$this->cookie = $cookie;
 		setcookie( self::GC7_COOKIE, $cookie, time() + 10 ** 7 );
 	}
 
-	public function getChangement () {
-		return $_GET[ 'c' ] ?? null;
+	public function getChange () {
+		$this->c = $_GET[ 'c' ] ?? null;
+
+		return $this->c;
 	}
 	
 	
-	public function getJson ( $avecActiveApp = FALSE ) {
-		$choixApp = json_decode( file_get_contents( $this->getPath() . self::GC7_JSON ) );
+	public function getJson ( $sansActiveApp = FALSE ) {
 
-		$choixApp = $avecActiveApp ? $choixApp : $choixApp->apps;
 
-		return $choixApp;
+		if ( ! $this->json ) {
+			$this->json = json_decode( file_get_contents( $this->getPath() . self::GC7_JSON ) );
+		}
+
+		//var_dump( $this->json );
+
+		return $sansActiveApp ? $this->json->apps : $this->json;
 	}
 
 
@@ -158,18 +153,17 @@ class Gc7 {
 		var_dump( [ '$_GET [ \'c\' ]', $_GET [ 'c' ] ], [ 'c', $c ], [ 'Cookie', $_COOKIE ] );
 	}
 	
-	public function getAppsName () {
-
-		$this->oApps = $this->getJson();
-		$apps        = [ ];
-		foreach ( $this->oApps as $app ) {
-			//echo $app->name;
-			$apps[] = $app->name;
+	public function getApps () {
+		if ( ! isset( $this->apps ) ) {
+			$apps = [ ];
+			$this->json->apps ?? $this->getJson( 1 );
+			foreach ( $this->json->apps as $app ) {
+				$apps[] = $app->name;
+			}
+			$this->apps = $apps;
 		}
 
-		//var_dump( $apps );
-
-		return $apps;
+		return $this->apps;
 	}
 
 	protected function getPath () {
@@ -181,4 +175,9 @@ class Gc7 {
 
 		return strpos( $_SERVER[ 'REQUEST_URI' ], 'Gc7Ga' ) ? '../' : '';
 	}
+
+	public static function toCamelCase ( $word ) {
+		return lcfirst( str_replace( ' ', '', ucwords( strtr( $word, '_-', ' ' ) ) ) );
+	}
+
 }

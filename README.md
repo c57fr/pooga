@@ -1,9 +1,8 @@
 # POOGA
 
-Révision PHP - Tuto GA (GrafikArt)
+Révision PHP - Tuto GA (GrafikArt) - Script à vocation pédagogique uniquement
 
-Nécessite PHP7.1+
-Recommandé: X-debug installé
+Nécessite **PHP 7.1+** et X-debug installé (Recommandé)
 
 Référence: [Formation **POO** by **G**rafik**A**rt](https://www.grafikart.fr/formations/programmation-objet-php/objets-poo)
 

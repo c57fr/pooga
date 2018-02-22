@@ -13,27 +13,19 @@ class Admin extends Gc7 {
 			//var_dump( 'iniInstance', self::$_adminInstance );
 		}
 
-		//var_dump( 'instance', self::$_adminInstance );
 		//echo $_SERVER['REQUEST_URI'];
 		return self::$_adminInstance;
 	}
 
-
 	public function __construct () {
 		parent::__construct();
-		//$this->gc7 = parent::getInstance();
 
-
-		//$this->folders = $this->getFolders();
-		//$this->oApps = $this->getJson( self::GC7_JSON )->apps;
-		//$this->apps = $this->getApps();
-
-		//var_dump( 'Constr', $this );
+		//var_dump( 'ConstrAdmin', $this );
 	}
 
 	public function __destruct () {
 
-		// À activer pour débogage
+		// À activer pour débugage
 		var_dump( 'Destr', $this );
 	}
 
@@ -45,9 +37,7 @@ class Admin extends Gc7 {
 
 		$this->folders = $this->getFolders();
 
-		$this->oApps = $this->getJson( self::GC7_JSON )->apps;
-
-		$this->apps = $this->getAppsName();
+		$this->apps = $this->getApps();
 
 		//var_dump( $this->getNew() );
 
@@ -113,7 +103,8 @@ class Admin extends Gc7 {
 
 	public function getDossActuels () {
 
-		$sces = $this->getAppsName();
+
+		$sces = $this->getApps();
 		array_shift( $sces );
 
 		//var_dump( $sces );
@@ -141,6 +132,9 @@ class Admin extends Gc7 {
 		//recursiveCopy( $source, $destination );
 
 		// Ajout dans le Json
+		var_dump( $this->oApp );
+
+
 		if ( recursiveCopy( $source, $destination ) ) {
 			$coul = 'success';
 			$msg  = 'Votre nouveau dossier <strong>' . ucfirst( $newDoss ) . '</strong> a été <strong>ajouté</strong> avec <strong>succès</strong>.';
