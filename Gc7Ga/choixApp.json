@@ -1,1 +1,1 @@
-{"apps":[{"name":"blog","chemin":"./blog/public/index.php"},{"name":"divers","chemin":"./divers/index.php"},{"name":"ooo","chemin":"./ooo/index.php"}],"activeApp":1}
+{"apps":[{"name":"blog","chemin":"./blog/public/index.php"},{"name":"divers","chemin":"./divers/index.php"},{"name":"ooo","chemin":"./ooo/index.php"}],"activeApp":2}

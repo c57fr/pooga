@@ -3,6 +3,7 @@
 Révision PHP - Tuto GA (GrafikArt)
 
 Nécessite PHP7.1+
+Recommandé: X-debug installé
 
 Référence: [Formation **POO** by **G**rafik**A**rt](https://www.grafikart.fr/formations/programmation-objet-php/objets-poo)
 

@@ -8,8 +8,8 @@ require 'Gc7Ga/Admin.php';
 $adm = Admin::getInstance();
 $adm->gereChange();
 
-// Ne sera que qd 
-$adm->getNotif();
+// Ne sera que qd (plus nécessaire)
+//$adm->getNotif();
 
 
 //$appALancer = Gc7Ga\Gc7::getInstance();

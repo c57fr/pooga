@@ -126,7 +126,7 @@ class Admin extends Gc7 {
 	}
 	
 	
-	public function newService ($newSce) {
+	public function newService ( $newSce ) {
 
 
 		// Création du dossier
@@ -135,16 +135,18 @@ class Admin extends Gc7 {
 
 
 		// Ajout dans le Json
-		?>
+		if ( 0 ) {
+			?>
 
-		<div class="alert alert-success alert-dismissible fade show" role="alert">
-			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-				<span aria-hidden="true">&times;</span>
-			</button>
-			Votre nouveau service <strong><?= ucfirst($newSce) ?></strong> a été <strong>ajouté</strong> avec succès.
-		</div>
+			<div class="alert alert-success alert-dismissible fade show" role="alert">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				Votre nouveau service <strong><?= ucfirst( $newSce ) ?></strong> a été <strong>ajouté</strong> avec succès.
+			</div>
+			<?php
+		}
 
-		<?php
 		return 'Process nouveau service';
 	}
 

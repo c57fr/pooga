@@ -1,7 +1,6 @@
 <?php
 //var_dump($_POST);
 
-
 include 'assets/parts/header.php';
 
 use Gc7Ga\Admin;
