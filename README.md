@@ -30,9 +30,18 @@ Penser à y ajouter ce dépôt, **POOGA** pour synchroniser facilement votre dé
 5. [Aide](https://github.com/c57fr/pooga/issues/new)
 
 ## Pour AutoMenu
-1. Activer dans index.php à la racine
-2. Dans cet exemple de base, tout se passe dans un dossier nommé 'divers':
 
-      Faites-y un dossier et placez obligatoirement un fichier index.php
-      
-3. Pour créer votre propre dossier, dupliquez ce dossier et adpatez le fichier index
+### IMPORTANT :
+
+### Toujours conserver les dossiers ./Gc7Ga/, ./blob/ et ./divers/
+
+**Pour aisément** et **rapidement naviguer** dans **vos scripts** pour tests
+
+Pour créer votre propre dossier dont le menu sera automatique, visiter l'admin (Lien en haut à droite)
+
+Ensuite, simplement créer un dossier avec le nom de votre choix dans celui-ci et y placer un fichier 'index.php'blog
+
+Ce dossier apparaîtra automatiquement comme point de menu de votre nouveau service
+
+
+Pour supprimer un de vos dossiers, simplement le supprimer 'en vrai', avec votre gestionnaire de dossiers habituel.

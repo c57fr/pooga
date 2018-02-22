@@ -21,7 +21,8 @@ foreach ( $allSces as $sce ) {
 title="'.$menu.'">' . ucfirst( $sce->nom ) . '</a>
 <span class="badge badge-primary badge-pill">' . $sce->nb . '</span></li>';
 }
-$listing .= '</ul><span class="orange">NB: Ne pas effacer les dossiers des services grisés</span><hr>';
+$listing .= '</ul><span class="orange">NB: Ne pas effacer le dossier Gc7Ga, ni<br>ceux des dossiers des services listés ci-dessus
+grisés</span><hr>';
 
 echo '<h2>Services actuels</h2>' . $listing;
 
