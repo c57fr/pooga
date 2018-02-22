@@ -9,10 +9,9 @@ require 'Admin.php';
 
 $adm = Admin::getInstance();
 
-if (isset($_POST['Nom_du_service']) && !empty($_POST['Nom_du_service']) ){
-//echo '<h1>New Service</h1>';
-	echo $adm->newService($_POST['Nom_du_service']);
-	unset($_POST['Nom_du_service']);
+if ( isset( $_POST[ 'Nom_du_dossier' ] ) && ! empty( $_POST[ 'Nom_du_dossier' ] ) ) {
+	echo $adm->newDossier( $_POST[ 'Nom_du_dossier' ] );
+	unset( $_POST[ 'Nom_du_dossier' ] );
 }
 
 include 'assets/parts/mainForm.php';

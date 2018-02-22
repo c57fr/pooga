@@ -111,7 +111,7 @@ class Admin extends Gc7 {
 	}
 
 
-	public function getScesActuels () {
+	public function getDossActuels () {
 
 		$sces = $this->getAppsName();
 		array_shift( $sces );
@@ -120,43 +120,46 @@ class Admin extends Gc7 {
 
 
 		foreach ( $sces as $s ) {
-			$sce[] = $this->getAnySce( $s );
+			$sce[] = $this->getAnyDoss( $s );
 		}
 
 		return $sce;
 	}
 	
 	
-	public function newService ( $newSce ) {
+	public function newDossier ( $newDoss ) {
 
 		// Création du dossier
-		echo 'Création dossier ' . $newSce;
+		echo 'Création dossier ' . $newDoss;
 		include 'assets/helpers/functions/recursiveCopy.php';
 
 		$source      = './../Gc7Ga/assets/helpers/folderTemplate';
-		$destination = './../' . $newSce;
-		//var_dump( $source, $destination );
+		$destination = './../' . $newDoss;
 
-		var_dump($this->getFolders('./'));
+		//var_dump($this->getFolders('./'));
 
-
-		recursiveCopy( $source, $destination );
-
+		//recursiveCopy( $source, $destination );
 
 		// Ajout dans le Json
-		if ( 0 ) {
-			?>
-
-			<div class="alert alert-success alert-dismissible fade show" role="alert">
-				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-				Votre nouveau service <strong><?= ucfirst( $newSce ) ?></strong> a été <strong>ajouté</strong> avec succès.
-			</div>
-			<?php
+		if ( recursiveCopy( $source, $destination ) ) {
+			$coul = 'success';
+			$msg  = 'Votre nouveau dossier <strong>' . ucfirst( $newDoss ) . '</strong> a été <strong>ajouté</strong> avec <strong>succès</strong>.';
 		}
+		else {
+			$coul = 'danger';
+			$msg  = 'Le dossier <strong>' . ucfirst( $newDoss ) . ' existe déjà</strong>.';
 
-		return 'Process nouveau service';
+		}
+		?>
+		<div class="alert alert-<?= $coul ?> alert-dismissible fade show" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			<?= $msg ?>
+		</div>
+		<?php
+
+		return 'Process nouveau dossier';
 	}
 
 	/**
@@ -171,7 +174,8 @@ class Admin extends Gc7 {
 		return ( $v[ 0 ] !== '.' && is_dir( $this->chemin . $v ) );
 	}
 
-	public function getAnySce ( $dir = null ) {
+	public function getAnyDoss ( $dir = null ) {
+		//var_dump($dir);
 		$sce      = new \stdClass();
 		$sce->nom = $dir;
 

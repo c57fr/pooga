@@ -1,7 +1,7 @@
 <?php
+// TODO Transfo du menu contextuel des services en HTML pour lien direct sur la page correcpondante
 
-$allSces = $adm->getScesActuels();
-
+$allSces = $adm->getDossActuels();
 
 $listing = '<ul class="list-group">';
 $listing .= '<li
@@ -16,14 +16,15 @@ foreach ( $allSces as $sce ) {
 	}
 	$menu .= '';
 
+	$titleBadge = ( $sce->nb - 1 ) ? 'Pages' : 'Page d\'accueil';
 
-	$listing .= '<li class="list-group-item d-flex justify-content-between align-items-center w70"><a href="/?c='.$sce->nom.'"
-title="'.$menu.'">' . ucfirst( $sce->nom ) . '</a>
-<span class="badge badge-primary badge-pill">' . $sce->nb . '</span></li>';
+	$listing .= '<li class="list-group-item d-flex justify-content-between align-items-center w70"><a href="/?c=' . $sce->nom . '"
+title="' . $menu . '">' . ucfirst( $sce->nom ) . '</a>
+<span class="badge badge-primary badge-pill" title="' . $titleBadge . '">' . $sce->nb . '</span></li>';
 }
 $listing .= '</ul><span class="orange">NB: Ne pas effacer le dossier Gc7Ga, ni<br>ceux des dossiers des services listés ci-dessus
 grisés</span><hr>';
 
-echo '<h2>Services actuels</h2>' . $listing;
+echo '<h2>Dossiers actuels</h2>' . $listing;
 
 //var_dump( $allSces );

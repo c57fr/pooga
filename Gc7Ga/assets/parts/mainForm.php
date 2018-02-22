@@ -12,7 +12,7 @@ require dirname( __DIR__ ) . '/helpers/htmlForm/BootstrapForm.php';
 $form = new BootstrapForm( $_POST );
 echo '<form method="post" action="#">
 ';
-echo $form->input( 'Nom du service' )
+echo $form->input( 'Nom du dossier' )
      . $form->submit()
      . '</form>';
 
