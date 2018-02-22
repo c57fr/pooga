@@ -15,4 +15,4 @@ $page->action( $p );
 
 $content = ob_get_clean();
 
-require $page->getFolder() . 'accueil/template.php';
+require './divers/accueil/template.php';

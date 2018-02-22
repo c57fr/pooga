@@ -8,7 +8,7 @@ require 'Gc7Ga/Admin.php';
 $adm = Admin::getInstance();
 $adm->gereChange();
 
-// Ne sera que qd 'c' demandé
+// Ne sera que qd 
 $adm->getNotif();
 
 

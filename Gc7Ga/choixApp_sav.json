@@ -7,6 +7,10 @@
     {
       "name": "divers",
       "chemin": "./divers/index.php"
+    },
+    {
+      "name": "ooo",
+      "chemin": "./ooo/index.php"
     }
   ],
   "activeApp": 0

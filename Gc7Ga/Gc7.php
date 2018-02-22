@@ -57,7 +57,8 @@ class Gc7 {
 				// réc json
 				$this->apps = $this->getJson( TRUE );
 
-				// re-écrire cookie
+				// No re-écrire cookie pour F5 change au début
+
 				// re-écrire json
 
 				// réc url -> $this->file;
@@ -74,15 +75,15 @@ class Gc7 {
 					$nbApps   = count( $this->apps->apps );
 					$newAppId = ( $this->apps->activeApp + 1 ) % $nbApps;
 
-					$newApp           = $this->apps->apps[ $newAppId ]->chemin;
-					$this->appALancer = $this->appActuelle = $this->file = $newApp;
+					$newApp     = $this->apps->apps[ $newAppId ]->chemin;
+					$this->file = $newApp;
 
-// Écriture cookie
-					setcookie( self::GC7_COOKIE, $newApp, time() + 10 ** 7 );
 
+					// Écriture cookie
+					$this->setCookie( $newAppId );
 					$this->apps->activeApp = $newAppId;
 
-
+					// Écriture du Json
 					file_put_contents( './Gc7Ga/choixApp.json', json_encode( $this->apps, JSON_UNESCAPED_SLASHES ) );
 
 
@@ -130,9 +131,10 @@ class Gc7 {
 		return $_COOKIE[ 'Gc7AppEnCours' ] ?? null;
 	}
 
-	public function setCookie ( $cookie ) {
-		setcookie( $cookie );
-		//$this->cookie = $cookie;
+	public function setCookie ( $appId = 0 ) {
+		$cookie       = $this->apps->apps[ $appId ]->chemin;
+		$this->cookie = $cookie;
+		setcookie( self::GC7_COOKIE, $cookie, time() + 10 ** 7 );
 	}
 
 	public function getChangement () {
@@ -149,7 +151,7 @@ class Gc7 {
 	}
 
 
-	public function uuu () {
+	public function uuu () { // todoli À suppr à la fin
 		unset( $_GET[ 'c' ] );
 		$c = $_GET[ 'c' ] ?? 'blog';
 

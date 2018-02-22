@@ -134,5 +134,6 @@ chr(9):{$t}{$t}{$t}'{$t}'{$t}{$t}PHP (Dans bloc &lt;PRE&gt;)
 {$emmet}
 </pre>";
 
-	}
+//todoli add li.classCss:nth-child(-n+3) { // Select les der à compter du second }
+ }
 }

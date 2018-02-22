@@ -1,0 +1,39 @@
+body {
+    font-size: .95em;
+}
+
+.container-fluid {
+    width: 97%;
+    margin: 0 auto;
+}
+
+.w70 {
+    width: 70%;
+    font-size: 1.2em;
+}
+
+.orange {
+    color: #ff6905;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.w70:nth-child(-n+2), .w70:nth-child(-n+2) a {
+    font-style: italic;
+    color: #b1b1b1;
+}
+
+.ulok li:nth-child(-n+2) {
+    color: red;
+}
+
+.badge {
+    width: 40px;
+    padding: 7px 10px;
+    margin: 0;
+    border-radius: 7px;
+}
+
+.alert{
+    margin-top: 20px;
+}

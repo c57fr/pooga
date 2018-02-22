@@ -4,8 +4,8 @@ require 'Gc7.php';
 
 class Admin extends Gc7 {
 
-	protected      $folders, $new;
-	private static $_adminInstance;
+	protected $folders, $new;
+	private static      $_adminInstance;
 
 	public static function getInstance () {
 		if ( ! self::$_adminInstance ) {
@@ -73,11 +73,11 @@ class Admin extends Gc7 {
 		return ( $v[ 0 ] !== '.' && is_dir( $this->pathUp . $v ) && ! in_array( $v, $protectedFolders ) );
 	}
 
-	public function getFolders () {
+	public function getFolders ( $dir = null ) {
 		$this->pathUp = $this->getPathUp();
-		//return array_filter( scandir( dirname( __FILE__, 2 ) ), [ $this, 'nett' ] );
-		$res = array_filter( scandir( dirname( __FILE__, 2 ) ), [ $this, 'nett' ] );
-		//var_dump($res, is_dir('./blog/'), is_dir('./divers/'));
+		$res          = array_filter( scandir( dirname( __FILE__, 2 ) ), [ $this, 'nett' ] );
+
+//var_dump($res, is_dir('./blog/'), is_dir('./divers/'));
 		return $res;
 	}
 
@@ -103,18 +103,75 @@ class Admin extends Gc7 {
 			$this->new{$arr} = array_diff( $this->$arr, $reservedApps );
 		}
 
-		var_dump( array_diff($arrs, $reservedApps) );
-		return array_diff($arrs, $reservedApps);
+		var_dump( array_diff( $arrs, $reservedApps ) );
+
+		return array_diff( $arrs, $reservedApps );
 		//return $this->new;
 	}
 
-	public function getNotif () {
-		//$this->oApps = $this->getJson();
-		//$this->folders= $this->getFolders();
-		//$this->apps= $this->getAppsName();
 
-		//$this->new = $this->getNew();
-		//var_dump( $this->apps, $this->folders, 'New',$this->new);
-		return $this->new;
+	public function getScesActuels () {
+
+		$sces = $this->getAppsName();
+		array_shift( $sces );
+
+		//var_dump( $sces );
+
+
+		foreach ( $sces as $s ) {
+			$sce[] = $this->getAnySce( $s );
+		}
+
+		return $sce;
 	}
+	
+	
+	public function newService ($newSce) {
+
+
+		// Création du dossier
+		include 'assets/helpers/functions/recursiveCopy.php';
+		//recursiveCopy(__DIR__ . '/assets/helpers/folderTemplate', __DIR__ . '/../NN');
+
+
+		// Ajout dans le Json
+		?>
+
+		<div class="alert alert-success alert-dismissible fade show" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			Votre nouveau service <strong><?= ucfirst($newSce) ?></strong> a été <strong>ajouté</strong> avec succès.
+		</div>
+
+		<?php
+		return 'Process nouveau service';
+	}
+
+	/**
+	 * Fonction callback pour nettoyer liste des dossiers
+	 * (Avec array_filter ci-après)
+	 *
+	 * @param $v
+	 *
+	 * @return string || void
+	 */
+	private function nettAnySce ( $v ) {
+		return ( $v[ 0 ] !== '.' && is_dir( $this->chemin . $v ) );
+	}
+
+	public function getAnySce ( $dir = null ) {
+		$sce      = new \stdClass();
+		$sce->nom = $dir;
+
+		$dir          = '/' . $dir . '/';
+		$this->chemin = dirname( __FILE__, 2 ) . $dir;
+
+		$sce->menu = array_filter( scandir( dirname( __FILE__, 2 ) . $dir ), [ $this, 'nettAnySce' ] );
+
+		$sce->nb = count( $sce->menu );
+
+		return $sce;
+	}
+
 }

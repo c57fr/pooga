@@ -23,7 +23,8 @@ class AutoMenu extends Gc7 {
 	/**
 	 * @var null Dossier de travail pour le menu
 	 */
-	private $folder;
+	private          $folder;
+	protected static $dossier;
 
 	/**
 	 * Points de menu (Sous-dossiers nettoyé: Pas accueil ni autoMenu )
@@ -41,10 +42,12 @@ class AutoMenu extends Gc7 {
 	/**
 	 * @param string $folder Dossier de travail pour le menu
 	 */
-	public function __construct( $folder = './' )
-	{
+	public function __construct ( $folder = './' ) {
+		parent::__construct();
 		if ( $this->setFolder( $folder ) ) {
-			//echo 'Mon dossier: ' . $this->folder;
+			//echo 'Mon dossier: ' . $folder;
+			$doss          = explode( '\\', $folder );
+			self::$dossier = end( $doss );
 			$this->getAutoMenu();
 		}
 		else {
@@ -59,12 +62,10 @@ class AutoMenu extends Gc7 {
 	 *
 	 * @return bool TRUE si folder existe / FALSE sinon
 	 */
-	protected function setFolder( $folder )
-	{
+	protected function setFolder ( $folder ) {
 		if ( $folder[ - 1 ] !== '/' ) {
 			$folder .= '/';
 		}
-
 		$this->folder = $folder;
 
 		return is_dir( $folder );
@@ -73,8 +74,7 @@ class AutoMenu extends Gc7 {
 	/**
 	 * @return null
 	 */
-	public function getFolder()
-	{
+	public function getFolder () {
 		if ( GC7 ) {
 			return $this->folder;
 		}
@@ -92,16 +92,14 @@ class AutoMenu extends Gc7 {
 	 *
 	 * @return bool
 	 */
-	private function nett( $v, $k )
-	{
+	private function nett ( $v, $k ) {
 		return ( $k > 1 && is_dir( $this->folder . $v ) && $v !== 'accueil' && $v !== 'autoMenu' );
 	}
 
 	/**
 	 * Génère l'automenu
 	 */
-	protected function getAutoMenu()
-	{
+	protected function getAutoMenu () {
 		$dirs       = scandir( $this->folder );
 		$dirs       = array_filter( $dirs, [ $this, 'nett' ], ARRAY_FILTER_USE_BOTH );
 		$this->dirs = $dirs;
@@ -111,13 +109,13 @@ class AutoMenu extends Gc7 {
 			$html .= ' | <a href="/?p=' . $d . '">' . ucfirst( $d ) . '</a>' . "\n";
 		}
 		$this->autoMenu = $html;
+		//var_dump($this);
 	}
 	
 	/**
 	 * @param $p string nom de la page appelée ( $_GET['p'] )
 	 */
-	public function action( $p )
-	{
+	public function action ( $p ) {
 		$this->title = ucfirst( $p );
 		//var_dump( 'p', $p, $this->dirs );
 		if ( in_array( $p, $this->dirs ) || $p === 'accueil' ) {
@@ -126,5 +124,9 @@ class AutoMenu extends Gc7 {
 		else {
 			echo '<h1>Cette page n\'existe pas !</h1>';
 		}
+	}
+	
+	public static function getAppName () {
+		return self::$dossier;
 	}
 }

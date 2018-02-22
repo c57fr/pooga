@@ -1,4 +1,4 @@
-Rappel d'utilisation Git:<br><br>
+# Rappel d'utilisation Git:<br><br>
 
 			1. Fork le projet
 			Clôner VOTRE copie du projet
