@@ -2,6 +2,10 @@
 
 function recursiveCopy ( $source, $destination ) {
 	if ( ! file_exists( $destination ) ) {
+		// Ajout de time() à $destination pour avoir noms différents pour tests
+		//$destination.=time();
+
+		//echo '<h1>MKDIR "'.$destination.'"</h1>'; // ok
 		mkdir( $destination );
 	}
 
@@ -17,12 +21,13 @@ function recursiveCopy ( $source, $destination ) {
 
 		if ( $splFileinfo->isDir() ) {
 			mkdir( $destination . "/" . $path );
+			//echo'<h1>MKDIR'.$destination . "/" . $path.'</h1>'; // ok
 		}
 		else {
-			copy( $fullPath, $destination . "/" . $path );
+			copy( $fullPath, $destination . "/" . $path ); // ok
 		}
 	}
 }
 
-#calling the function
-//recursiveCopy(__DIR__ . '/assets/helpers/folderTemplate', __DIR__ . '/../NN');
+#call the function
+// recursiveCopy($source, $destination);

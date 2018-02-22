@@ -1,11 +1,18 @@
 <h1>Page 1 Ooo</h1>
 
 <?php
-include 'Gc7Ga/assets/helpers/functions/recursiveCopy.php';
 
-//recursiveCopy( './Gc7Ga/assets/helpers/folderTemplate', './abc52' );
+function div ( $x, $y ) {
+	if ( ! $y ) {
+		throw new Exception( $x . ' / ' . $y . ' = IMPOSSIBLE (Division par zéro interdite !)' );
+	}
 
+	return $x / $y;
+}
 
-$num = 5;
-$location = 'tree';
+try {
+	$res = div( 10, 0 );
+} catch ( Exception $e ) {
+	echo $e->getMessage();
+}
 

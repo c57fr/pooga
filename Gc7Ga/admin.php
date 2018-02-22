@@ -33,6 +33,7 @@ class Admin extends Gc7 {
 
 	public function __destruct () {
 
+		// À activer pour débogage
 		var_dump( 'Destr', $this );
 	}
 
@@ -129,16 +130,18 @@ class Admin extends Gc7 {
 	public function newService ( $newSce ) {
 
 		// Création du dossier
-		echo 'Création dossier '.$newSce;
+		echo 'Création dossier ' . $newSce;
 		include 'assets/helpers/functions/recursiveCopy.php';
 
-		$source = './Gc7Ga/assets/helpers/folderTemplate';
-		$destination = './' . $newSce;
+		$source      = './../Gc7Ga/assets/helpers/folderTemplate';
+		$destination = './../' . $newSce;
+		//var_dump( $source, $destination );
 
-		var_dump($source, $destination);
+		var_dump($this->getFolders('./'));
 
-		//var_dump($this->getAnySce($destination));
+
 		recursiveCopy( $source, $destination );
+
 
 		// Ajout dans le Json
 		if ( 0 ) {
