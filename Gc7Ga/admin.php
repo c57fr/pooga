@@ -26,6 +26,7 @@ class Admin extends Gc7 {
 	public function __destruct () {
 
 		// À activer pour débugage
+		echo '<br>';
 		var_dump( 'Destr', $this );
 	}
 
@@ -119,7 +120,6 @@ class Admin extends Gc7 {
 	public function newDossier ( $newDoss ) {
 
 		// Création du dossier
-		echo 'Création dossier ' . $newDoss;
 		include 'assets/helpers/functions/recursiveCopy.php';
 
 		$source      = './../Gc7Ga/assets/helpers/folderTemplate';
@@ -130,7 +130,16 @@ class Admin extends Gc7 {
 		//recursiveCopy( $source, $destination );
 
 		// Ajout dans le Json
-		//var_dump( $this->oApp );
+		$json = $this->getJson();
+
+		$newSce         = new \stdClass();
+		$newSce->name   = $newDoss;
+		$newSce->chemin = './' . $newDoss . '/index.php';
+		$json->apps[]   = $newSce;
+
+		var_dump( $json, $newDoss );
+
+		$this->setJson();
 
 
 		if ( recursiveCopy( $source, $destination ) ) {
@@ -151,7 +160,7 @@ class Admin extends Gc7 {
 		</div>
 		<?php
 
-		return 'Process nouveau dossier';
+		return TRUE;
 	}
 
 	/**
@@ -167,7 +176,7 @@ class Admin extends Gc7 {
 	}
 
 	public function getAnyDoss ( $dir = null ) {
-		//var_dump($dir);
+		var_dump($dir);
 		$sce      = new \stdClass();
 		$sce->nom = $dir;
 

@@ -31,6 +31,7 @@ class AutoMenu extends Gc7 {
 	 */
 	private $dirs = [ ];
 
+
 	/**
 	 * @var string Title de la page
 	 */

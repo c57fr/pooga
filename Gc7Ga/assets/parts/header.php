@@ -18,7 +18,7 @@
 <body>
 <span class="uri"><?= $_SERVER[ 'REQUEST_URI' ] ?></span>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-	<a class="navbar-brand" href="#">POOGA Admin</a>
+	<a class="navbar-brand" href="/?c=c">POOGA Admin</a>
 </nav>
 
 <div class="container-fluid" id="divers">

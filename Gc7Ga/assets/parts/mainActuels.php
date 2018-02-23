@@ -1,11 +1,12 @@
 <?php
-// TODO Transfo du menu contextuel des services en HTML pour lien direct sur la page correcpondante
+// TODO Transfo du menu contextuel des services en HTML pour lien direct sur la page correspondante
 
 $allSces = $adm->getDossActuels();
 
 $listing = '<ul class="list-group">';
 $listing .= '<li
-class="list-group-item d-flex justify-content-between align-items-center w70"><a href="./?c=blog" title="Blog">
+class="list-group-item d-flex justify-content-between align-items-center w70"><a href="/"
+title="Blog">
 Blog</li>';
 foreach ( $allSces as $sce ) {
 	//var_dump( $sce );

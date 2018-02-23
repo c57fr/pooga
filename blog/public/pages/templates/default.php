@@ -20,9 +20,9 @@
 <body>
 
 <div class="navbar navbar-inverse navbar-fixed-top">
-	<div class="container">
+	<div  style="margin-left: 0;padding-left: 0;" class="container">
 
-		<a class="topbar-logo" href="/">
+		<a class="topbar-logo" href="/?c=__Aller__faire__un__test__rapide" title="Aller faire un petit test rapide">
 			<svg width="35" height="45">
 				<svg viewBox="0 0 100.3 80.2" id="logo" width="100%" height="100%">
 					<path fill="#FFF"
@@ -31,10 +31,7 @@
 			</svg>
 		</a>
 
-		<a class="brand" href="/"><span class="siteName"><?= \Gc7Ga\Gc7::$pageTitle ?></span></a>
-		| <a href="/?c=tests" title="Click ici pour basculer en Tests">Change</a>
-		| <a href="/?p=test" title="Click ici pour basculer en Tests">Test</a>
-		<!--| <a href="/?c=admin" title="Click ici pour basculer en Tests">AdminGc7</a>-->
+		<a class="brand" href="/"><span class="siteName"><?= \Gc7Ga\Gc7::$appTitle ?></span></a>
 		| <a href="./Gc7Ga/adminGc7.php" title="Click ici pour basculer en Tests">AdminGc7</a>
 	</div>
 </div>
@@ -48,7 +45,7 @@
 		"message": "Les cookies nous aident à assurer nos services. En utilisant nos services, vous acceptez l'utilisation des cookies.",
 		"dismiss": "Okay",
 		"learnMore": "More info",
-		"link": "/info/cookies/",
+		"link": "/Gc7Ga/assets/parts/infoCookies/",
 		"theme": "dark-bottom"
 	};
 </script>

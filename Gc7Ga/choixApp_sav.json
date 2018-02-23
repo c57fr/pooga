@@ -2,15 +2,11 @@
   "apps": [
     {
       "name": "blog",
-      "chemin": "./blog/public/index.php"
+      "chemin": "./blog/public"
     },
     {
       "name": "divers",
-      "chemin": "./divers/index.php"
-    },
-    {
-      "name": "ooo",
-      "chemin": "./ooo/index.php"
+      "chemin": "./divers"
     }
   ],
   "activeApp": 0
