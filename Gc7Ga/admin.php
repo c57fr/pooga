@@ -1,6 +1,7 @@
 <?php namespace Gc7Ga;
 
 require 'Gc7.php';
+require 'assets/helpers/classes/Notif.php';
 
 class Admin extends Gc7 {
 
@@ -10,6 +11,7 @@ class Admin extends Gc7 {
 	public static function getInstance () {
 		if ( ! self::$_adminInstance ) {
 			self::$_adminInstance = new Admin();
+
 			//var_dump( 'iniInstance', self::$_adminInstance );
 		}
 
@@ -26,28 +28,11 @@ class Admin extends Gc7 {
 	public function __destruct () {
 
 		// À activer pour débugage
-		echo '<br>';
-		var_dump( 'Destr', $this );
+		var_dump( [ '$_GET', $_GET, '$_COOKIE', $_COOKIE, 'Destr', $this ] );
 	}
 
-	public function aff () {
-		//var_dump( get_call_class());
-		//$app = json_decode( file_get_contents( '' . Gc7::GC7_JSON ) );
-		$app = json_decode( file_get_contents( Gc7::GC7_JSON ) );
-		//var_dump( $app );
-
-		$this->folders = $this->getFolders();
-
-		$this->apps = $this->getApps();
-
-		//var_dump( $this->getNew() );
-
-		//var_dump( self::arrayDiff( $this->folders, $this->apps ) );
-	}
-
-	protected static function arrayDiff ( $A, $B ) {
+	protected function arrayDiff ( $A, $B ) {
 		$intersect = array_intersect( $A, $B );
-
 		return array_merge( array_diff( $A, $intersect ), array_diff( $B, $intersect ) );
 	}
 
@@ -69,7 +54,7 @@ class Admin extends Gc7 {
 		$this->pathUp = $this->getPathUp();
 		$res          = array_filter( scandir( dirname( __FILE__, 2 ) ), [ $this, 'nett' ] );
 
-//var_dump($res, is_dir('./blog/'), is_dir('./divers/'));
+//var_dump($res, is_dir('../blog/'), is_dir('../divers/'));
 		return $res;
 	}
 
@@ -102,18 +87,31 @@ class Admin extends Gc7 {
 
 	public function getDossActuels () {
 
-
-		$sces = $this->getApps();
+		$sces = $this->getApps(); // <= Json
 		array_shift( $sces );
 
-		//var_dump( $sces );
 
+/////////////////////////////////////
+		//$appsJson = $this->getJson( 1 );
 
+		//$newDoss = 'ooo';
+		//
+		//$newSce         = new \stdClass();
+		//$newSce->name   = 'ooo';
+		//$newSce->chemin = './ooo';
+		//var_dump( array_search( $newSce, $appsJson ) );
+		//$json->apps[]   = $newSce;
+		//var_dump( $appsJson, $newDoss );
+
+////////////////////////////////
+		$folds=[];
 		foreach ( $sces as $s ) {
-			$sce[] = $this->getAnyDoss( $s );
+			if ( is_dir( '../' . $s . '/' ) ) {
+				$folds[] = $this->getAnyDoss( $s );
+			}
 		}
 
-		return $sce;
+		return $folds;
 	}
 	
 	
@@ -134,12 +132,17 @@ class Admin extends Gc7 {
 
 		$newSce         = new \stdClass();
 		$newSce->name   = $newDoss;
-		$newSce->chemin = './' . $newDoss . '/index.php';
-		$json->apps[]   = $newSce;
+		$newSce->chemin = './' . $newDoss;
 
-		var_dump( $json, $newDoss );
+		//var_dump( $json, $newDoss );
 
-		$this->setJson();
+		if ( ! array_search( $newSce, $json->apps ) ) {
+			$json->apps[] = $newSce;
+			$this->setJson();
+		}
+		else {
+			$complMsg = '<em> Il a été réactivé ;-)</em>';
+		}
 
 
 		if ( recursiveCopy( $source, $destination ) ) {
@@ -148,17 +151,11 @@ class Admin extends Gc7 {
 		}
 		else {
 			$coul = 'danger';
-			$msg  = 'Le dossier <strong>' . ucfirst( $newDoss ) . ' existe déjà</strong>.';
+			$msg  = 'Le dossier <strong>' . ucfirst( $newDoss ) . ' existe déjà</strong>.' . ( $complMsg ?? '' );
 
 		}
-		?>
-		<div class="alert alert-<?= $coul ?> alert-dismissible fade show" role="alert">
-			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-				<span aria-hidden="true">&times;</span>
-			</button>
-			<?= $msg ?>
-		</div>
-		<?php
+
+		echo Notif::aff( $msg, $coul );
 
 		return TRUE;
 	}
@@ -176,11 +173,13 @@ class Admin extends Gc7 {
 	}
 
 	public function getAnyDoss ( $dir = null ) {
-		var_dump($dir);
+		//var_dump( $dir );
+
+		//echo '<h1>ISDIR</h1>';
 		$sce      = new \stdClass();
 		$sce->nom = $dir;
+		$dir      = '/' . $dir . '/';
 
-		$dir          = '/' . $dir . '/';
 		$this->chemin = dirname( __FILE__, 2 ) . $dir;
 
 		$sce->menu = array_filter( scandir( dirname( __FILE__, 2 ) . $dir ), [ $this, 'nettAnySce' ] );
@@ -189,5 +188,45 @@ class Admin extends Gc7 {
 
 		return $sce;
 	}
+	
+	private function verifCoherence ( $sces ) {
 
+		$ctrlSces = $sces;
+		array_shift( $ctrlSces );
+
+		$folders = $this->getFolders();
+		//var_dump( $folders );
+
+		$i = array_search( 'blog', $folders );
+		unset( $folders[ $i ] );
+		$i = array_search( 'divers', $folders );
+		unset( $folders[ $i ] );
+
+		//array_shift( $folders );
+		//array_shift( $folders );
+
+
+		//var_dump( $folders );
+
+		$diffs = array_diff( $ctrlSces, $folders );
+
+		//var_dump( [ [ ' Apps ( <= Json ) ', $ctrlSces ], [ ' Folders (Réels) ', $folders ], [ $diffs ] ] );
+
+		//var_dump( $diffs );
+
+		/**
+		 * Il existe un enregistrement ds le fichier json qui n'a pas (ou plus) son dossier
+		 * => On enlève celui-ci
+		 */
+		if ( $diffs ) {
+			array_splice( $this->json->apps, array_search( $diffs[ 0 ], $this->getApps() ), 1 );
+			//var_dump($this->json);
+			$this->setJson();
+			$this->cookie = 'opo';$this->setCookie(0);
+			echo Notif::aff( 'Un enregistrement (<b>' . ucfirst( $diffs[ 0 ] ) . '</b>) était superflu dans votre fichier json...<br>
+Ce dernier été <b>"nettoyé"</b> :-) !', 'primary' );
+			var_dump( $this->getCookie() );
+			exit;
+		}
+	}
 }

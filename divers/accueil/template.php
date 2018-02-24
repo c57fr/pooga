@@ -1,5 +1,5 @@
 <?php use Gc7Ga\Gc7;
-
+//unset($_GET['c']);
 $appName   = ucfirst( \Gc7\Divers\AutoMenu\AutoMenu::getAppName() );
 $Doss_Suiv = '__Dossier__Suivant';
 $dossSuiv  = preg_replace( '/__/', ' ', $Doss_Suiv );

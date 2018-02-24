@@ -17,8 +17,9 @@
 
 <body>
 <span class="uri"><?= $_SERVER[ 'REQUEST_URI' ] ?></span>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-	<a class="navbar-brand" href="/?c=c">POOGA Admin</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="justify-content:flex-start">
+	<a class="navbar-brand" href="/?c=c" title="Passee au service suivant">POOGA</a>
+	<a class="navbar-brand" href="/Gc7Ga/adminGc7.php" title="Accueil Admin">Admin</a>
 </nav>
-
 <div class="container-fluid" id="divers">
+

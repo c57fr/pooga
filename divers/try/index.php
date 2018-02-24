@@ -13,7 +13,7 @@ $div = function ( $x, $y ) {
 
 $code = <<<'EOT'
 <pre><code>
-function div ( $x, $y ) {
+$div = function div ( $x, $y ) {
 	if ( ! $y ) {
 		throw new Exception(
 			$x . ' / ' . $y

@@ -7,6 +7,6 @@ Tips::testChronoSum();
 
 Tips::simpleGenerator( 1, 3 );
 
-Tips::generatorFibonacci( 14 );
+Tips::generatorFibonacci( 14);
 
 Tips::showTips();

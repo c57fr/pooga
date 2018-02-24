@@ -61,7 +61,7 @@ class Tips {
 			<?php
 			foreach ( self::getFibo( $nbr ) as $v ) {
 				echo $v . str_repeat( ' &nbsp;', 2 );
-			}
+				}
 			?>
 		</div>
 		<?php

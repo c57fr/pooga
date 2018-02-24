@@ -3,6 +3,11 @@
 
 $allSces = $adm->getDossActuels();
 
+// Retrait menu Autofactory dans divers
+array_splice( $allSces[ 0 ]->menu, 1, 1 );
+$allSces[ 0 ]->nb --;
+
+//var_dump($allSces);
 $listing = '<ul class="list-group">';
 $listing .= '<li
 class="list-group-item d-flex justify-content-between align-items-center w70"><a href="/"

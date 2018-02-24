@@ -40,6 +40,7 @@ class Gc7 {
 		//$this->c      = $this->getChangement();
 		//var_dump( [ 'c', $this->c ], [ 'cookie', $this->cookie ] );
 
+		//var_dump( $_GET );
 
 		if ( $this->getChange() ) { // 1 Chgt demandé... À gérer !
 
@@ -53,10 +54,13 @@ class Gc7 {
 				$this->apps = $this->getApps();
 				//var_dump( $this->apps );
 
-
-				// L'app demandée est explicitement nommée dans c et existe
+				// L'app demandée est explicitement nommée dans 'c' et existe
 				if ( in_array( $this->c, $this->apps ) ) {
+					$newId      = array_search( $this->c, $this->apps );
 					$this->file = $this->json->apps[ array_search( $this->c, $this->apps ) ]->chemin;
+					//var_dump($newId, $this->json->apps[ $newId ]->chemin);
+					//$this->setCookie( $this->json->apps[ $newId ]->chemin );
+					//unset($_GET['c']);
 				}
 				else {
 					// L'app demandée n'est pas explicitement demandée ou ne correspoind à rien
@@ -92,7 +96,7 @@ class Gc7 {
 			$this->file = $this->cookie;
 		}
 		else { // Créer cookie
-			echo 'ecrit cookie';
+			//echo 'ecrit cookie';
 			// Réc json
 			$this->apps = $this->getJson( 1 );
 			//var_dump( $this->apps );
@@ -101,7 +105,8 @@ class Gc7 {
 			$this->setCookie( $this->apps[ 0 ]->chemin );
 
 
-			$this->file  = $this->apps[ 0 ]->chemin;
+			$this->file = $this->apps[ 0 ]->chemin;
+			unset( $_GET[ 'c' ] );
 			$_GET[ 'p' ] = 'home';
 		}
 
@@ -110,7 +115,8 @@ class Gc7 {
 			require "$this->file" . '/index.php';
 		}
 		else {
-			die( '<h1>Err 404 : Page Not Found !</h1>' );
+			die( '<h1>Err 404 : Page Not Found
+!</h1><p><em><a href="/Gc7Ga/adminGc7.php">Vérifier la cohérence entre vos dossiers et votre fichier json</a></em></p>' );
 		}
 	}
 
