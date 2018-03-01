@@ -1,0 +1,17 @@
+{
+  "apps": [
+    {
+      "nom": "appPrincipaleNom",
+      "chemin": "appPrincipale"
+    },
+    {
+      "nom": "sce01Nom",
+      "chemin": "Sce01"
+    },
+    {
+      "nom": "sce02Nom",
+      "chemin": "Sce02"
+    }
+  ],
+  "activeApp": 1
+}

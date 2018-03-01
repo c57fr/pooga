@@ -1,10 +1,9 @@
-# POOGA
+# AutoMenu (AM)
 
-Révision PHP - Tuto GA (GrafikArt) - Script à vocation pédagogique uniquement
+Script à vocation pédagogique uniquement.
+Facilite la création de nouvelles page pour tests divers isolés.
 
 Nécessite **PHP 7.1+** et X-debug installé (Recommandé)
-
-Référence: [Formation **POO** by **G**rafik**A**rt](https://www.grafikart.fr/formations/programmation-objet-php/objets-poo)
 
 ## Guide d'installation rapide
 
@@ -18,21 +17,27 @@ Référence: [Formation **POO** by **G**rafik**A**rt](https://www.grafikart.fr/f
 git clone URL_de_votre_dépôt_GitHub_de_VH
 ```
 
-3. Réaliser toutes modifications, corrections, améliorations, etc... souhaitées
+3. Installer les dépendances
 
-4. Demander une fusion (= Effectuer un ***Merge Request***)
+```ini
+composer update
+```
+
+4. Réaliser toutes modifications, corrections, améliorations, etc... souhaitées
+
+5. Demander une fusion (= Effectuer un ***Merge Request***)
 
 NB: Outils conseillés: **[ungit](https://github.com/FredrikNoren/ungit)** (Intégré facilement dans les éditeurs Brackets ou Visual Studio Code grâce à leurs plugins respectifs) et **[GitKraken](https://www.gitkraken.com/)**
 
-Penser à y ajouter ce dépôt, **POOGA** pour synchroniser facilement votre dépôt (Ex. dans Ungit: ***Add Remote*** et l'URL de ce dépôt)
+Penser à y ajouter ce dépôt, **AutoMenu** pour synchroniser facilement votre dépôt (Ex. dans Ungit: ***Add Remote*** et l'URL de ce dépôt)
 
-5. [Aide](https://github.com/c57fr/pooga/issues/new)
+5. [Aide ou Signaler un Bug](https://github.com/c57fr/pooga/issues/new)
 
 ## Pour AutoMenu
 
 ### IMPORTANT :
 
-### Toujours conserver les dossiers ./Gc7Ga/, ./blob/ et ./divers/
+### Toujours conserver le dossier ./aGc7/ et les fichiers à la racine
 
 **Pour aisément** et **rapidement naviguer** dans **vos scripts** pour tests
 
@@ -44,3 +49,22 @@ Ce dossier apparaîtra automatiquement comme point de menu de votre nouveau serv
 
 
 Pour supprimer un de vos dossiers, simplement le supprimer 'en vrai', avec votre gestionnaire de dossiers habituel.
+
+
+  Pour lancer le serveur
+
+```ini
+[Dans le dossier AM]
+Gulp
+```
+
+## Capture d'écran
+À venir (TODOLI)
+
+## Contenu:
+
+- Un dossier exemple 'Divers'
+- Un index exemple
+
+## App pour dev en local exclusivement
+En local, recommandé de faire virtual host : [AM](http://AM)

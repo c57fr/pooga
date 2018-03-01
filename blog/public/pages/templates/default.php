@@ -9,20 +9,27 @@
 	<title><?= App::getInstance()->title ?></title>
 
 	<!-- Bootstrap core CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<style>
+	<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
 
-	</style>
-	<link rel="stylesheet" href="blog/public/css/style.css">
+	<!-- Bootstrap core CSS -->
+	<link rel="stylesheet" href="./agc7/assets/css/bootstrap400.min.css">
+
+		<!--<link rel="stylesheet" href="blog/public/css/style.css">-->
+	<link rel="stylesheet" href="aGc7/assets/css/combined.css">
 	<link rel="icon" href="./blog/public/pages/favicon.ico"/>
 </head>
 
 <body>
+<!---->
+<!--<div class="navbar navbar-inverse navbar-fixed-top">-->
+<!--	<div  style="margin-left: 0;padding-left: 0;" class="container">-->
 
-<div class="navbar navbar-inverse navbar-fixed-top">
-	<div  style="margin-left: 0;padding-left: 0;" class="container">
 
-		<a class="topbar-logo" href="/?c=__Aller__faire__un__test__rapide" title="Aller faire un petit test rapide">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark navBarLeft fixed-top" style="justify-content:flex-start">
+
+
+
+		<a class="topbar-logo" href="https://www.grafikart.fr/formations/programmation-objet-php/objets-poo" title="Tuto GrafikArt" target="_blank">
 			<svg width="35" height="45">
 				<svg viewBox="0 0 100.3 80.2" id="logo" width="100%" height="100%">
 					<path fill="#FFF"
@@ -31,12 +38,17 @@
 			</svg>
 		</a>
 
-		<a class="brand" href="/"><span class="siteName"><?= \Gc7Ga\Gc7::$appTitle ?></span></a>
-		| <a href="./Gc7Ga/adminGc7.php" title="Click ici pour basculer en Tests">AdminGc7</a>
-	</div>
-</div>
+		<a class="navbar-brand" href="/"><span class="siteName">Blog</span></a>
 
-<div class="container">
+		<a class="topBarLogoGc7" href="/aGc7/AutoMenu/adminAM.php" title=" <?= $_SERVER[ 'REQUEST_URI' ] ?> " alt="Logo Gc7"><img
+				src="./aGc7/assets/img/logo_c7_41x25_tr.png" alt=""></a>
+		<a class="topBarLogoAM" href="/?c=c" title=" <?= $_SERVER[ 'REQUEST_URI' ] ?> "
+		   alt="Logo Gc7"><?= \Gc7\Helper\GC7Tip::uchr( 10160 ) ?></a>
+
+	</div>
+</nav>
+
+<div class="container-fluid">
 	<?= $content ?>
 </div>
 

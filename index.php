@@ -1,12 +1,12 @@
 <?php
-
-use Gc7Ga\Admin;
-
-//require 'Gc7Ga/Gc7.php';
-require 'Gc7Ga/Admin.php';
+require __DIR__ . '/vendor/autoload.php';
+use AutoMenu\Admin;
+//use Gc7\Helper\GC7Tip;
 
 $adm = Admin::getInstance();
-$adm->gereChange();
+$adm->start();
+
+//$content = $adm::AccesAdmin();;
 
 // Ne sera que qd (plus nécessaire)
 //$adm->getNotif();

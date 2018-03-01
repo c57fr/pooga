@@ -1,4 +1,6 @@
 <h1>Tips</h1><?php
+require 'Tips.php';
+
 use Gc7\Divers\Tips\Tips;
 
 Tips::div();
@@ -10,3 +12,5 @@ Tips::simpleGenerator( 1, 3 );
 Tips::generatorFibonacci( 14);
 
 Tips::showTips();
+
+Tips::arrFilter();

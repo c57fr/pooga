@@ -2,7 +2,7 @@
 
 use Core\Database\MysqlDatabase;
 
-class App extends \Gc7Ga\Gc7{
+class App extends \AutoMenu\Gc7{
 	private static $_instance;
 	private        $db_instance;
 

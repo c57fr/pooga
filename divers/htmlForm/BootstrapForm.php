@@ -1,5 +1,8 @@
 <?php namespace Gc7\Divers\HtmlForm;
 
+require 'Form.php';
+
+use Gc7\Divers\HtmlForm\Form;
 
 class BootstrapForm extends Form {
 

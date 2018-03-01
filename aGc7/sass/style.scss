@@ -1,0 +1,385 @@
+$modeDevAM: true;
+
+$encre: #420000;
+$coulGc7: #822;
+$coulGc7Sombre: darken(#83380d, 7%);
+$coulGc7Clair: lighten($coulGc7, 10%);
+
+$coulFond: cornsilk;
+
+$coulGA: #78ab4e;
+$coulGAHover: #5f883e;
+
+@font-face {
+  font-family: RibbonsAndBanners;
+  src: url('/aGc7/assets/fonts/RibbonsAndBanners.ttf');
+}
+
+body {
+  padding-top: 60px;
+  /* 60px to make the container go all the way to the bottom of the topbar */
+  font-size: 1.2em;
+  font-family: Trebuchet MS, arial, serif;
+  color: $encre;
+  background-color: $coulFond;
+}
+
+.navBarLeft {
+  padding-left: .3em;
+}
+
+.headTopBarLogoAM {
+  float: left;
+  padding: 0 5px 4px;
+  margin-left: 0;
+  margin-right: 7px;
+  transition: .5s;
+  font-size: 1.3em;
+  //color:red;
+  //background-color: yellow;
+}
+
+.headTopBarLogoAM:hover {
+  background-color: #ff8033;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+
+.topbar-logo:hover {
+  background-color: #5f883e;
+  outline: none;
+}
+
+.topbar-logo {
+  float: left;
+  display: block;
+  //height: 50px;
+  width: 60px;
+  margin-top: 0;
+  //padding-top: 5px;
+  margin-right: 15px;
+  outline: none;
+  background-color: #78ab4e;
+  text-align: center;
+  transition-duration: .5s;
+}
+
+.topBarLogoGc7, .topBarLogoAM {
+  display: block;
+  position: absolute;
+  right: 10px;
+  float: right;
+  background-color: #fff;
+  padding: 4px 8px 4px;
+  border: 0;
+  transition: .5s;
+}
+
+.topBarLogoGc7:hover, .topBarLogoAM:hover {
+  background-color: orange;
+}
+
+.topBarLogoAM {
+  //background-color: red;
+  //padding: 4px 8px 6px; // Pour admin
+  padding: 3px 6px 4px 5px;
+  border-radius: 0 4px 4px 0;
+}
+
+.topBarLogoAM.admin {
+  //background-color: white;
+  padding: 4px 8px 6px; // Pour admin
+  //padding: 4px 6px 6px 5px;
+  border-radius: 4px;
+}
+
+.topBarLogoGc7 {
+  right: 46px;
+  border-radius: 4px 0 0 4px;
+  border: 0;
+  padding-left: 5px;
+}
+
+.navbar {
+  padding: 5px 0;
+  box-shadow: 0 2px 7px grey;
+}
+
+.navbar :first-child {
+  //background-color: #fff;
+  margin-right: 5px;
+  margin-left: 5px;
+  font-size: 1em;
+  transition: .5s;
+}
+
+.navbar :first-child:hover {
+  margin-top: 0;
+  margin-bottom: 0;
+  background-color: orange;
+  font-size: 1em;
+  border-radius: 4px;
+}
+
+.navbar .rowItems {
+  flex-direction: row;
+}
+
+.nav-item.active {
+  //background-color: $coulGc7Clair;
+  border-radius: 7px;
+  //text-decoration: overline underline;
+  //line-height: 1;
+  padding-bottom: 5px;
+  border-bottom: 1px solid cyan;
+  border-top: 1px solid cyan;
+}
+
+.nav-link {
+  padding-left: 7px;
+  padding-right: 7px;
+}
+
+h1, h2 {
+  margin: 5px 0 10px;
+}
+
+.container-fluid {
+  width: 97%;
+  margin: 0 auto;
+}
+
+.gc7Main {
+  display: inline-block;
+  /* border:1px solid blue; */
+  width: 65%;
+  margin-left: 3%;
+}
+
+.gc7AsideD {
+  display: inline-block;
+  /* border:1px solid red; */
+  float: right;
+  width: 20%;
+  margin-right: 10%;
+  margin-top: 10px;
+  line-height: .7;
+}
+
+.siteName {
+  display: inline-block;
+  //font-size: 1.4em;
+  color: cyan;
+  //padding-top: 12px;
+}
+
+p {
+  text-align: justify;
+}
+
+.navbar a {
+  transition: .5s;
+  color: lighten($coulGc7, 45%);
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  color: #fff;
+}
+
+.cadreOrange {
+  border: 3px solid orange;
+  border-radius: 7px;
+  margin: 15px;
+  padding: 13.17px 20px;
+}
+
+#divers pre {
+  overflow: auto;
+  width: 100%;
+}
+
+pre {
+  font-size: .8em;
+  border: 1px solid grey;
+  margin-left: 10px;
+  padding: 3px 5px;
+  background-color: #fff;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  width: 98%;
+  margin: 5px auto;
+}
+
+
+#divers table.gc7Table {
+  color: #333;
+  text-align: center;
+}
+
+#divers table.gc7Table td:nth-of-type(1) {
+  border: 1px solid #aeaeae;
+  padding: 0 10px;
+}
+
+#divers table.gc7Table td:nth-of-type(2) {
+  background-color: cornsilk;
+  padding: 0 150px;
+  border: 1px solid #aeaeae;
+}
+
+.uri {
+  position: fixed;;
+  display: block;
+  float: right;
+  top: 0;
+  z-index: 2000;
+  right: 5px;
+  color: mediumpurple;
+}
+
+.btn {
+  display: inline-block;
+  min-height: 40px;
+  padding: 0 15px;
+  line-height: 36px;
+  color: #fff;
+  text-align: center;
+  text-decoration: none !important;
+  font-weight: 700;
+  background-color: $coulGc7;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: .5s;
+  border-radius: 3px;
+}
+
+.btn:hover {
+  border: 2px solid $coulGc7;
+  color: $coulGc7;
+  background-color: transparent;
+}
+
+.orange {
+  color: #ff6905;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.alert {
+  margin-top: 20px;
+}
+
+/* ##################### Page d'accueil ########################### */
+
+#encart {
+
+  .policeGc7 {
+    display: inline-block;
+
+    font-family: verdana, serif;
+    font-size: 12em;
+    /* Seul paramètre à changer, les autres s'adaptent */
+    font-weight: 800;
+    color: white;
+    /*  color: red;*/
+    text-shadow: .01em -.01em 0 black,
+    .015em -.015em 0 black,
+    .02em -.02em 0 black,
+    .025em -.025em 0 black,
+    .03em -.03em 0 black,
+    .035em -.035em 0 black,
+    .04em -.04em 0 black,
+    .045em -.045em 0 black,
+    .05em -.05em 0 black,
+    .055em -.055em 0 black,
+    .055em -.06em 0 black,
+    .06em -.065em 0 black,
+    .06em -.07em 0 black;
+  }
+
+  .sz05 {
+    letter-spacing: .001em;
+    font-size: .5em;
+  }
+
+  .FdBlanc {
+    color: #fff;
+  }
+
+  font-size: 7em;
+  text-align: center;
+  margin: 10px auto;
+  padding: .1em 0 .2em;
+  background-color: #fff;
+  border-radius: 15px;
+  border: 3px solid orange;
+  width: 95%;
+
+  span:first-letter, .maj {
+    font-size: 130%;
+    //background-color: red;
+    text-shadow: .01em -.01em 0 black,
+    .015em -.015em 0 black,
+    .02em -.02em 0 black,
+    .025em -.025em 0 black,
+    .03em -.03em 0 black,
+    .035em -.035em 0 black,
+    .04em -.04em 0 black,
+    .045em -.045em 0 black,
+    .05em -.05em 0 black,
+    .055em -.055em 0 black,
+    .06em -.05em 0 black,
+    .065em -.06em 0 black,
+    .07em -.06em 0 black,
+    .072em -.062em 0 black,
+    .075em -.065em 0 black;
+  }
+  .smaller {
+    font-size: .7em;
+    margin-right: 10px;
+  }
+
+}
+
+#adminAM {
+
+  .modeDev {
+    @if $modeDevAM == true {
+      display: inline;
+      font-size: .7em;
+    } @else {
+      display: none;
+    }
+  }
+
+  .coulGc7 {
+    width: 40px;
+    padding: 6px 10px;
+    margin: 0;
+    border-radius: 10px;
+    background-color: $coulGc7;
+  }
+  #dossiersActuels {
+
+    a {
+      color: #00BCF2;
+    }
+
+    .w70 {
+      width: 70%;
+      font-size: 1.2em;
+    }
+
+    .w70:nth-child(-n+1) a {
+      font-style: italic;
+      color: #b1b1b1;
+    }
+
+  }
+}

@@ -1,4 +1,4 @@
-<h1>Accueil</h1>
+<h1>Accueil <?= ucfirst( \AutoMenu\AutoMenu::getAppName() ); ?></h1>
 <h3>
 	<ul>
 		<li><a href="https://www.grafikart.fr/formations/programmation-objet-php/" target="_blank">La POO en PHP - Tuto de

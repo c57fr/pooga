@@ -137,4 +137,19 @@ li.classCss:nth-child(-n+3) { // Select les der à compter du second }
 </pre>";
 
  }
+
+ public static function arrFilter () {
+
+		echo '<h3>arrFilter() avec callback closure + param suppl.</h3>';
+		/*
+		 * Utilise callback closure avec param suppl
+		 *
+		 */
+		$monCoeff = 2.5;
+		var_dump( array_filter( range( 1, 100 ), function ( $v ) use ( $monCoeff ) {
+			return ( ! ( $v % ( 10 * $monCoeff ) ) );
+		} ) );
+
+	}
+
 }

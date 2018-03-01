@@ -1,5 +1,8 @@
 <?php
 
+require 'Personnage.php';
+require 'Archer.php';
+
 use Gc7\Divers\Personnage\Archer;
 use Gc7\Divers\Personnage\Personnage;
 

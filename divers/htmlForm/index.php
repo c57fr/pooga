@@ -1,5 +1,9 @@
 <?php
+
+require 'BootstrapForm.php';
+
 use Gc7\Divers\HtmlForm\BootstrapForm;
+
 
 $form = new BootstrapForm( $_POST );
 echo '<form method="post" action="#">
