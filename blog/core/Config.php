@@ -1,34 +1,28 @@
 <?php namespace Core;
 
 
-class Config
-{
-    private $settings = array();
+class Config {
 
-    private static $_instance;
+	private        $settings = [ ];
+	private static $_instance;
 
 
-    private function __construct($file)
-    {
-        $this->settings = require $file;
+	private function __construct ( $file ) {
+		$this->settings = require $file;
 
-    }
+	}
 
-    public static function getInstance($file)
-    {
-        if (empty(self::$_instance)){
-            self::$_instance = new Config($file);
-        }
-        return self::$_instance;
-    }
+	public static function getInstance ( $file ) {
+		if ( null === self::$_instance ) {
+			self::$_instance = new Config( $file );
+		}
 
-    public function get($key)
-    {
-        if (!isset($this->settings[$key]))
-        {
-            return null;
-        }
-        return $this->settings[$key];
-    }
+		return self::$_instance;
+	}
+
+	public function get ( $key ) {
+
+		return $this->settings[ $key ] ?? null;
+	}
 
 }

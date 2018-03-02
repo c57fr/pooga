@@ -12,7 +12,6 @@ class App extends \AutoMenu\Gc7 {
 	//public static $title;
 
 	protected function __Construct () {
-
 	}
 
 
@@ -23,7 +22,7 @@ class App extends \AutoMenu\Gc7 {
 	}
 
 	public static function getInstance () {
-		if ( empty( self::$_instance ) ) {
+		if ( null === self::$_instance ) {
 			self::$_instance = new App();
 		}
 
@@ -50,15 +49,27 @@ class App extends \AutoMenu\Gc7 {
 		$this->title = $title . ' | ' . $this->title;
 	}
 
+	/**
+	 * Factory
+	 *
+	 * @param $name
+	 *
+	 * @return mixed
+	 */
 	public function getTable ( $name ) {
 		$class_name = '\\App\\Table\\' . ucfirst( strtolower( $name ) ) . 'Table';
 
 		return new $class_name( $name, $this->getDB() );
 	}
 
+	/**
+	 * Factory
+	 *
+	 * @return MysqlDatabase
+	 */
 	public function getDB () {
 		$config = \Core\Config::getInstance( "./blog/app/config/config.php" );
-		if ( empty( $this->db_instance ) ) {
+		if ( null === $this->db_instance ) {
 			$this->db_instance = new MysqlDatabase( $config->get( 'db_name' ), $config->get( 'db_user' ), $config->get( 'db_host' ), $config->get( 'db_pass' ) );
 		}
 
