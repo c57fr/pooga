@@ -5,6 +5,11 @@ Facilite la création de nouvelles page pour tests divers isolés.
 
 Nécessite **PHP 7.1+** et X-debug installé (Recommandé)
 
+## Capture d'écran
+
+![gg](aGc7/AutoMenu/demos/demoAM1.gif)
+![gg](aGc7/AutoMenu/demos/demoAM2.png)
+
 ## Guide d'installation rapide
 
 1. ***Fork*** le projet 
@@ -57,9 +62,6 @@ Pour supprimer un de vos dossiers, simplement le supprimer 'en vrai', avec votre
 [Dans le dossier AM]
 Gulp
 ```
-
-## Capture d'écran
-À venir (TODOLI)
 
 ## Contenu:
 

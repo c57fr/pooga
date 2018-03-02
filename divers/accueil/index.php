@@ -12,3 +12,17 @@
 		</li>
 	</ul>
 </h3>
+<br>
+<?php
+$encart = <<<'EOT'
+<p id="encart">
+	<span class="smaller">
+		</span><span class="policeGc7 fdBlanc sz05"> Auto<span class="maj">M</span>enu</span>
+EOT;
+$encart .= '<span style="font-size: .65em;margin-left: 20px;">'.\Gc7\Helper\GC7Tip::uchr( 10160 ).'</span>';
+$encart .= <<<'EOT'
+	</span>
+</p>
+EOT;
+
+echo $encart;
