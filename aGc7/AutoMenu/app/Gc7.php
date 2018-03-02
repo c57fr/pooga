@@ -223,7 +223,7 @@ dossiers et votre fichier Json</a></em></p>' );
 
 		echo '<pre>  <b>' . $dbt[ 1 ][ 'function' ] . '  [' . get_called_class() . ']</b>  ( ' . $file . ' : <span style="color:red;
 "><b>' . $dbt[ 0 ][ 'line' ]
-		     . '</b></span>)';
+		     . '</b></span> )';
 
 		if ( $var ) {
 			var_dump( $var );
