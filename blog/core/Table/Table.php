@@ -20,19 +20,19 @@ class Table {
 	}
 
 	public function query ( $statement, $attributes = null, $one = FALSE ) {
-		$entity_class_name = str_replace( 'Table', 'Entity', get_class( $this ) );
+		$entityClassName = str_replace( 'Table', 'Entity', get_class( $this ) );
 		if ( $attributes ) {
 			return $this->db->prepare(
 				$statement,
 				$attributes,
-				$entity_class_name,
+				$entityClassName,
 				$one
 			);
 		}
 		else {
 			return $this->db->query(
 				$statement,
-				$entity_class_name,
+				$entityClassName,
 				$one
 			);
 		}

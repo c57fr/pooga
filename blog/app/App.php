@@ -2,43 +2,61 @@
 
 use Core\Database\MysqlDatabase;
 
-class App extends \AutoMenu\Gc7{
+class App extends \AutoMenu\Gc7 {
+
 	private static $_instance;
 	private        $db_instance;
 
 	public $title = 'Blog POOGA';
 
-	protected function __Construct()
-	{
+	//public static $title;
+
+	protected function __Construct () {
 
 	}
 
 
-	public static function load()
-	{
+	public static function load () {
 		//session_start();
 		require './vendor/autoload.php';
 
 	}
 
-	public static function getInstance()
-	{
+	public static function getInstance () {
 		if ( empty( self::$_instance ) ) {
 			self::$_instance = new App();
 		}
 
 		return self::$_instance;
 	}
+	
+	public static function notFound () {
+		header( "HTTP/1.0 404 Not Found" );
+		headeer( 'Location:index.php?P=404' );
+	}
 
-	public function getTable( $name )
-	{
+	/**
+	 * @return string
+	 */
+	public function getTitle () {
+		return $this->title;
+	}
+	
+
+	/**
+	 * @param string $title
+	 */
+	public function setTitle ( $title ) {
+		$this->title = $title . ' | ' . $this->title;
+	}
+
+	public function getTable ( $name ) {
 		$class_name = '\\App\\Table\\' . ucfirst( strtolower( $name ) ) . 'Table';
 
 		return new $class_name( $name, $this->getDB() );
 	}
 
-	public function getDB()
-	{
+	public function getDB () {
 		$config = \Core\Config::getInstance( "./blog/app/config/config.php" );
 		if ( empty( $this->db_instance ) ) {
 			$this->db_instance = new MysqlDatabase( $config->get( 'db_name' ), $config->get( 'db_user' ), $config->get( 'db_host' ), $config->get( 'db_pass' ) );
