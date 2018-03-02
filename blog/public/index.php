@@ -15,12 +15,7 @@ define( 'ROOT', dirname( __DIR__ ) . '\\' );
 require ROOT . "app/App.php";
 App::load();
 
-if ( isset( $_GET[ 'p' ] ) ) {
-	$p = $_GET[ 'p' ];
-}
-else {
-	$p = 'home';
-}
+$p = $_GET['p'] ?? 'home';
 
 ob_start();
 if ( $p === 'home' ) {
