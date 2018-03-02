@@ -8,6 +8,7 @@ Nécessite **PHP 7.1+** et X-debug installé (Recommandé)
 ## Capture d'écran
 
 ![gg](aGc7/AutoMenu/demos/demoAM1.gif)
+
 ![gg](aGc7/AutoMenu/demos/demoAM2.png)
 
 ## Guide d'installation rapide
