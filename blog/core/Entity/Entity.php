@@ -1,12 +1,4 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Mhammed
- * Date: 13/11/2016
- * Time: 13:14
- */
-
-namespace Core\Entity;
+<?php namespace Core\Entity;
 
 
 class Entity

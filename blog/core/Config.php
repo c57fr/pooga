@@ -1,12 +1,4 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: mhamm
- * Date: 12/11/2016
- * Time: 10:05
- */
-
-namespace Core;
+<?php namespace Core;
 
 
 class Config
