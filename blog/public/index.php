@@ -27,9 +27,6 @@ elseif ( $p === 'article' ) {
 elseif ( $p === 'categorie' ) {
 	require ROOT . 'public/pages/articles/categorie.php';
 }
-elseif ( $p === 'test' ) {
-	require './blog/public/test.php';
-}
 else {
 	echo '<h1>Oups.... Cette page n\'existe pas !</h1>';
 }

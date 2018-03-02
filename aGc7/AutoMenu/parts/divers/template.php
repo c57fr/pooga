@@ -18,7 +18,7 @@ $dossSuiv  = preg_replace( '/__/', ' ', $Doss_Suiv );
 	<!-- Bootstrap core CSS -->
 	<link rel="stylesheet" href="./agc7/assets/css/bootstrap400.min.css">
 	<link rel="stylesheet" href="/agc7/assets/css/combined.css">
-	<link rel="icon" href="<?= $_SERVER[ 'DOCUMENT_ROOT' ] . '/' ?>favicon.ico"/>
+	<link rel="icon" href="/favicon.ico" />
 </head>
 
 <body>

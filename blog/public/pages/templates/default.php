@@ -9,21 +9,13 @@
 	<title><?= App::getInstance()->title ?></title>
 
 	<!-- Bootstrap core CSS -->
-	<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
-
-	<!-- Bootstrap core CSS -->
 	<link rel="stylesheet" href="./agc7/assets/css/bootstrap400.min.css">
 
-		<!--<link rel="stylesheet" href="blog/public/css/style.css">-->
 	<link rel="stylesheet" href="aGc7/assets/css/combined.css">
 	<link rel="icon" href="./blog/public/pages/favicon.ico"/>
 </head>
 
 <body>
-<!---->
-<!--<div class="navbar navbar-inverse navbar-fixed-top">-->
-<!--	<div  style="margin-left: 0;padding-left: 0;" class="container">-->
-
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark navBarLeft fixed-top" style="justify-content:flex-start">
 
