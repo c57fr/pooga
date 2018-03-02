@@ -119,8 +119,8 @@ dans la classe<strong>' . __CLASS__ . '</strong></p>';
 		$t = chr( 9 );
 
 		$emmet = htmlspecialchars( 'ul>li.maClasse$*2> 	<ul>
-{Sujet$} + TAB:		  <li class=\"maClasse1\">Sujet1</li>
-			  <li class=\"maClasse2\">Sujet2</li>
+{Sujet$} + TAB:		  <li class="maClasse1">Sujet1</li>
+			  <li class="maClasse2">Sujet2</li>
 			</ul>' );
 
 		echo "<pre>
