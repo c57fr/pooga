@@ -1,13 +1,9 @@
-<?php
+<?php namespace Gc7\Divers\Personnage;
 
 spl_autoload_register(function ($class) {
     $arr = explode('\\', $class);
     include end($arr) . '.php';
 });
-
-use Gc7\Divers\Personnage\Archer;
-use Gc7\Divers\Personnage\Personnage;
-
 
 //var_dump( Gc7\Math::withZero( 5 ) );
 

@@ -6,8 +6,7 @@ use Gc7\Divers\HtmlForm\Form;
 
 class BootstrapForm extends Form {
 
-	public function input( $name )
-	{
+	public function input ( $name ) {
 		return $this->surround( '
 		<label for "' . $name . '">' . ucfirst( $name ) . '</label>
 		<input type="text" name="' . $name . '" id="' . $name . '" value="' . $this->getValue( $name ) . '" />' );
@@ -18,8 +17,7 @@ class BootstrapForm extends Form {
 	 *
 	 * @return string
 	 */
-	protected function surround( $html )
-	{
+	protected function surround ( $html ) {
 		return '<div class="form-group">' . $html . '
 	</div>
 
@@ -30,10 +28,9 @@ class BootstrapForm extends Form {
 	/**
 	 * @return string
 	 */
-	public function submit()
-	{
+	public function submit () {
 		return $this->surround( '
-		<button type="submit" class="btn btn-primary">Envoyer</button>' );
+		<button type="submit" class="btn">Envoyer</button>' );
 	}
 
 }

@@ -1,5 +1,4 @@
 <?php
-
 require 'BootstrapForm.php';
 
 use Gc7\Divers\HtmlForm\BootstrapForm;
@@ -13,6 +12,6 @@ echo $form->input( 'username' )
      . $form->submit()
      . '</form>';
 
-$n = $form->date();
-echo $n->format( 'd/m/Y - H:i:s' );
+$d = $form->date();
+echo $d->format( 'd/m/Y - H:i:s' );
 

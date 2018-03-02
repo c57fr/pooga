@@ -17,8 +17,7 @@ class Form {
 	/**
 	 * @param array $data
 	 */
-	public function __construct( array $data = [ ] )
-	{
+	public function __construct ( array $data = [ ] ) {
 		$this->data = $data;
 	}
 
@@ -27,8 +26,7 @@ class Form {
 	 *
 	 * @return string
 	 */
-	protected function surround( $html )
-	{
+	protected function surround ( $html ) {
 		return "    <{$this->surround}>{$html}
 	</{$this->surround}>
 
@@ -40,8 +38,7 @@ class Form {
 	 *
 	 * @return null
 	 */
-	protected function getValue( $index )
-	{
+	protected function getValue ( $index ) {
 		return $this->data[ $index ] ?? null;
 	}
 
@@ -50,8 +47,7 @@ class Form {
 	 *
 	 * @return string
 	 */
-	public function input( $champs )
-	{
+	public function input ( $champs ) {
 		return $this->surround( '
 		<label for "' . $champs . '">' . ucfirst( $champs ) . '</label>
 		<input type="text" name="' . $champs . '" id="' . $champs . '" value="' . $this->getValue( $champs ) . '" />' );
@@ -60,14 +56,12 @@ class Form {
 	/**
 	 * @return string
 	 */
-	public function submit()
-	{
+	public function submit () {
 		return $this->surround( '
 		<button type="submit">Envoyer</button>' );
 	}
 
-	public function date(  )
-	{
+	public function date () {
 		return new \DateTime();
 	}
 
