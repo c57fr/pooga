@@ -19,15 +19,15 @@ $p = $_GET[ 'p' ] ?? 'home';
 
 ob_start();
 if ( $p === 'home' ) {
-	require ROOT . 'public/pages/articles/home.php';
+	require ROOT . 'public/pages/posts/home.php';
 }
 elseif ( $p === 'article' ) {
-	require ROOT . 'public/pages/articles/single.php';
+	require ROOT . 'public/pages/posts/show.php';
 }
 elseif ( $p === 'categorie' ) {
-	require ROOT . 'public/pages/articles/categorie.php';
+	require ROOT . 'public/pages/posts/category.php';
 }
-else {
+elseif ( $p === 404 ) {
 	echo '<h1>Oups.... Cette page n\'existe pas !</h1>';
 }
 $content = ob_get_clean();

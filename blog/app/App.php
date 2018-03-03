@@ -30,7 +30,7 @@ class App extends \AutoMenu\Gc7 {
 	
 	public static function notFound () {
 		header( "HTTP/1.0 404 Not Found" );
-		headeer( 'Location:index.php?P=404' );
+		header( 'Location:index.php?p=404' );
 	}
 
 	/**
