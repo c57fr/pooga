@@ -26,6 +26,8 @@ class BootstrapForm extends Form {
 ';
 	}
 
+	// todoli Supprimer cette fonction qui juste rempli
+	// le formulaire pour tests
 	public function getValue($champs) {
 		return 'demo';
 	}

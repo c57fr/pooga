@@ -22,7 +22,7 @@ class DBAuth {
 	public function login ( $username, $password ) {
 		$user = $this->db->prepare( 'SELECT * FROM users WHERE username = ?', [ $username ], null, TRUE );
 		if ( $user ) {
-			var_dump( $user->password, sha1( $password ) );
+			//var_dump( $user->password, sha1( $password ) );
 
 			return $user->password === sha1( $password );
 		}
