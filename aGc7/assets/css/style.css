@@ -268,3 +268,6 @@ pre {
 #adminAM #dossiersActuels .w70:nth-child(-n+1) a {
   font-style: italic;
   color: #b1b1b1; }
+
+.form-inline label {
+  justify-content: flex-start; }

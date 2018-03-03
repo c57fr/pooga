@@ -33,29 +33,32 @@ class MysqlDatabase extends Database {
 	}
 
 	public function query ( $statement, $className = null, $one = FALSE ) {
-		$pdo = $this->getPDO();
-		$res = $pdo->query( $statement );
+		$req = $this->getPDO()->query( $statement );
 		if ( $className === null ) {
-			$res->setFetchMode( PDO::FETCH_OBJ );
+			$req->setFetchMode( PDO::FETCH_OBJ );
 		}
 		else {
-			$res->setFetchMode( PDO::FETCH_CLASS, $className );
+			$req->setFetchMode( PDO::FETCH_CLASS, $className );
 		}
 		if ( $one ) {
-			$data = $res->fetch();
+			$data = $req->fetch();
 		}
 		else {
-			$data = $res->fetchAll();
+			$data = $req->fetchAll();
 		}
 
 		return $data;
 	}
 
-	public function prepare ( $statement, $params, $className, $one = FALSE ) {
-		$pdo = $this->getPDO();
-		$req = $pdo->prepare( $statement );
-		$req->execute( $params );
-		$req->setFetchMode( PDO::FETCH_CLASS, $className );
+	public function prepare ( $statement, $attributes, $className = null, $one = FALSE ) {
+		$req = $this->getPDO()->prepare( $statement );
+		$req->execute( $attributes );
+		if ( $className === null ) {
+			$req->setFetchMode( PDO::FETCH_OBJ );
+		}
+		else {
+			$req->setFetchMode( PDO::FETCH_CLASS, $className );
+		}
 		if ( $one ) {
 			$data = $req->fetch();
 		}

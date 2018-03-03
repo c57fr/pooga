@@ -1,1 +1,13 @@
-{"apps":[{"nom":"blog","chemin":"blog/public"},{"nom":"divers","chemin":"divers"}],"activeApp":0}
+{
+  "apps": [
+    {
+      "nom": "blog",
+      "chemin": "blog/public"
+    },
+    {
+      "nom": "divers",
+      "chemin": "divers"
+    }
+  ],
+  "activeApp": 0
+}

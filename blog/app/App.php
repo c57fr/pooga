@@ -27,11 +27,6 @@ class App extends \AutoMenu\Gc7 {
 
 		return self::$_instance;
 	}
-	
-	public static function notFound () {
-		header( "HTTP/1.0 404 Not Found" );
-		header( 'Location:index.php?p=404' );
-	}
 
 	/**
 	 * @return string
@@ -75,5 +70,16 @@ class App extends \AutoMenu\Gc7 {
 		return $this->db_instance;
 	}
 
+
+	public function notFound () {
+		header( "HTTP/1.0 404 Not Found" );
+		die( 'Page introuvable !' );
+		//header( 'Location:index.php?p=404' );
+	}
+
+	public function forbiden () {
+		header( "HTTP/1.0 403 Forbiden" );
+		die( 'Accès interdit !' );
+	}
 
 }

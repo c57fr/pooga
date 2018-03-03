@@ -1,10 +1,11 @@
 <?php
+session_start();
 //settings for xdebug reporting error
 //ini_set( 'xdebug.collect_vars', 'on' );
 //ini_set( 'xdebug.collect_params', '4' );
 //ini_set('xdebug.dump_globals', 'on');
 //ini_set('xdebug.dump.SERVER', 'REQUEST_URI');
-//ini_set( 'xdebug.show_local_vars', 'on' );
+ini_set( 'xdebug.show_local_vars', 'on' );
 
 //Error reporting
 //error_reporting( E_ALL );
@@ -18,6 +19,10 @@ App::load();
 $p = $_GET[ 'p' ] ?? 'home';
 
 ob_start();
+
+if ( $p === 'admin' ) {
+	require ROOT . './public/admin.php';
+}
 if ( $p === 'home' ) {
 	require ROOT . 'pages/posts/home.php';
 }
@@ -30,5 +35,6 @@ elseif ( $p === 'categorie' ) {
 elseif ( $p === 404 ) {
 	echo '<h1>Oups.... Cette page n\'existe pas !</h1>';
 }
+
 $content = ob_get_clean();
 require ROOT . 'pages/templates/default.php';
