@@ -7,7 +7,7 @@ if ( ! empty( $_POST ) ) {
 	echo 'Analyse du form';
 	$auth = new DBAuth( $app->getDB() );
 	if ( $auth->login( $_POST[ 'username' ], $_POST[ 'password' ] ) ) {
-		var_dump( $auth );
+		//var_dump( $auth );
 		// Gestion différente avec automenu qui impose de passer par index.php
 		// Donc, ce header n'est pas utile
 		//header( 'Location: /?p=admin' );

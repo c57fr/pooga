@@ -11,7 +11,7 @@ class BootstrapForm extends Form {
 		$label = '<label for "' . $name . '" class="col-3 col-form-label tal">' . ucfirst( $label ) . '</label>';
 
 		if ( $type === 'textarea' ) {
-			$input = '<textarea name="' . $name . '" id="' . $name . '"  class="col-sm-8 form-control">'. $this->getValue( $name ).'</textarea>';
+			$input = '<textarea name="' . $name . '" id="' . $name . '"  class="col-sm-8 form-control" rows="7">'. $this->getValue( $name ).'</textarea>';
 		}
 		else {
 			$input = '<input type="' . $type . '" name="' . $name . '" id="' . $name . '" value="' . $this->getValue( $name ) . '"  class="col-sm-8 form-control" />';

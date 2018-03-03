@@ -52,7 +52,15 @@ class MysqlDatabase extends Database {
 
 	public function prepare ( $statement, $attributes, $className = null, $one = FALSE ) {
 		$req = $this->getPDO()->prepare( $statement );
-		$req->execute( $attributes );
+		$res = $req->execute( $attributes );
+
+		if (
+			strpos( $statement, 'UPDATE' ) === 0 ||
+			strpos( $statement, 'INSERT' ) === 0 ||
+			strpos( $statement, 'DELETE' ) === 0
+		) {
+			return $req;
+		}
 		if ( $className === null ) {
 			$req->setFetchMode( PDO::FETCH_OBJ );
 		}

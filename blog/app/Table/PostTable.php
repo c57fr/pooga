@@ -45,4 +45,5 @@ class PostTable extends Table {
 	public function lastByCategory ( $category_id ) {
 		return $this->query( 'SELECT * FROM articles WHERE category_id = ? ORDER BY articles.date DESC', [ $category_id ] );
 	}
+
 }

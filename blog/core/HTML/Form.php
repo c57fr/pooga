@@ -34,7 +34,7 @@ class Form {
 	}
 
 	/**
-	 * @param $index
+	 * @param $index arr || object
 	 *
 	 * @return null
 	 */
