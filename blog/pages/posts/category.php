@@ -5,7 +5,7 @@ $categorie = $app->getTable( 'Category' )->find( $_GET[ 'id' ] );
 if ( $categorie === FALSE ) {
 	$app->notFound();
 }
-$articles   = $app->getTable( 'Post' )->findByCategory( $_GET[ 'id' ] );
+$articles   = $app->getTable( 'Post' )->lastByCategory( $_GET[ 'id' ] );
 $categories = $app->getTable( 'Category' )->all();
 
 $app->title = $categorie->titre . ' | ' . $app->title;

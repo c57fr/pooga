@@ -19,7 +19,7 @@ class PostTable extends Table {
              ORDER BY articles.date DESC' );
 	}
 
-	/**	 * Réccupère un article en liant la catégorie associée
+	/**   * Récupère un article en liant la catégorie associée
 	 *
 	 * @param $id l'Id du post recherché
 	 *
@@ -36,11 +36,13 @@ class PostTable extends Table {
 	}
 
 	/**
-	 * Récupère un article selon la catégorie
-	 * @param $id int
-	 * @return mixed
+	 * Récupère les derniers articles selon la catégorie
+	 *
+	 * @param $category_id int
+	 *
+	 * @return array
 	 */
-	public function findByCategory ( $id ) {
-		return $this->query( 'SELECT * FROM articles WHERE category_id = ?', [ $id ] );
+	public function lastByCategory ( $category_id ) {
+		return $this->query( 'SELECT * FROM articles WHERE category_id = ? ORDER BY articles.date DESC', [ $category_id ] );
 	}
 }

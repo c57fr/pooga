@@ -67,7 +67,7 @@ class App extends \AutoMenu\Gc7 {
 	 * @return MysqlDatabase
 	 */
 	public function getDB () {
-		$config = Config::getInstance( "./blog/app/config/config.php" );
+		$config = Config::getInstance( "./blog/config/config.php" );
 		if ( null === $this->db_instance ) {
 			$this->db_instance = new MysqlDatabase( $config->get( 'db_name' ), $config->get( 'db_user' ), $config->get( 'db_host' ), $config->get( 'db_pass' ) );
 		}
