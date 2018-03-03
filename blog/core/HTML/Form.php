@@ -7,17 +7,17 @@
 class Form {
 
 	/**
-	 * @var array
+	 * @var data array || object
 	 */
 	/**
-	 * @var array
+	 * @var string HTML
 	 */
 	private $data, $surround = 'p';
 
 	/**
-	 * @param array $data
+	 * @param array || object $data
 	 */
-	public function __construct ( array $data = [ ] ) {
+	public function __construct ( $data = [ ] ) {
 		$this->data = $data;
 	}
 
@@ -39,6 +39,11 @@ class Form {
 	 * @return null
 	 */
 	protected function getValue ( $index ) {
+
+		if ( is_object( $this->data ) ) {
+			return $this->data->$index;
+		}
+
 		return $this->data[ $index ] ?? null;
 	}
 
@@ -47,12 +52,13 @@ class Form {
 	 *
 	 * @return string
 	 */
-	public function input ( $champs , $label=null, $options=[]) {
-		$label= $label ?? $champs;
-		$type = $options['type'] ?? 'text';
+	public function input ( $champs, $label = null, $options = [ ] ) {
+		$label = $label ?? $champs;
+		$type  = $options[ 'type' ] ?? 'text';
+
 		return $this->surround( '
 		<label for "' . $champs . '">' . ucfirst( $label ) . '</label>
-		<input type="'.$type.'" name="' . $champs . '" id="' . $champs . '" value="' . $this->getValue( $champs ) . '" />' );
+		<input type="' . $type . '" name="' . $champs . '" id="' . $champs . '" value="' . $this->getValue( $champs ) . '" />' );
 	}
 
 	/**

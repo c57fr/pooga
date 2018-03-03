@@ -1,5 +1,5 @@
 <h1>Login</h1><?php
-require ROOT . 'core/HTML/BootstrapForm.php';
+//require ROOT . 'core/HTML/BootstrapForm.php';
 use \Core\HTML\BootstrapForm;
 use Core\Auth\DBAuth;
 

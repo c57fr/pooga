@@ -220,7 +220,7 @@ button {
   transition: .7s;
   min-height: 10px; }
 
-.btn.btn-inverse-primary:hover a {
+.btn.btn-inverse-primary:hover, .btn.btn-inverse-primary:hover a {
   color: #007bff; }
 
 .orange {

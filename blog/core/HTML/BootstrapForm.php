@@ -5,13 +5,19 @@ require 'Form.php';
 class BootstrapForm extends Form {
 
 
-	public function input ( $champs, $label = null, $options = [ ] ) {
-		$label = $label ?? $champs;
+	public function input ( $name, $label = null, $options = [ ] ) {
 		$type  = $options[ 'type' ] ?? 'text';
+		$label = $label ?? $name;
+		$label = '<label for "' . $name . '" class="col-3 col-form-label tal">' . ucfirst( $label ) . '</label>';
 
-		return $this->surround( '
-		<label for "' . $champs . '" class="col-3 col-form-label tal">' . ucfirst( $label ) . '</label>
-		<input type="' . $type . '" name="' . $champs . '" id="' . $champs . '" value="' . $this->getValue( $champs ) . '"  class="col-sm-8 form-control" />' );
+		if ( $type === 'textarea' ) {
+			$input = '<textarea name="' . $name . '" id="' . $name . '"  class="col-sm-8 form-control">'. $this->getValue( $name ).'</textarea>';
+		}
+		else {
+			$input = '<input type="' . $type . '" name="' . $name . '" id="' . $name . '" value="' . $this->getValue( $name ) . '"  class="col-sm-8 form-control" />';
+		}
+
+		return $this->surround( $label . $input );
 	}
 
 	/**
@@ -28,7 +34,7 @@ class BootstrapForm extends Form {
 
 	// todoli Supprimer cette fonction qui juste rempli
 	// le formulaire pour tests
-	public function getValue($champs) {
+	public function getValueHack ( $champs ) {
 		return 'demo';
 	}
 
@@ -36,9 +42,9 @@ class BootstrapForm extends Form {
 	/**
 	 * @return string
 	 */
-	public function submit ($text='Envoyer') {
+	public function submit ( $text = 'Envoyer' ) {
 		return '
-		<br>&nbsp;<button type="submit" class="btn">'.$text.'</button>
+		<br>&nbsp;<button type="submit" class="btn btn-primary btn-inverse-primary">' . $text . '</button>
 		';
 	}
 
