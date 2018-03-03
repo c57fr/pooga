@@ -12,10 +12,10 @@
 define( 'ROOT', dirname( __DIR__ ) . '\\' );
 //var_dump( ROOT );
 
-require ROOT . "app/App.php";
+require ROOT . 'app/App.php';
 App::load();
 
-$p = $_GET['p'] ?? 'home';
+$p = $_GET[ 'p' ] ?? 'home';
 
 ob_start();
 if ( $p === 'home' ) {

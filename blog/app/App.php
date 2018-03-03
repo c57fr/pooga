@@ -1,15 +1,14 @@
 <?php
 
+use Core\Config;
 use Core\Database\MysqlDatabase;
 
 class App extends \AutoMenu\Gc7 {
 
-	private static $_instance;
-	private        $db_instance;
-
 	public $title = 'Blog POOGA';
 
-	//public static $title;
+	private static $_instance;
+	private        $db_instance;
 
 	protected function __Construct () {
 	}
@@ -68,7 +67,7 @@ class App extends \AutoMenu\Gc7 {
 	 * @return MysqlDatabase
 	 */
 	public function getDB () {
-		$config = \Core\Config::getInstance( "./blog/app/config/config.php" );
+		$config = Config::getInstance( "./blog/app/config/config.php" );
 		if ( null === $this->db_instance ) {
 			$this->db_instance = new MysqlDatabase( $config->get( 'db_name' ), $config->get( 'db_user' ), $config->get( 'db_host' ), $config->get( 'db_pass' ) );
 		}
