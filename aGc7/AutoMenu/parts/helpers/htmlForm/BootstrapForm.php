@@ -28,7 +28,7 @@ class BootstrapForm extends Form {
 	 */
 	public function submit () {
 		return $this->surround( '
-		<button type="submit" class="btn">Créer le nouveau dossier</button>' );
+		<button type="submit" class="btn addDoss">Créer le nouveau dossier</button>' );
 	}
 
 }

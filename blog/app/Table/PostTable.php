@@ -5,7 +5,7 @@ use Core\Table\Table;
 
 class PostTable extends Table {
 
-	protected $table;
+	protected $table='articles';
 
 	/**
 	 * Récupère les derniers articles avec les catégories associées

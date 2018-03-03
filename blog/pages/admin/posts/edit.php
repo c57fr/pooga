@@ -1,9 +1,9 @@
 <?php
 
 $posts = $app->getTable( 'Post' )->all();
-//var_dump( $posts );
+//var_dump( $_GET['id'] );
 ?>
-<h1>Admin des articles</h1>
+<h1>Édition de l'article n°<?= $_GET[ 'id' ] ?></h1>
 
 <table class="table">
 	<thead>

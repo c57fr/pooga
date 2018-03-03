@@ -192,16 +192,36 @@ pre {
   text-align: center;
   text-decoration: none !important;
   font-weight: 700;
-  background-color: #822;
   border: 2px solid transparent;
   cursor: pointer;
   transition: .5s;
   border-radius: 3px; }
 
 .btn:hover {
+  background-color: transparent; }
+
+.btn.addDoss {
+  background-color: #822; }
+
+.btn.addDoss:hover {
   border: 2px solid #822;
   color: #822;
   background-color: transparent; }
+
+button {
+  min-height: 0.1em;
+  line-height: .1;
+  height: .1em;
+  padding: 0;
+  margin: 0; }
+
+.btn.btn-inverse-primary a {
+  color: #fff;
+  transition: .7s;
+  min-height: 10px; }
+
+.btn.btn-inverse-primary:hover a {
+  color: #007bff; }
 
 .orange {
   color: #ff6905;
@@ -211,7 +231,7 @@ pre {
 .alert {
   margin-top: 20px; }
 
-/* ##################### Page d'accueil ########################### */
+/* ##################### Page d'accueil AM ########################### */
 #encart {
   font-size: 7em;
   text-align: center;
@@ -247,6 +267,7 @@ pre {
   font-size: .7em;
   margin-right: 10px; }
 
+/* #####################  Page d'admin AM  ########################### */
 #adminAM .modeDev {
   display: inline;
   font-size: .7em; }

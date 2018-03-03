@@ -32,7 +32,7 @@
 
 		<a class="navbar-brand" href="/"><span class="siteName">Blog</span></a>
 	
-	<a href="/?p=admin" class="navbar-brand">Admin</a>
+	<a href="/?a=admin" class="navbar-brand">Admin</a>
 
 		<a class="topBarLogoGc7" href="/aGc7/AutoMenu/adminAM.php" title=" <?= $_SERVER[ 'REQUEST_URI' ] ?> " alt="Logo Gc7"><img
 				src="./aGc7/assets/img/logo_c7_41x25_tr.png" alt=""></a>
