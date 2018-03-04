@@ -47,27 +47,28 @@ class Table {
 	public function update ( $id, $fields ) {
 		//var_dump( (int) $id, $fields );
 
-		$sql_parts  = [ ];
+		$sqlParts   = [ ];
 		$attributes = [ ];
 		foreach ( $fields as $k => $v ) {
-			$sql_parts[]  = $k . '= ?';
+			$sqlParts[]   = $k . ' = ?';
 			$attributes[] = $v;
 		}
-		$attributes[] = (int) $id;
+		$attributes[] = $id;
 
-		//$values = '(' . implode( ', ', $attributes ) . ')';
-		$sql_parts = implode( ', ', $sql_parts );
+		$sqlParts = implode( ', ', $sqlParts );
 
-		//var_dump( $sql_parts, $attributes );
+		//var_dump( $sqlParts, $attributes );
 
-
-		return $this->query( 'UPDATE ' . $this->table . ' SET ' . $sql_parts . ' where id = ?', $attributes, TRUE );
-
-
-		//, $fields[0],$fields[1],$id;
-		//
-		//echo( $sql );
-
+		return $this->query( 'UPDATE ' . $this->table . ' SET ' . $sqlParts . ' where id = ?', $attributes, TRUE );
 	}
+	
+	public function  extract ( $key, $value ) {
+		$records = $this->all();
+		$return =[];
+		foreach($records as $v){
+			$return [$v->$key] = $v->$value;
+		}
+		return $return;
+}
 
 }

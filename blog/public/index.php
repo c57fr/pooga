@@ -20,12 +20,15 @@ App::load();
 $a = $_GET[ 'a' ] ?? null;
 $p = $_GET[ 'p' ] ?? 'home';
 
-ob_start();
 
 if ( $a ) {
+	//var_dump($a);
 	require ROOT . './public/admin.php';
 }
 else {
+
+	ob_start();
+
 	if ( $p === 'home' ) {
 		require ROOT . 'pages/posts/home.php';
 	}
@@ -38,7 +41,8 @@ else {
 	elseif ( $p === 404 ) {
 		echo '<h1>Oups.... Cette page n\'existe pas !</h1>';
 	}
-}
 
-$content = ob_get_clean();
-require ROOT . 'pages/templates/default.php';
+
+	$content = ob_get_clean();
+	require ROOT . 'pages/templates/default.php';
+}

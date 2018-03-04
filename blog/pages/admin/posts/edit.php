@@ -9,13 +9,14 @@ if ( ! empty( $_POST ) ) {
 //var_dump($postTable);
 
 	$result = $postTable->update( $_GET[ 'id' ], [
-		'titre'   => $_POST[ 'titre' ],
-		'contenu' => $_POST[ 'contenu' ]
+		'titre'       => $_POST[ 'titre' ],
+		'contenu'     => $_POST[ 'contenu' ],
+		'category_id' => $_POST[ 'category_id' ]
 	] );
 
 	if ( $result ) {
 		?>
-		<div class="alert alert-success">La sauvegarde a bien été réalisée !</div>
+		<div class="alert alert-success">L'article a bien été enregistré !</div>
 		<?php
 	}
 	else {
@@ -26,7 +27,10 @@ if ( ! empty( $_POST ) ) {
 }
 
 $post = $postTable->find( $_GET[ 'id' ] );
-//var_dump($post);
+//$this->dbg($post);
+
+$categories = $app->getTable( 'Category' )->extract( 'id', 'titre' );
+//$this->dbg($categories);
 
 $form = new BootstrapForm( $post );
 ?>
@@ -34,6 +38,7 @@ $form = new BootstrapForm( $post );
 <h1>Édition de l'article n°<?= $_GET[ 'id' ] ?></h1>
 <form method="post">
 	<?= $form->input( 'titre', 'Titre de l\'article' )
+	    . $form->select( 'category_id', 'Categorie', $categories )
 	    . $form->input( 'contenu', 'Contenu', [ 'type' => 'textarea' ] )
 	    . $form->submit( 'Sauvegarder' ) ?>
 </form>

@@ -271,7 +271,7 @@ pre {
   background-color: transparent;
 }
 
-button{
+button {
   min-height: 0.1em;
   line-height: .1;
   height: .1em;
@@ -279,13 +279,28 @@ button{
   margin: 0;
 }
 
-.btn.btn-inverse-primary a{
-  color:#fff;
-  transition:.7s;
+.btn-success:hover {
+  color: #28a745;
+}
+
+.btn.btn-inverse-primary a {
+  color: #fff;
+  transition: .7s;
   min-height: 10px;
 }
-.btn.btn-inverse-primary:hover, .btn.btn-inverse-primary:hover a{
-  color:#007bff;
+
+.btn.btn-inverse-primary:hover, .btn.btn-inverse-primary:hover a {
+  color: #007bff;
+}
+
+.btn.btn-inverse-danger a {
+  color: #fff;
+  transition: .7s;
+  min-height: 10px;
+}
+
+.btn.btn-inverse-danger:hover, .btn.btn-inverse-danger:hover a {
+  color: #dc3545;
 }
 
 .orange {
