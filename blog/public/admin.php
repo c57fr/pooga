@@ -17,7 +17,7 @@ $auth = new DBAuth( $app->getDB() );
 
 ob_start();
 
-var_dump( isset( $_SESSION[ 'auth' ] ) );
+//var_dump( isset( $_SESSION[ 'auth' ] ) );
 if ( ! $auth->logged() ) {
 	require ROOT . 'pages/users/login.php';
 }

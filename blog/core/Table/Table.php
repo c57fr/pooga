@@ -44,6 +44,20 @@ class Table {
 		return $this->query( 'SELECT * FROM ' . $this->table . ' WHERE id = ?', [ $id ], TRUE );
 	}
 
+	public function create ( $fields ) {
+		var_dump( $fields );
+
+		$sqlParts   = [ ];
+		$attributes = [ ];
+		foreach ( $fields as $k => $v ) {
+			$sqlParts[]   = $k . ' = ?';
+			$attributes[] = $v;
+		}
+		$sqlParts = implode( ', ', $sqlParts );
+
+		return $this->query( 'INSERT INTO ' . $this->table . ' SET ' . $sqlParts, $attributes, TRUE );
+	}
+
 	public function update ( $id, $fields ) {
 		//var_dump( (int) $id, $fields );
 
@@ -61,14 +75,15 @@ class Table {
 
 		return $this->query( 'UPDATE ' . $this->table . ' SET ' . $sqlParts . ' where id = ?', $attributes, TRUE );
 	}
-	
+
 	public function  extract ( $key, $value ) {
 		$records = $this->all();
-		$return =[];
-		foreach($records as $v){
-			$return [$v->$key] = $v->$value;
+		$return  = [ ];
+		foreach ( $records as $v ) {
+			$return [ $v->$key ] = $v->$value;
 		}
+
 		return $return;
-}
+	}
 
 }

@@ -18,7 +18,7 @@ $posts = $app->getTable( 'Post' )->all();
 	<?php foreach ( $posts as $post ): ?>
 		<tr>
 			<td><?= $post->id ?></td>
-			<td><?= $post->titre ?></td>
+			<td><?= $post->titre.'<div class="petit">'.$post->dateFr.'</div>' ?></td>
 			<td>
 				<button class="btn btn-primary btn-inverse-primary"><a href="?a=posts.edit&id=<?= $post->id ?>">Editer</a>
 				</button>

@@ -76,4 +76,8 @@ class MysqlDatabase extends Database {
 
 		return $data;
 	}
+	
+	public function getLastId (  ) {
+		
+	}
 }
