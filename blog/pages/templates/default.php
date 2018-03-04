@@ -10,7 +10,7 @@
 
 	<!-- Bootstrap core CSS -->
 	<link rel="stylesheet" href="./agc7/assets/css/bootstrap400.min.css">
-
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="aGc7/assets/css/combined.css">
 	<link rel="icon" href="./blog/public/pages/favicon.ico"/>
 </head>
@@ -18,7 +18,6 @@
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark navBarLeft fixed-top" style="justify-content:flex-start">
-
 
 
 		<a class="topbar-logo" href="https://www.grafikart.fr/formations/programmation-objet-php/objets-poo" title="Tuto GrafikArt" target="_blank">

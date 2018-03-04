@@ -77,7 +77,7 @@ class MysqlDatabase extends Database {
 		return $data;
 	}
 	
-	public function getLastId (  ) {
-		
+	public function lastInsertId (  ) {
+		return $this->lastInsertId();
 	}
 }
