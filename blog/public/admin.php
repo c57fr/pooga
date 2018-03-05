@@ -33,6 +33,9 @@ else {
 			if ( $a === 'posts.add' ) {
 				require ROOT . 'pages/admin/posts/add.php';
 			}
+			elseif ( $a === 'posts.delete' ) {
+				require ROOT . 'pages/admin/posts/delete.php';
+			}
 			elseif ( $a === 404 ) {
 				echo '<h1>Oups.... Cette page n\'existe pas !</h1>';
 			}

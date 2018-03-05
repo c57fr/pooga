@@ -5,16 +5,19 @@ $postTable = $app->getTable( 'Post' );
 
 if ( ! empty( $_POST ) ) {
 
-//var_dump( $_POST );
+var_dump( $_POST );
 //var_dump($postTable);
 
-	$result = $postTable->create( [
-		'titre'       => $_POST[ 'titre' ],
-		'contenu'     => $_POST[ 'contenu' ],
-		'category_id' => $_POST[ 'category_id' ]
-	] );
+$ctrl = (!empty($_POST[ 'titre']) && !empty($_POST[ 'contenu' ] ));
 
-	if ( $result ) {
+	$result = $postTable->create( [
+		                              'titre'       => $_POST[ 'titre' ],
+		                              'contenu'     => $_POST[ 'contenu' ],
+		                              'category_id' => $_POST[ 'category_id' ]
+	                              ] );
+
+	if ( $result && $ctrl ) {
+		header( 'Location: ?a=posts.edit&id=' . $app->getDb()->lastInsertId() );
 		?>
 		<div class="alert alert-success">L'article a bien été enregistré !</div>
 		<?php

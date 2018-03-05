@@ -1,6 +1,6 @@
 <?php
 
-$posts = $app->getTable( 'Post' )->all();
+$posts = $app->getTable( 'Post' )->last();
 //var_dump( $posts );
 ?>
 <h1>Admin des articles</h1>
@@ -18,12 +18,20 @@ $posts = $app->getTable( 'Post' )->all();
 	<?php foreach ( $posts as $post ): ?>
 		<tr>
 			<td><?= $post->id ?></td>
-			<td><?= $post->titre.'<div class="petit">'.$post->dateFr.'</div>' ?></td>
+			<td><?= $post->titre . '<div class="petit">' . $post->dateFr . '</div>' ?></td>
 			<td>
-				<button class="btn btn-primary btn-inverse-primary"><a href="?a=posts.edit&id=<?= $post->id ?>"><i class="fa fa-edit" aria-hidden="true"></i></a>
+
+				<button class="btn btn-primary btn-inverse-primary"><a href="?a=posts.edit&id=<?= $post->id ?>">
+						<i class="fa fa-edit" aria-hidden="true"></i></a>
 				</button>
-				<button class="btn btn-danger btn-inverse-danger"><a href="?a=posts.edit&id=<?= $post->id ?>"><i class="fa fa-trash" aria-hidden="true"></i></a>
-				</button>
+				
+				<form action="?a=posts.delete" method="POST" style="display: inline-block">
+					<input type="hidden" name="id" value="<?= $post->id ?>">
+					<button type="submit" class="btn btn-danger btn-inverse-danger">
+						<i class="fa fa-trash" aria-hidden="true"></i></a>
+					</button>
+				</form>
+
 			</td>
 		</tr>
 	<?php endforeach; ?>

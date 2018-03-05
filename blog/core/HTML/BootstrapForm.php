@@ -8,7 +8,7 @@ class BootstrapForm extends Form {
 	public function input ( $name, $label = null, $options = [ ] ) {
 		$type  = $options[ 'type' ] ?? 'text';
 		$label = $label ?? $name;
-		$label = '<label for "' . $name . '" class="col-3 col-form-label tal">' . ucfirst( $label ) . '</label>';
+		$label = '<label for "' . $name . '" class="col-3 col-form-label tal">' . ucfirst( $label ) . ' *</label>';
 
 		if ( $type === 'textarea' ) {
 			$input = '<textarea name="' . $name . '" id="' . $name . '"  class="col-sm-8 form-control" rows="7">' . $this->getValue( $name ) . '</textarea>';
@@ -47,7 +47,7 @@ class BootstrapForm extends Form {
 		foreach ( $options as $k => $v ) {
 			$attributes = '';
 			//var_dump($k , $this->getValue( $name )*1);
-			if ( $k === $this->getValue( $name )*1 ) {
+			if ( $k === $this->getValue( $name ) * 1 ) {
 				$attributes = 'selected';
 			}
 			$input .= '<option value = "' . $k . '" ' . $attributes . '>' . $v . '</otion>

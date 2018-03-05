@@ -1,4 +1,4 @@
-<?php namespace Gc7\Divers\DemoFactory;
+<?php namespace DP\SimpleFactory;
 
 
 class CarFactory {
