@@ -7,6 +7,7 @@ class Controller {
 	protected $template;
 
 	protected function render ( $view, $variables = [ ] ) {
+		//var_dump($view, $variables);
 		ob_start();
 		extract( $variables );
 		require( $view = $this->viewPath . str_replace( '.', '/', $view ) . '.php' );

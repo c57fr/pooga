@@ -1,11 +1,8 @@
-<?php
-
-$posts = $app->getTable( 'Post' )->last();
-//var_dump( $posts );
-?>
 <h1>Admin des articles</h1>
 
-<p><a href="?a=posts.add" class="btn btn-success">Ajouter un article</a> <a href="?a=categories.index" class="btn btn-success">Gérer les catégories</a></p>
+<p><a href="?a=posts.add" class="btn btn-success">Ajouter un article</a> <a href="?a=categories.index"
+                                                                            class="btn btn-success">Gérer les
+		catégories</a></p>
 <table class="table">
 	<thead>
 	<tr>

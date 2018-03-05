@@ -47,7 +47,7 @@ class PostsController extends AppController {
 
 		$categorie = new \stdClass();
 
-		$categorie->url = '?p=categorie&id=' . $post->category_id;
+		$categorie->url = '?p=posts.category&id=' . $post->category_id;
 
 		$this->render( 'posts.show', compact( 'post', 'categorie' ) );
 	}
