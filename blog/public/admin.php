@@ -25,21 +25,29 @@ else {
 	if ( $a === 'admin' ) {
 		require ROOT . 'pages/admin/posts/index.php';
 	}
-	else {
-		if ( $a === 'posts.edit' ) {
-			require ROOT . 'pages/admin/posts/edit.php';
-		}
-		else {
-			if ( $a === 'posts.add' ) {
-				require ROOT . 'pages/admin/posts/add.php';
-			}
-			elseif ( $a === 'posts.delete' ) {
-				require ROOT . 'pages/admin/posts/delete.php';
-			}
-			elseif ( $a === 404 ) {
-				echo '<h1>Oups.... Cette page n\'existe pas !</h1>';
-			}
-		}
+	elseif ( $a === 'posts.edit' ) {
+		require ROOT . 'pages/admin/posts/edit.php';
+	}
+	elseif ( $a === 'posts.add' ) {
+		require ROOT . 'pages/admin/posts/add.php';
+	}
+	elseif ( $a === 'posts.delete' ) {
+		require ROOT . 'pages/admin/posts/delete.php';
+	}
+	elseif ( $a === 'categories.index' ) {
+		require ROOT . 'pages/admin/categories/index.php';
+	}
+	elseif ( $a === 'categories.edit' ) {
+		require ROOT . 'pages/admin/categories/edit.php';
+	}
+	elseif ( $a === 'categories.add' ) {
+		require ROOT . 'pages/admin/categories/add.php';
+	}
+	elseif ( $a === 'categories.delete' ) {
+		require ROOT . 'pages/admin/categories/delete.php';
+	}
+	elseif ( $a === 404 ) {
+		echo '<h1>Oups.... Cette page n\'existe pas !</h1>';
 	}
 }
 

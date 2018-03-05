@@ -58,6 +58,11 @@ class Table {
 		return $this->query( 'INSERT INTO ' . $this->table . ' SET ' . $sqlParts, $attributes, TRUE );
 	}
 
+	public function delete ( $id ) {
+
+		return $this->query( 'DELETE FROM ' . $this->table . ' WHERE id = ?', [ $id ] );
+	}
+
 	public function update ( $id, $fields ) {
 		//var_dump( (int) $id, $fields );
 
@@ -73,7 +78,7 @@ class Table {
 
 		//var_dump( $sqlParts, $attributes );
 
-		return $this->query( 'UPDATE ' . $this->table . ' SET ' . $sqlParts . ' where id = ?', $attributes, TRUE );
+		return $this->query( 'UPDATE ' . $this->table . ' SET ' . $sqlParts . ' WHERE id = ?', $attributes, TRUE );
 	}
 
 	public function  extract ( $key, $value ) {
