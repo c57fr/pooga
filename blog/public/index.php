@@ -22,9 +22,14 @@ $p = $_GET[ 'p' ] ?? 'home';
 
 
 if ( $a ) {
-	if ( $a === 'admin.posts.index' ) {
-		$controller = new App\Controller\Admin\PostsController();
-		$controller->index();
+	//var_dump($a);
+	$page = explode( '.', $a );
+	if ( $page[ 0 ] === 'admin' ) {
+		$controller = 'App\Controller\\' . ucfirst( $page[ 0 ] ) . '\\' . ucfirst( $page[ 1 ] ) . 'Controller';
+		$action     = $page[ 2 ];
+		//var_dump( $page, $controller, $action );
+		$controller = new $controller();
+		$controller->$action();
 	}
 	elseif ( $a === 'login' ) {
 		$user = new \App\Controller\Admin\UsersController();

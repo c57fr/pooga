@@ -45,7 +45,7 @@ class Table {
 	}
 
 	public function create ( $fields ) {
-		var_dump( $fields );
+		//var_dump( $fields );
 
 		$sqlParts   = [ ];
 		$attributes = [ ];
