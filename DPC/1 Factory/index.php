@@ -5,7 +5,8 @@ use DP\Factory\WoodenDoorFactory;
 use DP\Factory\IronDoorFactory;
 
 ?>
-	<h1>Design Pattern Factory</h1>
+	<h1><a href="https://github.com/design-patterns-for-humans/French#-simple-factory" target="_blank">Design Pattern
+			Factory</a></h1>
 <?php
 require 'autoloader.php';
 
@@ -23,7 +24,8 @@ $door = DoorFactory::makeDoor( 80, 200 );
 echo 'Dimension: ' . $door->getDescription() . $door->getWidth() . ' x ' . $door->getHeight() . '<hr>';
 
 ?>
-	<h2>Complexe Factory</h2>
+	<h2><a href="https://github.com/design-patterns-for-humans/French#-abstract-factory" target="_blank">Abstract
+			Factory</a></h2>
 	<p><em>Le bon spécialiste pour le bon type de porte...</em></p>
 <?php
 

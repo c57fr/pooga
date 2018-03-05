@@ -1,4 +1,4 @@
-<h1>Design Pattern Builder</h1><?php
+<h1><a href="https://github.com/design-patterns-for-humans/French#-builder" target="_blank">Design Pattern Builder</a></h1><?php
 
 include 'autoloader.php';
 use DP\Builder\BurgerBuilder;
