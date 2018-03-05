@@ -22,27 +22,34 @@ $p = $_GET[ 'p' ] ?? 'home';
 
 
 if ( $a ) {
+	$controller = new App\Controller\UsersController;
+	$controller->login();
 	//var_dump($a);
 	require ROOT . './public/admin.php';
 }
 else {
 
-	ob_start();
+	//ob_start();
 
 	if ( $p === 'home' ) {
-		require ROOT . 'pages/posts/home.php';
+		$controller = new App\Controller\PostsController;
+		$controller->index();
 	}
 	elseif ( $p === 'article' ) {
-		require ROOT . 'pages/posts/show.php';
+		$controller = new App\Controller\PostsController;
+		$controller->show();
+		//require ROOT . 'pages/posts/show.php';
 	}
 	elseif ( $p === 'categorie' ) {
-		require ROOT . 'pages/posts/category.php';
+		$controller = new App\Controller\PostsController;
+		$controller->categories();
+		//require ROOT . 'pages/posts/category.php';
 	}
 	elseif ( $p === 404 ) {
 		echo '<h1>Oups.... Cette page n\'existe pas !</h1>';
 	}
 
 
-	$content = ob_get_clean();
-	require ROOT . 'pages/templates/default.php';
+	//$content = ob_get_clean();
+	//require ROOT . 'Views/templates/default.php';
 }
