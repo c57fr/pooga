@@ -66,8 +66,12 @@ Gulp
 
 ## Contenu:
 
-- Un dossier exemple 'Divers'
-- Un index exemple
+- Blog (Tuto POO GrafikArt)
+- Un dossier d'exemples 'Divers'
+- Rubriques 'DP' (Design Patterns)
+  - Création
+  - Structurels
+  - Comportementals
 
 ## App pour dev en local exclusivement
 En local, recommandé de faire virtual host : [AM](http://AM)

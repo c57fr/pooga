@@ -5,7 +5,7 @@ use DP\Factory\WoodenDoorFactory;
 use DP\Factory\IronDoorFactory;
 
 ?>
-	<h1>Design Pattern Factory (Création)</h1>
+	<h1>Design Pattern Factory</h1>
 <?php
 require 'autoloader.php';
 
