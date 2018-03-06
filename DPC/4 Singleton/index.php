@@ -55,4 +55,4 @@ class President {
 EOT;
 
 echo '<p>Le code appelant :</p>'.$code;
-echo '<p>Le classe Preseident :</p>'.$codeClasse;
+echo '<p>La classe President :</p>'.$codeClasse;
