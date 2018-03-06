@@ -72,6 +72,8 @@ Gulp
   - Création
   - Structurels
   - Comportementals
+- Interfaces
+- Traits
 
 ## App pour dev en local exclusivement
 En local, recommandé de faire virtual host : [AM](http://AM)
