@@ -23,6 +23,7 @@ class Flash {
 			'message' => $message,
 			'type'    => $type
 		] );
+		//var_dump($_SESSION);
 
 	}
 	

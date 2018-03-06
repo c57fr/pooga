@@ -1,8 +1,7 @@
 <?php namespace Gc7\Tuto;
 
-
-//class Session  implements SessionInterface, \Countable, \ArrayAccess {
-class Session  implements  \Countable, \ArrayAccess {
+require 'SessionInterface.php';
+class Session implements SessionInterface, \Countable, \ArrayAccess {
 
 	private $key, $value;
 
@@ -10,7 +9,7 @@ class Session  implements  \Countable, \ArrayAccess {
 	 * Session constructor.
 	 */
 	public function __construct () {
-		@session_start();
+		session_start();
 	}
 
 	public function get ( $key ) {

@@ -24,5 +24,5 @@ $flash->set('Affichage d\'un message Flash... (Test)', 'success');
 </h4>
 
 <hr>
-J'ai enregistré un message Flash...<br>
-... Le voir sur l'une des 3 pages ci-dessus
+J'ai enregistré un message Flash...<br><br>
+... Le voir sur l'une des 4 pages ci-dessus... ;-)...
