@@ -1,12 +1,4 @@
-<?php
-/**
- * Created by C7.
- * User: Li
- * Date: 05/03/2018
- * Time: 02:19
- */
-
-namespace DP\Builder;
+<?php namespace DP\Builder;
 
 
 class BurgerBuilder {

@@ -47,6 +47,10 @@ else {
 	elseif ( $p === 'posts.category' ) {
 		$controller->categories();
 	}
+	elseif ( $p === 'demo.index' ) {
+		$controller=new \App\Controller\DemoController();
+		$controller->index();
+	}
 	elseif ( $p === 404 ) {
 		echo '<h1>Oups.... Cette page n\'existe pas !</h1>';
 	}
