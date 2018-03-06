@@ -13,6 +13,6 @@ trait Dieselable {
 	}
 
 	public function roulerAuDiesel ( $km ) {
-		$this->roulerDiesel( $km * 2 );
+		$this->roulerDiesel( $km );
 	}
 }
