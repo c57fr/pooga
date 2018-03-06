@@ -2,7 +2,7 @@
 
 require dirname( __DIR__ ) . '/autoloader.php';
 ?>
-	<h1><a href="https://www.grafikart.fr/formations/programmation-objet-php/traits-php"target="_blank"><?= ucfirst( \AutoMenu\AutoMenu::getAppName() ); ?></a></h1>
+	<h1><a href="https://www.grafikart.fr/formations/programmation-objet-php/traits-php"target="_blank">Les <?= ucfirst( \AutoMenu\AutoMenu::getAppName() ); ?>s</a></h1>
 	<img src="./Trait/accueil/diagram.png" alt="Diagramme"><br>
 	<?php
 
