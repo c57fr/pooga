@@ -121,13 +121,14 @@ class AutoMenu extends Gc7 {
 	/**
 	 * @param $p string nom de la page appelée ( $_GET['p'] )
 	 */
-	public function action ( $p ) {
+	public function action ( $p, $pg = null ) {
 		$this->title = ucfirst( $p );
+		$cible       = ( isset( $pg ) ) ? $pg : 'index.php';
 		//var_dump( [ 'p', $p, $this->dirs ] );
 		if ( in_array( $p, $this->dirs ) || $p === 'accueil' ) {
-			//var_dump( $this->folder . $p . '/index.php' );
+			//var_dump( $this->folder . $p . '/' . $cible );
 
-			require $this->folder . $p . '/index.php';
+			require $this->folder . $p . '/' . $cible;
 		}
 		else {
 			echo '<h1>Cette page n\'existe pas !</h1>';

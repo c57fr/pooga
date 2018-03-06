@@ -19,14 +19,15 @@
 
 use AutoMenu\AutoMenu;
 
-$p = $_GET[ 'p' ] ?? 'accueil';
+$p  = $_GET[ 'p' ] ?? 'accueil';
+$pg = $_GET[ 'pg' ]?? null;
 
 $page = new AutoMenu( __DIR__ );
 //var_dump( $page );
 
 ob_start();
 
-$page->action( $p );
+$page->action( $p, $pg );
 
 $content = ob_get_clean();
 
