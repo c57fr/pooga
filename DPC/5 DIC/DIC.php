@@ -3,14 +3,12 @@
 
 class DIC {
 
-	private $instances = [ ];
 	private $regitry   = [ ];
+	private $instances = [ ];
 	private $factories = [ ];
-
 
 	public function __construct () {
 	}
-
 
 	public function set ( $key, Callable $resolver ) {
 		$this->regitry[ $key ] = $resolver;
@@ -32,5 +30,4 @@ class DIC {
 
 		return $this->instances[ $key ];
 	}
-
 }
