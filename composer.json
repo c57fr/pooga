@@ -6,6 +6,9 @@
     "PHP",
     "Bootstrap"
   ],
+  "scripts": {
+    "test": "kahlan --reporter=verbose --src=Tests/1_Demo"
+  },
   "autoload": {
     "psr-4": {
       "AutoMenu\\": "aGc7/AutoMenu/app/"
@@ -41,7 +44,8 @@
     "doctrine/cache": "^1.7"
   },
   "require-dev": {
-    "phpunit/phpunit": "~4.0"
+    "phpunit/phpunit": "~4.0",
+    "kahlan/kahlan": "^4.0"
   },
   "minimum-stability": "dev",
   "prefer-stable": true

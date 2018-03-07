@@ -14,7 +14,6 @@ $emitter->on( 'Comment.created', function ( $firstname, $lastname ) {
 	echo $firstname . ' ' . $lastname . ' a posté un nouveau commentaire';
 } );
 
-
 $emitter->emit( 'Comment.created', 'John', 'Doe' );
 
 $user = new stdClass();
