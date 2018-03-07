@@ -54,3 +54,4 @@ $dic->setFactory( 'Model', function () use ( $dic ) {
 
 var_dump( $dic->get( 'Model' ) );
 var_dump( $dic->get( 'Model' ) );
+var_dump( $dic->get( 'Model' ) );
