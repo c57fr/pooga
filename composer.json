@@ -7,7 +7,7 @@
     "Bootstrap"
   ],
   "scripts": {
-    "test": "kahlan --reporter=verbose --src=Tests/1_Demo"
+    "test": "kahlan --config=Tests/kahlan-config.php"
   },
   "autoload": {
     "psr-4": {
