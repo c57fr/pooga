@@ -4,34 +4,15 @@ require 'Tests/1_Demo/Demo.php';
 use Kahlan\Plugin\Stub;
 use Tests\Demo\Demo;
 
-describe( "Demo ToBe", function () {
+describe( "Demos on a Class", function () {
 
-	describe( "Examples", function () {
-
-		it( "makes an expectation", function () {
-			expect( 123 )->toBe( 123 );
-		} );
-
-		it( 'should addition 1+1', function () {
-			expect( 1 + 1 )->toBe( 2 );
-		} );
-
-		it( 'matches Closure() to 5', function () {
-			$a = function () {
-				return 5;
-			};
-			$b = (int) ( 2 * 2.5 );
-			expect( $a() )->toBe( $b );
-		} );
-
-		it( 'Demos class', function () {
-			$d = new Demo();
-			expect($d)->toBeAnInstanceOf('\Tests\Demo\Demo');
-			expect($d->a)->toBe(5);
-		} );
-
-
+	it( 'Show that $d is an object of Demo (A class)', function () {
+		$d = new Demo();
+		expect( $d )->toBeAnInstanceOf( '\Tests\Demo\Demo' );
+		expect( $d->a )->toBe( 5 );
 	} );
+
+
 } );
 //
 //describe( 'Demo Throw Exception', function () {

@@ -3,7 +3,7 @@
 
 class Demo {
 
-	public $a=5;
+	public $a = 5;
 
 	public function saveUser ( $data ) {
 		$u = new User( $data );
@@ -19,15 +19,16 @@ class Demo {
 	
 	public function randomFail () {
 		$n = $this->random();
-		if ( $n > 5 ) {
-			throw new \Exception('> 5 :-( !');
+		if ( $n >= 0 ) {
+			throw new \Exception( '> 5 :-( !' );
 		}
 	}
 	
 	private function random () {
 		//$r = random_int( 1, 10 );
 		$r = 3;
-		var_dump($r);
+		var_dump( [ $r. ' a été renvoyé par random()' ] );
+
 		return $r;
 	}
 	
