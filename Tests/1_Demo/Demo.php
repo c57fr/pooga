@@ -1,7 +1,7 @@
 <?php namespace Test\Demo;
 
 
-//use Exception;
+use Exception;
 
 class Demo {
 
@@ -21,15 +21,14 @@ class Demo {
 	public function randomFail () {
 		$n = $this->random();
 		if ( $n > 1 ) {
-			//throw new Exception();
-			echo 'ok';
+			throw new Exception();
 		}
 		else echo 'Oki ($n = ' . $n . ' !)';
 	}
 	
 	private function random () {
-		//$r = random_int( 1, 2 );
-		$r = 2;
+		$r = random_int( 1, 2 );
+		$r = 123;
 		//$r = 7;
 		//var_dump( [ $r . ' a été renvoyé par random()' ] );
 
@@ -37,12 +36,8 @@ class Demo {
 	}
 
 	public function randoma () {
-		//$r = random_int( 1, 2 );
-		$r = '33';
-		//$r = 7;
-		//var_dump( [ $r . ' a été renvoyé par random()' ] );
 
-		return $r;
+		return 123;
 	}
 
 }
