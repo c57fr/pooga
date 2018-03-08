@@ -1,47 +1,23 @@
 <?php
 //require 'Tests/1_Demo/Demo.php';
 
-use Kahlan\Plugin\Stub;
+//use Kahlan\Plugin\Stub;
+use Test\Demo\Demo;
 
-use Tests\Demo\Demo;
 
-describe( "Tuto GA on a Class", function () {
-	describe( 'testGA', function () {
+describe( "Tuto GA", function () {
+	describe( 'On a stubbed method', function () {
 
-		it( 'should randomFail() get an Exception if random > 5', function () {
-			expect( function () {
-				$demo = new Demo();
-				//	// Squeeze la function random()
-				//	//\Kahlan\Allow( $demo )->method( 'randomFail', function () {
-				//	//	return 7;
-				//	//} );
-				$demo->randomFail();
-			} )->toThrow();
+		it( "should get an Exception if randoma get more than 1", function () {
+
+			$demo = new Demo();
+			expect( $demo )->toBeAnInstanceOf( '\Test\Demo\Demo' );
+
+			// Squeeze la function random() de Demo
+			allow( $demo )->toReceive( 'randoma' )->andReturn( '3' );
+			expect( $demo->randoma() )->toEqual( '3' );
 
 		} );
+
 	} );
-
 } );
-//
-//describe( 'Demo Throw Exception', function () {
-//
-//
-//} );
-//
-//describe( 'DemoUser', function () {
-//	it( 'sould verif if save not done', function () {
-//		expect( /**
-//		 * @throws Exception
-//		 */
-//			function () {
-//				$demo = new Demo();
-//				Stub::on( \Tests\demo\User::class )->method( 'save', function () {
-//					return FALSE;
-//				} );
-//				$demo->saveUser();
-//			} )->toThrow();
-//
-//	} );
-//} );
-
-

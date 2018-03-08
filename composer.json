@@ -23,8 +23,8 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "App\\": "blog/app",
-      "Core\\": "blog/core",
+      "App\\": "blog/app/",
+      "Core\\": "blog/core/",
       "AutoMenu\\Test\\": "aGc7/AutoMenu/tests/"
     }
   },

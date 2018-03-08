@@ -1,10 +1,6 @@
 <?php
 //require 'Tests/1_Demo/Demo.php';
 
-use Kahlan\Plugin\Stub;
-
-//Kahlan\Matcher::register('Demo', 'Tests/1_Demo/Demo');
-
 describe( "Demo ToBe", function () {
 
 	describe( "Examples", function () {
@@ -48,40 +44,13 @@ describe( "Demo ToBe", function () {
 			expect( $f() )->toHaveLength( 3 );
 		} );
 
+		it('passes if $closure echoes the expected output', function() {
+			$closure = function() {
+				echo "Hello World!";
+			};
+
+			expect($closure)->toEcho("Hello World!");
+		});
+
 	} );
 } );
-
-//
-//describe( 'Demo Throw Exception', function () {
-//
-//	it( 'should randomFail() get an Exception if random > 5', function () {
-//		expect( function () {
-//			$demo = new Demo();
-//			// Squeeze la function random()
-//			//\Kahlan\Allow( $demo )->method( 'randomFail', function () {
-//			//	return 7;
-//			//} );
-//			$demo->randomFail();
-//		} )->toThrow();
-//
-//	} );
-//
-//} );
-//
-//describe( 'DemoUser', function () {
-//	it( 'sould verif if save not done', function () {
-//		expect( /**
-//		 * @throws Exception
-//		 */
-//			function () {
-//				$demo = new Demo();
-//				Stub::on( \Tests\demo\User::class )->method( 'save', function () {
-//					return FALSE;
-//				} );
-//				$demo->saveUser();
-//			} )->toThrow();
-//
-//	} );
-//} );
-
-
