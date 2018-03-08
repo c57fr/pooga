@@ -3,6 +3,7 @@
 class Test {
 	
 	public function getJust () {
-		return '... a Test 001 !';
+
+		return '... a Test !';
 	}
 }

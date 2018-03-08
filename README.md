@@ -43,16 +43,27 @@ Penser à y ajouter ce dépôt, **AutoMenu** pour synchroniser facilement votre 
 
 ### IMPORTANT :
 
-### Toujours conserver le dossier ./aGc7/ et les fichiers à la racine
+### Toujours conserver au minimum, les dossiers aGc7/, blog/ et Tests/ ainsi que les fichiers à la racine
 
-**Pour aisément** et **rapidement naviguer** dans **vos scripts** pour tests
+Les autre dossiers indispensables seront mis à jour avec : 
 
-Pour créer votre propre dossier dont le menu sera automatique, visiter l'admin (Lien en haut à droite)
+```ini
+[node_modules/]
+npm update
+```
 
-Ensuite, simplement créer un dossier avec le nom de votre choix dans celui-ci et y placer un fichier 'index.php'blog
+```ini
+[vendo/]
+composer update
+```
 
-Ce dossier apparaîtra automatiquement comme point de menu de votre nouveau service
+### Pour aisément et rapidement naviguer dans vos scripts pour tests :
 
+1. Créer votre propre dossier dont le menu sera automatique, visiter l'admin (Lien en haut à droite)
+
+2. Ensuite, simplement créer un dossier avec le nom de votre choix dans celui-ci et y placer un fichier 'index.php'blog
+
+    Ce dossier apparaîtra automatiquement comme point de menu de votre nouveau service
 
 Pour supprimer un de vos dossiers, simplement le supprimer 'en vrai', avec votre gestionnaire de dossiers habituel.
 
@@ -74,6 +85,7 @@ Gulp
   - Comportementals
 - Interfaces
 - Traits
+- Tests) (Unitaires, avec Kahlan)
 
 ## App pour dev en local exclusivement
 En local, recommandé de faire virtual host : [AM](http://AM)
