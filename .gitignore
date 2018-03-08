@@ -1,7 +1,7 @@
 # Created by .ignore support plugin (hsz.mobi)
 ### Composer template
 composer.phar
-/vendor/
+vendor/*
 
 ### PHPS
 /.idea
@@ -102,3 +102,4 @@ typings/
 
 # dotenv environment variables file
 .env
+!/vendor/grcote7/
