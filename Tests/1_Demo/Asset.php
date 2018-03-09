@@ -1,4 +1,4 @@
-<?php namespace Test\Demo;
+<?php  namespace Test\Demo;
 
 
 class Asset {
@@ -10,7 +10,8 @@ class Asset {
 		//var_dump( [ 'json' => $json ] );
 		$chemin = '/assets/' . $path[ 1 ] . '/';
 		if ( self::isLocal() ) {
-			$chemin = $_SERVER[ 'HTTP_HOST' ] . '/Tests/1_Demo' . $chemin;
+			$server=$_SERVER[ 'HTTP_HOST' ]?? '127.0.0.1:3000';
+			$chemin = $server . '/Tests/1_Demo' . $chemin;
 		}
 
 		return $chemin . $json[ $path[ 0 ] ][ $path[ 1 ] ];
