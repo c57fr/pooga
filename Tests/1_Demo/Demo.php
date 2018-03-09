@@ -7,14 +7,12 @@ class Demo {
 
 	public $a = 5;
 
-	public function saveUser ( $data ) {
-		$u = new User( $data );
-		if ( $this->saveUser() ) {
-
+	public function saveUser ($data) {
+		$user = new User($data);
+		if ( $user->save() ) {
 		}
 		else {
 			throw new Exception();
-
 		}
 	}
 

@@ -1,9 +1,9 @@
-<?php namespace Tests\Demo;
+<?php namespace Test\Demo;
 
 
 class User {
 	
 	public function save () {
-		return TRUE;
+		return true;
 	}
 }

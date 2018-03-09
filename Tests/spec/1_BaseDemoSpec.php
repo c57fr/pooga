@@ -44,13 +44,13 @@ describe( "Demo ToBe", function () {
 			expect( $f() )->toHaveLength( 3 );
 		} );
 
-		it('passes if $closure echoes the expected output', function() {
-			$closure = function() {
-				echo "Hello World!";
+		it( 'passes if $closure echoes the expected output', function () {
+			$closure = function () {
+				echo 'Hello World!';
 			};
 
-			expect($closure)->toEcho("Hello World!");
-		});
+			expect( $closure )->toEcho( 'Hello World!' );
+		} );
 
 	} );
 } );

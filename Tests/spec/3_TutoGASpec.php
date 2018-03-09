@@ -1,6 +1,4 @@
 <?php
-//require 'Tests/1_Demo/Demo.php';
-
 use Kahlan\Plugin\Stub;
 use Test\Demo\Demo;
 
@@ -26,7 +24,6 @@ describe( "Tuto GA", function () {
 		} );
 
 		it( "should get an Exception if random() (called method) get more than 1", function () {
-			// Styubb de la fonction random
 			expect( function () {
 				$demo = new Demo();
 				Stub::on( $demo )->method( 'random', function () {
@@ -35,6 +32,21 @@ describe( "Tuto GA", function () {
 				$demo->randomFail();
 			} )->toThrow();
 		} );
+
+		it( "stub a complete class", function () {
+
+
+			expect( function () {
+
+				$demo = new Demo();
+				Stub::on( \Test\Demo\User::class )->method( 'save', function () {
+					return FALSE; // La 'vraie' method User->save() retourne TRUE
+				} );
+				$demo->saveUser( 123 );
+			} )->toThrow();
+
+		} );
+
 
 	} );
 } );

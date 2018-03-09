@@ -13,5 +13,6 @@ use Test\Demo\Demo;
 $d = new Demo();
 //echo $d->randomFail();
 //
+echo $d->saveUser();
 var_dump( $d );
 //var_dump( [ '$d->a ' => $d->a ] );
