@@ -10,7 +10,6 @@ describe( "Assets Path GA", function () {
 		return '{"app":{"js":"application-name","css":"assets/app.css"}}';
 	} );
 
-	allow( Asset::class )->toReceive( 'isLocal' )->andReturn( 'TRUE' );
 
 	beforeAll( function () {
 		Monkey::patch( 'public_path', function () {
@@ -24,15 +23,10 @@ describe( "Assets Path GA", function () {
 
 	it( 'resolve correct path', function () {
 
+			Stub::on( Asset::class )->method( '::isLocal' )->andReturn( TRUE );
 
-		expect( function () {
 
-			$asset = new Asset();
-			Stub::on( Asset::class )->method( 'isLocal', function () {
-				return TRUE; // La 'vraie' methode marche pas en local
-			} );
-
-			$asset->path( 'assets/assets.json' );
+		expect( Asset::path( 'assets/assets.json' );
 		} )->toBe( function () {
 			return 'http://localhost:3000/Tests/1_Demo/assets/assets.json';
 		} );

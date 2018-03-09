@@ -53,7 +53,7 @@ npm update
 ```
 
 ```ini
-[vendo/]
+[vendor/]
 composer update
 ```
 
@@ -66,7 +66,6 @@ composer update
     Ce dossier apparaîtra automatiquement comme point de menu de votre nouveau service
 
 Pour supprimer un de vos dossiers, simplement le supprimer 'en vrai', avec votre gestionnaire de dossiers habituel.
-
 
   Pour lancer le serveur
 
