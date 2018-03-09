@@ -1,6 +1,6 @@
 {
   "app": {
-    "js": "application-name.1234.js",
-    "css": "assets/app.5678.css"
+    "js": "app.1234.js",
+    "css": "app.5678.css"
   }
 }

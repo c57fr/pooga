@@ -8,9 +8,9 @@ class Asset {
 		//var_dump( [ 'path' => $path ] );
 		$json = json_decode( file_get_contents( __DIR__ . '/assets/assets.json' ), TRUE );
 		//var_dump( [ 'json' => $json ] );
-		$chemin = '';
+		$chemin = '/assets/' . $path[ 1 ] . '/';
 		if ( self::isLocal() ) {
-			$chemin = 'http://localhost:3000/Tests/1_Demo/';
+			$chemin = $_SERVER[ 'HTTP_HOST' ] . '/Tests/1_Demo' . $chemin;
 		}
 
 		return $chemin . $json[ $path[ 0 ] ][ $path[ 1 ] ];

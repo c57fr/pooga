@@ -13,3 +13,9 @@ require dirname( __DIR__ ) . '/autoloader.php';
 $asset = new Asset();
 
 echo $asset::path( 'app.css' );
+
+/**
+echo '<textarea cols="69" rows="50">';
+print_r($_SERVER);
+echo '</textarea>';
+**/

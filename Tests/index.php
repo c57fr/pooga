@@ -43,3 +43,8 @@ class Demo {
 }
 
 $d = new Demo();
+
+
+
+//todoli tuto routeur https://www.grafikart.fr/tutoriels/php/router-628
+

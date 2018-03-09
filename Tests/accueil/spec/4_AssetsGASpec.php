@@ -7,7 +7,7 @@ use Test\Demo\Asset;
 describe( "Assets Path GA", function () {
 
 	given( 'json', function () {
-		return '{"app":{"js":"app.1234.js","css":"assets/app.5678.css"}}';
+		return '{"app":{"js":"app.1234.js","css":"app.5678.css"}}';
 	} );
 
 	beforeAll( function () {
@@ -26,7 +26,7 @@ describe( "Assets Path GA", function () {
 
 		Stub::on( Asset::class )->method( '::isLocal' )->andReturn( '' );
 
-		expect( Asset::path( 'app.css' ) )->toBe( 'assets/app.5678.css' );
+		expect( Asset::path( 'app.css' ) )->toBe( 'assets/css/app.5678.css' );
 
 	} );
 
