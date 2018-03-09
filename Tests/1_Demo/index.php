@@ -10,7 +10,7 @@ $srcs = [
 ];
 
 $isLocal = function ( $src ) {
-	return strpos( $src, 'localhost' ) !== FALSE;
+	return strpos( $src, '127.0.0.1' ) !== FALSE;
 };
 
 foreach ( $srcs as $k => $src ) {
@@ -22,7 +22,9 @@ foreach ( $srcs as $k => $src ) {
 
 var_dump( $vds );
 
-
+echo '<textarea cols="70" rows="50">';
+print_r($_SERVER);
+echo '</textarea>';
 
 
 
