@@ -11,8 +11,8 @@ require dirname( __DIR__ ) . '/autoloader.php';
 use Test\Demo\Demo;
 
 $d = new Demo();
-//echo $d->randomFail();
-//
-echo $d->saveUser();
+
+echo $d->saveUser(); // Renvoie une exception (Non catchée)
+
 var_dump( $d );
-//var_dump( [ '$d->a ' => $d->a ] );
+

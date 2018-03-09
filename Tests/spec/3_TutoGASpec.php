@@ -41,6 +41,7 @@ describe( "Tuto GA", function () {
 				$demo = new Demo();
 				Stub::on( \Test\Demo\User::class )->method( 'save', function () {
 					return FALSE; // La 'vraie' method User->save() retourne TRUE
+					// Ce qui n'envoie pas une exception mais une string
 				} );
 				$demo->saveUser( 123 );
 			} )->toThrow();

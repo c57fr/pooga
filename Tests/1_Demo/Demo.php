@@ -7,12 +7,13 @@ class Demo {
 
 	public $a = 5;
 
-	public function saveUser ($data) {
+	public function saveUser ($data=null) {
 		$user = new User($data);
 		if ( $user->save() ) {
+			echo 'All Right !';
 		}
 		else {
-			throw new Exception();
+			throw new Exception('Bad retour de USer !');
 		}
 	}
 
