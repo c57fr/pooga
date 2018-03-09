@@ -4,7 +4,6 @@
 <?php
 use Test\Demo\Asset;
 
-
 require dirname( __DIR__ ) . '/autoloader.php';
 //require dirname( dirname( __DIR__ ) ) . '/vendor/autoload.php';
 
@@ -13,18 +12,4 @@ require dirname( __DIR__ ) . '/autoloader.php';
 
 $asset = new Asset();
 
-$url='aa//125local.0.0.1';
-
-
-var_dump(preg_match('/127|local/', $url));
-
-
-
-
-
-
-var_dump( $asset::path( 'assets.json' ) );
-//
-var_dump( $asset::isLocal() );
-
-?>
+echo $asset::path( 'app.css' );
