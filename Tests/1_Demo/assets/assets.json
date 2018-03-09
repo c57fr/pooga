@@ -1,0 +1,6 @@
+{
+  "app": {
+    "js": "application-name",
+    "css": "assets/app.css"
+  }
+}

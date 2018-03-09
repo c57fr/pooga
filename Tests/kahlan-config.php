@@ -2,7 +2,7 @@
 use Kahlan\Filter\Filters;
 
 $commandLine = $this->commandLine();
-$commandLine->option('spec', 'default', 'Tests/spec');
+$commandLine->option('spec', 'default', 'Tests/accueil/spec');
 $commandLine->option('src', 'default', 'Tests/1_Demo');
 $commandLine->option('reporter', 'default', 'verbose');
 

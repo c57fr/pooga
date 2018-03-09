@@ -13,7 +13,7 @@ class Demo {
 			echo 'All Right !';
 		}
 		else {
-			throw new Exception('Bad retour de USer !');
+			throw new Exception('Bad retour de User !');
 		}
 	}
 
