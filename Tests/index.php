@@ -45,6 +45,10 @@ class Demo {
 $d = new Demo();
 
 
-
 //todoli tuto routeur https://www.grafikart.fr/tutoriels/php/router-628
+// Réf Git @ mettre dans DCF http://rogerdudler.github.io/git-guide/index.fr.html
+// https://www.christopheducamp.com/2013/12/15/github-pour-nuls-partie-1/
+// https://www.christopheducamp.com/2013/12/16/github-pour-nuls-partie-2/
+// https://blog.lesieur.name/comprendre-et-utiliser-git-avec-vos-projets/ (avec shémas)
 
+// ToDoli @étudier: https://blog.lesieur.name/comment-corriger-rapidement-une-regression-html-ou-css-avec-git/

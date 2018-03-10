@@ -7,7 +7,11 @@ Nécessite **PHP 7.1+** et X-debug installé (Recommandé)
 
 ## Capture d'écran
 
+### En action (*Live*):
+
 ![gg](aGc7/AutoMenu/demos/demoAM1.gif)
+
+### Statique
 
 ![gg](aGc7/AutoMenu/demos/demoAM2.png)
 

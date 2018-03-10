@@ -1,0 +1,2 @@
+Ne pas effacer ce fichier
+(Afin de préserver ce dossier, même vide si tous les fichiers Spec on été activés dans spec/)
