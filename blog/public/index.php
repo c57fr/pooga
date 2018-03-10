@@ -7,6 +7,17 @@ session_start();
 //ini_set('xdebug.dump.SERVER', 'REQUEST_URI');
 ini_set( 'xdebug.show_local_vars', 'on' );
 
+$abc=function(){
+	throw new Exception();
+};
+
+try {
+	$abc();
+} catch ( Exception $e ) {
+	echo '<h1>Pour afficher cette page, la BdD doit être installée</h1>';
+}
+echo 'Le blog...';
+exit;
 //Error reporting
 //error_reporting( E_ALL );
 
