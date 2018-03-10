@@ -31,21 +31,6 @@ class Emitter {
 	public static function getUniq () {
 		return self::$_uniq;
 	}
-	
-
-	/**
-	 * Permet d'écouter un évènement
-	 *
-	 * @param string   $event    Nom de l'évènement
-	 * @param callable $callable Fonction de rappel
-	 */
-	public function on ( string $event, Callable $callable ) {
-
-		if ( ! $this->hasListener( $event ) ) {
-			$this->listeners[ $event ] = [ ];
-		}
-		$this->listeners[ $event ][] = $callable;
-	}
 
 	/**
 	 * Envoie un évènement
@@ -59,9 +44,22 @@ class Emitter {
 			foreach ( $this->listeners[ $event ] as $listener ) {
 				call_user_func_array( $listener, $args );
 			}
-
 		}
 		var_dump( $args );
+	}
+
+	/**
+	 * Permet d'écouter un évènement
+	 *
+	 * @param string   $event    Nom de l'évènement
+	 * @param callable $callable Fonction de rappel
+	 */
+	public function on ( string $event, Callable $callable ) {
+
+		if ( ! $this->hasListener( $event ) ) {
+			$this->listeners[ $event ] = [ ];
+		}
+		$this->listeners[ $event ][] = $callable;
 	}
 
 	private function hasListener ( string $event ): bool {
