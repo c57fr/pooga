@@ -3,6 +3,7 @@
 use  Gc7\Helper\GC7Tip;
 
 $nbLances = 1e5;
+
 $faces    = array_fill( 0, 6, 0 );
 
 $pFace       = range( 0, 9 );
@@ -13,21 +14,21 @@ $tiragePiped = function ( $pFace ) {
 	return $face;
 };
 for ( $i = 0; $i < $nbLances; $i ++ ) {
-	$tiree = $tiragePiped( $pFace );
-	$faces[ $tiree ] ++;
+	$faceTiree = $tiragePiped( $pFace );
+	$faces[ $faceTiree ] ++;
 }
 
-echo '<br><p>' . GC7Tip::nf( $i, 0 ) . ' lancés d\'un dé pipé (La face 6 est "allourdie" 5 fois)</p><br>';
+echo '<br><p>Lancés d\'un dé pipé (La face 6 est "allourdie" 5 fois)</p><br>';
 
 echo '<table class="table table-bordered thead-dark table-striped">
 <thead class="table-dark" style="text-align: center"><th>Face</th><th>Sorties</th><th>%</th></thead>';
 
 foreach ( $faces as $k => $v ) {
-	echo '<tr style="text-align: right; padding-right: 200px;"><td style="text-align: right; padding-right: 15%">
+	echo '<tr style="text-align: right;"><td style="text-align: right; padding-right: 10%">
 ' . ( $k + 1 ) . '</td><td style="text-align: right; padding-right: 15%">' . Gc7Tip::nf( $v, 0 ) . '</td><td
 style="text-align: right; padding-right: 15%">
 ' . Gc7Tip::nf( $v * 1e2 / $nbLances ) . '</td></tr>';
 }
-echo '<tfoot class="table-dark" style="text-align: center"><td>Totaux</td><td>' . GC7Tip::nf( $nbLances, 0 ) . '</td><td>100</td></tfoot>
+echo '<tfoot class="table-dark" style="text-align: center"><td>Total</td><td>' . GC7Tip::nf( $nbLances, 0 ) . '</td><td>100,00</td></tfoot>
 </table>';
 
