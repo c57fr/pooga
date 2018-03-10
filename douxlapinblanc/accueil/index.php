@@ -10,19 +10,19 @@ $nb = 0;
 $s  = range( 1, 7 );
 unset( $s[ 0 ] );
 
-for ( $i = - 1; $i < 99999; $i ++ ) {
-$nb ++;
-$res = array_rand( $pFace );
-$res = $res < 6 ? $res : 6;
-$s[ $res ] ++;
+for ( $i = 0; $i < 1e5; $i ++ ) {
+	$nb ++;
+	$res = array_rand( $pFace );
+	$res = $res < 6 ? $res : 6;
+	$s[ $res ] ++;
 }
 
 $somme = 0;
 foreach ( $s as $k => $v ) {
 
-$somme += $v;
-echo $k . ' : ' . ( $v / 1000 ) . ' <br>';
+	$somme += $v;
+	echo $k . ' : ' . ( $v / 1000 ) . ' <br>';
 }
 
 
-echo $nb;
+echo '<hr>' . Gc7\Helper\GC7Tip::nf( $nb, 0 ) . ' lancés';

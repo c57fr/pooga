@@ -36,4 +36,8 @@ class GC7Tip {
 
 		return $html ? ( '<a title="' . $code . '">' . $str . '</a> ' ) : $str;
 	}
+	
+	public static function nf ( $n, $d=2 ) {
+		return number_format($n, $d, ',', ' ');
+	}
 }
