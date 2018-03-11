@@ -3,7 +3,7 @@
 require dirname( __DIR__ ) . '/autoloader.php';
 ?>
 	<h1><a href="https://www.grafikart.fr/formations/programmation-objet-php/traits-php"target="_blank">Les <?= ucfirst( \AutoMenu\AutoMenu::getAppName() ); ?>s</a></h1>
-	<img src="./Trait/accueil/diagram.png" alt="Diagramme"><br>
+	<img src="./Trait/accueil/diagram.png" alt="Diagramme" width="100%"><br/><br/>
 	<?php
 
 $zoe = new Zoe( 'Zoe' );

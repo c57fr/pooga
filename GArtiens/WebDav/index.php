@@ -5,3 +5,4 @@ var_dump( [
 	          $_SERVER[ 'REQUEST_URI' ],
 	          'SERVER' => $_SERVER
           ] );
+
