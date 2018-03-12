@@ -5,6 +5,16 @@ use Event\DoubleEventException;
 use Kahlan\Plugin\Double;
 use Event\Emitter;
 
+class FakeSubscriber implements \Event\SubscriberInterface {
+
+	public function getEvents ():array {
+		return [
+			'Comment.created' => 'onNewComment',
+			'Post.created'    => 'onNewPost'
+		];
+	}
+}
+
 describe( Emitter::class, function () {
 
 	// Régénère l'instance entre chaque test
@@ -50,7 +60,6 @@ describe( Emitter::class, function () {
 
 		it( 'should prevent the same listener twice', function () {
 			$listener = Double::instance();
-
 			// Permet d'intercepter l'erreur
 			$closure = function () use ( $listener ) {
 				$this->emitter->on( 'Comment.created', [ $listener, 'onNewComment' ] );
@@ -66,7 +75,6 @@ describe( Emitter::class, function () {
 			expect( $listener )->toReceive( 'onNewComment2' )->ordered;
 			$this->emitter->on( 'Comment.created', [ $listener, 'onNewComment1' ] );
 			$this->emitter->on( 'Comment.created', [ $listener, 'onNewComment2' ] );
-			$this->emitter->emit( 'Comment.created' );
 			$this->emitter->emit( 'Comment.created' );
 		} );
 
@@ -107,6 +115,28 @@ describe( Emitter::class, function () {
 			$this->emitter->on( 'Comment.created', [ $listener, 'onNewComment' ] )->stopPropagation();
 			$this->emitter->on( 'Comment.created', [ $listener, 'onNewComment2' ] );
 			$this->emitter->emit( 'Comment.created' );
+
+		} );
+
+	} );
+
+	describe( '->addSubscriber', function () {
+		it( 'should trigger every events', function () {
+
+			$subscriber = Double::instance( [
+				                                'extends' => FakeSubscriber::class,
+				                                'methods' => [
+					                                'onNewComment',
+					                                'onNewPost'
+				                                ]
+			                                ] );
+			$comment    = [ 'name' => 'John' ];
+			expect( $subscriber )->toReceive( 'onNewComment' )->times( 2 )->with( $comment );
+			expect( $subscriber )->toReceive( 'onNewPost' )->once()->with( 200, 300, 400 );
+			$this->emitter->addSubscriber( $subscriber );
+			$this->emitter->emit( 'Comment.created', $comment );
+			$this->emitter->emit( 'Comment.created', $comment );
+			$this->emitter->emit( 'Post.created', 200, 300, 400 );
 		} );
 
 	} );

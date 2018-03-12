@@ -56,7 +56,7 @@ class Emitter {
 			$this->listeners[ $event ] = [ ];
 		}
 
-		$this->checkDoubleCallableForEvent($event, $callable);
+		$this->checkDoubleCallableForEvent( $event, $callable );
 
 		$listener                    = new Listener( $callable, $priority );
 		$this->listeners[ $event ][] = $listener;
@@ -66,18 +66,32 @@ class Emitter {
 	}
 
 	/**
-	 * Permet d'écouter un même évènement une seule fois
+	 * Permet d'écouter un même évènement une seule fois et
+	 * de ne lancer le listener qu'une seule fois
 	 *
-	 * @param string|string $event    Nom de l'évènement
-	 * @param callable      $callable Fonction de rappel
-	 * @param int           $priority
+	 * @param string   $event    Nom de l'évènement
+	 * @param callable $callable Fonction de rappel
+	 * @param int      $priority
 	 *
 	 * @return Listener
 	 */
 	public function once ( string $event, Callable $callable, int $priority = 0 ):Listener {
 		return $this->on( $event, $callable, $priority )->once();
 	}
-
+	
+	
+	/**
+	 * Permet d'ajouter un subscriber qui va écouter plusieurs évènements
+	 *
+	 * @param SubscriberInterface $subscriber
+	 */
+	public function addSubscriber ( SubscriberInterface $subscriber ) {
+		$events = $subscriber->getEvents();
+		foreach ( $events as $event => $method ) {
+			$this->on( $event, [ $subscriber, $method ] );
+		}
+	}
+	
 	private function hasListener ( string $event ): bool {
 		return array_key_exists( $event, $this->listeners );
 	}
