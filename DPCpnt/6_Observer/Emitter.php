@@ -36,7 +36,6 @@ class Emitter {
 				//call_user_func_array( $listener, $args ); // remplacé par:
 				$listener->handle( $args );
 				if ( $listener->stopPropagation ) {
-					echo 'stopppppppppppppp appelé';
 					break;
 				}
 			}
