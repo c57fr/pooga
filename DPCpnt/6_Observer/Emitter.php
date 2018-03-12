@@ -35,7 +35,8 @@ class Emitter {
 			foreach ( $this->listeners[ $event ] as $listener ) {
 				//call_user_func_array( $listener, $args ); // remplacé par:
 				$listener->handle( $args );
-				if ( $listener->stopPropagation() ) {
+				if ( $listener->stopPropagation ) {
+					echo 'stopppppppppppppp appelé';
 					break;
 				}
 			}

@@ -21,7 +21,6 @@ describe( Emitter::class, function () {
 		return Emitter::getInstance();
 	} );
 
-	// OK
 	it( 'should be a singleton', function () {
 		$instance = $this->emitter;
 		expect( $instance )->toBeAnInstanceOf( Emitter::class );
@@ -30,7 +29,6 @@ describe( Emitter::class, function () {
 
 	describe( '->on()', function () {
 
-		// OK
 		it( 'should trigger the listened event with a variable passed by reference', function () {
 			$calls = [ ];
 			$this->emitter->on( 'Comment.created', function () use ( &$calls ) {
@@ -41,7 +39,6 @@ describe( Emitter::class, function () {
 			expect( count( $calls ) )->toBe( 1 );
 		} );
 
-		// OK
 		it( 'should trigger the listened event', function () {
 			$listener = Double::instance();
 			$comment  = [ 'name' => 'John' ];
@@ -51,7 +48,6 @@ describe( Emitter::class, function () {
 			$this->emitter->emit( 'Comment.created', $comment );
 		} );
 
-		// OK
 		it( 'should prevent the same listener twice', function () {
 			$listener = Double::instance();
 
@@ -64,7 +60,6 @@ describe( Emitter::class, function () {
 			$this->emitter->emit( 'Comment.created' );
 		} );
 
-
 		it( 'should run the first event first', function () {
 			$listener = Double::instance();
 			expect( $listener )->toReceive( 'onNewComment1' )->ordered;
@@ -75,16 +70,17 @@ describe( Emitter::class, function () {
 			$this->emitter->emit( 'Comment.created' );
 		} );
 
-
 		it( 'shoult trigger events in the right order', function () {
 			$listener = Double::instance();
+
 			expect( $listener )->toReceive( 'onNewComment2' )->once()->ordered;
 			expect( $listener )->toReceive( 'onNewComment' )->once()->ordered;
-			$this->emitter->on( 'Comment.created', [ $listener, 'onNewComment' ], 1 );
+			
+			$this->emitter->on( 'Comment.created', [ $listener, 'onNewComment' ], 5 );
 			$this->emitter->on( 'Comment.created', [ $listener, 'onNewComment2' ], 200 );
 			$this->emitter->emit( 'Comment.created' );
-			$this->emitter->emit( 'Comment.created' );
 		} );
+
 
 	} );
 
