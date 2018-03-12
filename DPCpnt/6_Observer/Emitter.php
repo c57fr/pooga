@@ -3,11 +3,10 @@
 
 class Emitter {
 
-	public static  $_uniq;
 	private static $_instance;
 	/**
 	 * Enregistre la liste des écouteurs
-	 * @var []
+	 * @var Listener [][]
 	 */
 	private $listeners = [ ];
 
@@ -19,17 +18,9 @@ class Emitter {
 	public static function getInstance ():Emitter {
 		if ( ! self::$_instance ) {
 			self::$_instance = new self();
-			self::$_uniq     = uniqid( 'Emitter_', TRUE );
 		}
 
 		return self::$_instance;
-	}
-
-	/**
-	 * @return mixed
-	 */
-	public static function getUniq () {
-		return self::$_uniq;
 	}
 
 	/**
@@ -42,28 +33,69 @@ class Emitter {
 
 		if ( $this->hasListener( $event ) ) {
 			foreach ( $this->listeners[ $event ] as $listener ) {
-				call_user_func_array( $listener, $args );
+				//call_user_func_array( $listener, $args ); // remplacé par:
+				$listener->handle( $args );
+				if ( $listener->stopPropagation() ) {
+					break;
+				}
 			}
 		}
-		var_dump( $args );
 	}
 
 	/**
 	 * Permet d'écouter un évènement
 	 *
-	 * @param string   $event    Nom de l'évènement
-	 * @param callable $callable Fonction de rappel
+	 * @param string|string $event    Nom de l'évènement
+	 * @param callable      $callable Fonction de rappel
+	 * @param int           $priority
+	 *
+	 * @return Listener
 	 */
-	public function on ( string $event, Callable $callable ) {
-
+	public function on ( string $event, Callable $callable, int $priority = 0 ):Listener {
 		if ( ! $this->hasListener( $event ) ) {
 			$this->listeners[ $event ] = [ ];
 		}
-		$this->listeners[ $event ][] = $callable;
+
+		$this->checkDoubleCallableForEvent($event, $callable);
+
+		$listener                    = new Listener( $callable, $priority );
+		$this->listeners[ $event ][] = $listener;
+		$this->sortListeners( $event );
+
+		return $listener;
+	}
+
+	/**
+	 * Permet d'écouter un même évènement une seule fois
+	 *
+	 * @param string|string $event    Nom de l'évènement
+	 * @param callable      $callable Fonction de rappel
+	 * @param int           $priority
+	 *
+	 * @return Listener
+	 */
+	public function once ( string $event, Callable $callable, int $priority = 0 ):Listener {
+		return $this->on( $event, $callable, $priority )->once();
 	}
 
 	private function hasListener ( string $event ): bool {
 		return array_key_exists( $event, $this->listeners );
 	}
 
+	private function sortListeners ( $event ) {
+		uasort( $this->listeners[ $event ], function ( $a, $b ) {
+			return $a->priority < $b->priority;
+		} );
+	}
+	
+	
+	private function checkDoubleCallableForEvent ( string $event, callable $callable ):bool {
+		foreach ( $this->listeners[ $event ] as $listener ) {
+			if ( $listener->callback === $callable ) {
+				throw new DoubleEventException();
+			}
+		}
+
+		return FALSE;
+	}
 }
