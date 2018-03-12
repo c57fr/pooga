@@ -132,7 +132,6 @@ class Gc7 {
 			$this->file = $this->json->apps[ 0 ]->chemin;
 			//$_GET[ 'p' ] = 'home';
 		}
-
 		if ( isset( $this->file ) && is_file( $_SERVER[ 'DOCUMENT_ROOT' ] . '/' . $this->file . '/index.php' ) ) {
 			//var_dump( [ 'chemin', $this->file ] );
 			//require './' . "$this->file" . '/index.php';
