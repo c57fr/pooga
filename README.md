@@ -88,7 +88,10 @@ Gulp
   - Comportementals
 - Interfaces
 - Traits
-- Tests) (Unitaires, avec Kahlan)
+- Tests (Unitaires, avec Kahlan)
+- GArtiens (Échanges entre membres)
 
 ## App pour dev en local exclusivement
-En local, recommandé de faire virtual host : [AM](http://AM)
+Recommandé : Faire un virtual host : [POOGA](http://POOGA)
+
+(Automatique sous Windows avec Laragon)
