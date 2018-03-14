@@ -9,12 +9,12 @@
   "devDependencies": {
     "browser-sync": "^2.23.6",
     "gulp": "^3.9.1",
-    "gulp-clean-css": "^3.9.2",
+    "gulp-clean-css": "^3.9.3",
     "gulp-concat": "^2.6.1",
     "gulp-error-notifier": "^1.1.0",
     "gulp-imagemin": "^4.1.0",
-    "gulp-minifier": "^1.1.0",
-    "gulp-sass": "^3.1.0",
+    "gulp-minifier": "^1.2.2",
+    "gulp-sass": "^3.2.0",
     "gulp-shorthand": "^1.1.0"
   },
   "scripts": {
