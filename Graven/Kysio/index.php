@@ -6,7 +6,7 @@ require './aGc7/tools/helpers/Gc7Tip.php';
 use AutoMenu\BootstrapForm;
 use Gc7\Helper\Gc7Tip;
 
-var_dump( $_SERVER[ 'REMOTE_ADDR' ] );
+//var_dump( $_SERVER[ 'REMOTE_ADDR' ] );
 $secret = "6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe";
 function captcha ( $response, $secret ) {
 	$url  = 'https://www.google.com/recaptcha/api/siteverify';
@@ -25,8 +25,8 @@ function captcha ( $response, $secret ) {
 	];
 
 	$context = stream_context_create( $options );
-	var_dump($url, $data, $context);
-	$result  = file_get_contents( $url, FALSE, $context );
+	//var_dump($url, $data, $context);
+	$result = file_get_contents( $url, FALSE, $context );
 
 	return json_decode( $result )->success;
 }

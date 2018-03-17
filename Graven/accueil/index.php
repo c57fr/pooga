@@ -1,3 +1,5 @@
 <h1>Accueil <?= ucfirst( \AutoMenu\AutoMenu::getAppName() ); ?></h1>
-<p>Contenu pour l'accueil de votre nouveau service</p>
-<p><em>Peut bien-sûr être de suite l'objet de tests...</em></p>
+<ul>
+	<li>Kysio: ReCaptchaV2 (En cours de mise au point)</li>
+	<li>Xc2dn: Lecture d'un ficheir Json</li>
+</ul>
