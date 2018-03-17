@@ -1,4 +1,5 @@
 <?php namespace AutoMenu;
+
 use Gc7\Helper\Gc7Tip;
 
 require 'Form.php';
@@ -41,9 +42,9 @@ class BootstrapForm extends Form {
 	/**
 	 * @return string
 	 */
-	public function submitTxt ($txt=null) {
+	public function submitTxt ( $txt = null ) {
 		return $this->surround( '
-		<button type="submit" class="btn addDoss">'. $txt .'</button>' );
+		<button type="submit" class="btn addDoss">' . $txt . '</button>' );
 	}
 
 }

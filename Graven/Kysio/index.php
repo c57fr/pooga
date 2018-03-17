@@ -1,12 +1,10 @@
 <h1 style="margin-top: 30px">Accueil Kysio</h1>
 <hr>
 <?php
-require 'aGc7/AutoMenu/parts/helpers/htmlForm/BootstrapForm.php';
-require 'aGc7/tools/helpers/Gc7Tip.php';
+require './aGc7/AutoMenu/parts/helpers/htmlForm/BootstrapForm.php';
+require './aGc7/tools/helpers/Gc7Tip.php';
 use AutoMenu\BootstrapForm;
 use Gc7\Helper\Gc7Tip;
-
-//require 'aGc7/AutoMenu/parts/helpers/htmlForm/Form.php';
 
 var_dump( $_SERVER[ 'REMOTE_ADDR' ] );
 $secret = "6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe";
@@ -15,8 +13,7 @@ function captcha ( $response, $secret ) {
 	$data = [
 		'secret'   => $secret,
 		'response' => $response,
-		'remoteip' => '127.0.0.1'
-
+		'remoteip' => $_SERVER[ 'REMOTE_ADDR' ]
 	];
 
 	$options = [
@@ -28,8 +25,8 @@ function captcha ( $response, $secret ) {
 	];
 
 	$context = stream_context_create( $options );
+	var_dump($url, $data, $context);
 	$result  = file_get_contents( $url, FALSE, $context );
-	var_dump( $result );
 
 	return json_decode( $result )->success;
 }
