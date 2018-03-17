@@ -26,9 +26,24 @@ class BootstrapForm extends Form {
 	/**
 	 * @return string
 	 */
+	public function recaptchav2Test () {
+		return $this->surround( '<div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>' );
+	}
+
+	/**
+	 * @return string
+	 */
 	public function submit () {
 		return $this->surround( '
 		<button type="submit" class="btn addDoss">Créer le nouveau dossier</button>' );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function submitTxt ($txt=null) {
+		return $this->surround( '
+		<button type="submit" class="btn addDoss">'. $txt .'</button>' );
 	}
 
 }

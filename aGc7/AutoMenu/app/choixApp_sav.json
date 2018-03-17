@@ -1,17 +1,45 @@
 {
   "apps": [
     {
-      "nom": "appPrincipaleNom",
-      "chemin": "appPrincipale"
+      "nom": "blog",
+      "chemin": "blog/public"
     },
     {
-      "nom": "sce01Nom",
-      "chemin": "Sce01"
+      "nom": "divers",
+      "chemin": "divers"
     },
     {
-      "nom": "sce02Nom",
-      "chemin": "Sce02"
+      "nom": "DPC",
+      "chemin": "DPC"
+    },
+    {
+      "nom": "DPS",
+      "chemin": "DPS"
+    },
+    {
+      "nom": "DPCpnt",
+      "chemin": "DPCpnt"
+    },
+    {
+      "nom": "Interface",
+      "chemin": "Interface"
+    },
+    {
+      "nom": "Trait",
+      "chemin": "Trait"
+    },
+    {
+      "nom": "Tests",
+      "chemin": "Tests"
+    },
+    {
+      "nom": "GArtiens",
+      "chemin": "GArtiens"
+    },
+    {
+      "nom": "Graven",
+      "chemin": "Graven"
     }
   ],
-  "activeApp": 1
+  "activeApp": 9
 }

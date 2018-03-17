@@ -20,9 +20,3 @@ $req2 = $bdd->query( 'SELECT id, username, password FROM users WHERE id=1' );
 $rep2 = $req2->fetch();
 
 var_dump( $rep2 );
-
-?>
-
-Donc, là, on imagine... Que tu codes....
-
-Et moi, je corrige...
