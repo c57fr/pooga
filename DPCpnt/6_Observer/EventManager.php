@@ -1,9 +1,13 @@
-<?php namespace Gc7;
+<?php namespace Psr\EventManager;
 
-use Psr\EventManager\EventInterface;
-Use Psr\EventManager\EventManagerInterface;
+//use Psr\EventManager\EventInterface;
+//Use Psr\EventManager\EventManagerInterface;
 
 
+/**
+ * Class EventManager
+ * @package Gc7
+ */
 class EventManager implements EventManagerInterface {
 
 	/**
@@ -87,6 +91,13 @@ class EventManager implements EventManagerInterface {
 		}
 	}
 
+	/**
+	 * @param string $eventName
+	 * @param null   $target
+	 * @param array  $args
+	 *
+	 * @return EventInterface
+	 */
 	private function makeEvent ( string $eventName, $target = null, array $args = [ ] ):EventInterface {
 
 		$event = new Event();
