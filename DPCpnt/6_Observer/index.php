@@ -7,6 +7,6 @@
 	GA</a> (Events & listenners)
 <hr>
 <?php
-require dirname( __DIR__ ) . '/autoloader.php';
-//require dirname( dirname( __DIR__ ) ) . '/vendor/autoload.php';
+//require dirname( __DIR__ ) . '/autoloader.php';
+require dirname( dirname( __DIR__ ) ) . '/vendor/autoload.php';
 
