@@ -2,16 +2,20 @@
 // ToDoLi Cf. Packagist League/Event
 require dirname( __DIR__ ) . '/autoloader.php';
 require dirname( dirname( __DIR__ ) ) . '/vendor/autoload.php';
+echo '<h2>Event Manager</h2>';
 
-use Event\Emitter;
 
-$emitter = Emitter::getInstance();
+$manager = new Gc7\EventManager();
 
-$emitter->on( 'Comment.created', function ( $firstname, $lastname ) {
-	echo $firstname . ' ' . $lastname . ' a posté un nouveau commentaire<br>';
+// On écoute les évènements
+$manager->attach( 'database.delete.post', function ( \Gc7\DeletePostEvent $event ) {
+	//unlink( __DIR__.'/'.$event->getTarget()->getImage());
+	echo 'Suppression de : /DPCpnt/6_Observer/' . $event->getTarget()->getImage();
+	?>
+	<img src="<?= '/DPCpnt/6_Observer/' . $event->getTarget()->getImage() ?>" alt="">
+	<?php
 } );
 
-$emitter->emit( 'Comment.created', 'John', 'Doe' );
-
-$user = new stdClass();
-$emitter->emit( 'User.new', $user );
+// Dans le controller
+$post = new \Gc7\Post();
+$manager->trigger( new \Gc7\DeletePostEvent( $post ) );
