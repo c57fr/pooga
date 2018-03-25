@@ -18,7 +18,7 @@ for ( $i = 0; $i < $nbLances; $i ++ ) {
 	$faces[ $faceTiree ] ++;
 }
 
-echo '<br><p>Lancés d\'un dé pipé (La face 6 est "alourdie" 5 fois)</p><br>';
+echo '<br><p>Lancés d\'un dé pipé (La face 1 est "alourdie" 5 fois)</p><br>';
 
 echo '<table class="table table-bordered thead-dark table-striped">
 <thead class="table-dark" style="text-align: center"><th>Face</th><th>Sorties</th><th>%</th></thead>';
