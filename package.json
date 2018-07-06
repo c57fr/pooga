@@ -4,7 +4,8 @@
   "description": "php automenu",
   "main": "gulpfile.js",
   "dependencies": {
-    "gulp-connect-php": "^1.0.1"
+    "gulp-connect-php": "^1.0.1",
+    "hoek": "^4.2.1"
   },
   "devDependencies": {
     "browser-sync": "^2.23.6",
