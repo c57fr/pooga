@@ -40,7 +40,7 @@ class Tips {
 	public static function testChronoSum()
 	{
 		
-		$max  = 1E7;                  //10 M data points.
+		$max  = 1E5;                  //10 M data points.
 		$data = range( 0, $max, 1 );
 		var_dump( count( $data ) );
 		$start = microtime( TRUE );
@@ -55,7 +55,7 @@ class Tips {
 	{
 		?>
 		<div class="cadreOrange">
-			<h5>Generator pour générer <em>(Les <?= $nbr ?> premières valeurs)</em> de la suite de Fibonacci
+			<h5>Generator pour générer <em>(Les <?= $nbr ?> premières valeurs)</em> de <a href="https://www.youtube.com/watch?v=JTy3v9_nZH8" target="_blank">la suite de Fibonacci</a>.
 			</h5>
 
 			<?php
