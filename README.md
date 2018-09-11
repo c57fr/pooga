@@ -24,7 +24,7 @@ Nécessite **PHP 7.1+** et X-debug installé (Recommandé)
 
 ```ini
 [en mode console, dans le dossier de votre virtual localhost : ]
-git clone URL_de_votre_dépôt_GitHub_de_VH
+git clone URL_de_votre_dépôt_GitHub_de_POOGA
 ```
 
 3. Dans le dossier pooga/, installer les dépendances
@@ -39,13 +39,13 @@ composer update
 
 NB: Outils conseillés: 
 
-- **-Sous Win, **Laragon**, AMP sous Linux & MLac
+- Sous Win, **Laragon**, AMPS sous Linux & MLac
 - **[ungit](https://github.com/FredrikNoren/ungit)** (Intégré facilement dans les éditeurs Brackets ou **Visual Studio Code** grâce à leurs plugins respectifs)
 - **[GitKraken / Glo](https://www.gitkraken.com/)**
 
 Penser à y ajouter ce dépôt, **AutoMenu** pour synchroniser facilement votre dépôt (Ex. dans Ungit: ***Add Remote*** et l'URL de ce dépôt)
 
-5. [Aide ou Signaler un Bug](https://github.com/c57fr/pooga/issues/new)
+1. [Aide ou Signaler un Bug](https://github.com/c57fr/pooga/issues/new)
 
 ## Pour AutoMenu
 
@@ -97,6 +97,6 @@ Gulp
 - GArtiens (Échanges entre membres)
 
 ## App pour dev en local exclusivement
-Recommandé : Faire un virtual host : [POOGA](http://POOGA)
+Recommandé : Faire un virtual host : [pooga](http://POOGA)
 
 (Automatique sous Windows avec Laragon)
