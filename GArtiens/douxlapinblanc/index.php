@@ -1,3 +1,5 @@
+<style>#divers {margin-top:30px;}</style>
+
 <h1>Accueil <?= ucfirst( $_GET[ 'p' ] ) ?></h1>
 <?php
 use  Gc7\Helper\GC7Tip;

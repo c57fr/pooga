@@ -1,5 +1,7 @@
 <h1 style="margin-top: 30px">Accueil Momo</h1>
-<hr>
+
+<p>Exemple de requêtes MySQL avec PHP</p>
+
 <?php
 session_start();
 $_SESSION[ 'id' ] = 1;
@@ -12,11 +14,16 @@ $req = $bdd->prepare( 'SELECT id, username, password FROM users WHERE id=?' );
 $req->execute( [ htmlspecialchars( $_SESSION[ 'id' ] ) ] );
 $rep = $req->fetch();
 
-var_dump( $rep );
+echo '<pre>';
+print_r( $rep );
+echo '</pre>';
+
 
 echo ucfirst( $rep->username );
 
 $req2 = $bdd->query( 'SELECT id, username, password FROM users WHERE id=1' );
 $rep2 = $req2->fetch();
 
-var_dump( $rep2 );
+echo '<pre>';
+print_r( $rep2 );
+echo '</pre>';
