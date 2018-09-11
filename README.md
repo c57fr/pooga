@@ -27,7 +27,7 @@ Nécessite **PHP 7.1+** et X-debug installé (Recommandé)
 git clone URL_de_votre_dépôt_GitHub_de_VH
 ```
 
-3. Installer les dépendances
+3. Dans le dossier pooga/, installer les dépendances
 
 ```ini
 composer update
@@ -37,7 +37,11 @@ composer update
 
 5. Demander une fusion (= Effectuer un ***Merge Request***)
 
-NB: Outils conseillés: **[ungit](https://github.com/FredrikNoren/ungit)** (Intégré facilement dans les éditeurs Brackets ou Visual Studio Code grâce à leurs plugins respectifs) et **[GitKraken](https://www.gitkraken.com/)**
+NB: Outils conseillés: 
+
+- **-Sous Win, **Laragon**, AMP sous Linux & MLac
+- **[ungit](https://github.com/FredrikNoren/ungit)** (Intégré facilement dans les éditeurs Brackets ou **Visual Studio Code** grâce à leurs plugins respectifs)
+- **[GitKraken / Glo](https://www.gitkraken.com/)**
 
 Penser à y ajouter ce dépôt, **AutoMenu** pour synchroniser facilement votre dépôt (Ex. dans Ungit: ***Add Remote*** et l'URL de ce dépôt)
 
@@ -80,7 +84,8 @@ Gulp
 
 ## Contenu:
 
-- Blog (Tuto POO GrafikArt)
+- Blog (Tuto **POO G**rafik**A**rt): Pour avoir le contenu des pages nécessiatant la Base de donnée, importer la Base de Données
+  /blog/config/**pooga.sql.gz**
 - Un dossier d'exemples 'Divers'
 - Rubriques 'DP' (Design Patterns)
   - Création
