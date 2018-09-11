@@ -13,18 +13,21 @@ $zoe->setNrjInitiale( 50 );
 
 echo '50 kms en elec:<br>';
 $zoe->roulerElectric( 50 );
-var_dump( $zoe );
+echo '<pre>';
+
+print_r( $zoe );
 
 $zoe->AllegeAff();
 
 echo '200 kms en diesel:<br>';
 $zoe->roulerAuDiesel( 200 );
-var_dump( $zoe );
+print_r( $zoe );
 
 echo '100 kms sans préciser le mode:<br>';
 $zoe->rouler( 100 );
-var_dump( $zoe );
+print_r( $zoe );
 
 echo 'On recharge:<br>';
 $zoe->recharger();
-var_dump( $zoe );
+print_r( $zoe );
+echo '</pre>';

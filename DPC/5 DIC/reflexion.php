@@ -73,16 +73,18 @@ $app->set( 'B', function () {
 	return new B( 'Test', new A() );
 } );
 
-var_dump( $app->get( 'Model' ) );
-var_dump( $app->get( 'Model' ) );
-var_dump( $app->get( 'Model' ) );
-var_dump( $app->get( 'Model' ) );
+echo '<pre>';
+print_r( $app->get( 'Model' ) );
+print_r( $app->get( 'Model' ) );
+print_r( $app->get( 'Model' ) );
+print_r( $app->get( 'Model' ) );
 
 
-var_dump( $app->get( 'B' ) );
-var_dump( $app->get( 'B' ) );
-var_dump( $app->get( 'B' ) );
-var_dump( $app->get( 'B' ) );
-var_dump( $app->get( 'B' ) );
+print_r( $app->get( 'B' ) );
+print_r( $app->get( 'B' ) );
+print_r( $app->get( 'B' ) );
+print_r( $app->get( 'B' ) );
+print_r( $app->get( 'B' ) );
 
 //var_dump( $app->get( 'A' ) );
+echo '</pre>';

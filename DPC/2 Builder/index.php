@@ -16,8 +16,10 @@ $burger = ( new BurgerBuilder( 14 ) )
 	->addLettuce()
 	->addTomato()
 	->build();
-
+echo '<pre>';
 var_dump( $burger );
+print_r ($burger);
+echo '</pre>';
 
 
 echo 'Voir aussi exemple de <b><a href="/?c=blog/public&p=demo.index" target="_blank">QueryBuilder</a></b><br>

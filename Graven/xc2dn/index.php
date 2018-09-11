@@ -4,6 +4,9 @@
 
 $json_source = file_get_contents(__DIR__.'/test.json');
 $json_data = json_decode($json_source);
-var_dump($json_data->menu);
+echo '<pre>';
+// var_dump($json_data->menu);
+print_r($json_data->menu);
+echo'</pre>';
 
 echo 'PHP version = '. phpversion();

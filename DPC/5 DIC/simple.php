@@ -51,7 +51,8 @@ $dic->set( 'Connection', function () {
 $dic->setFactory( 'Model', function () use ( $dic ) {
 	return new Model( $dic->get( 'Connection' ) );
 } );
-
-var_dump( $dic->get( 'Model' ) );
-var_dump( $dic->get( 'Model' ) );
-var_dump( $dic->get( 'Model' ) );
+echo '<pre>';
+print_r( $dic->get( 'Model' ) );
+print_r( $dic->get( 'Model' ) );
+print_r( $dic->get( 'Model' ) );
+echo '</pre>';

@@ -13,8 +13,10 @@ class Tips {
 		<?php
 		$arr = function ( ...$n ) {
 			$nb = func_num_args();
+			echo '<pre>';
 			var_dump( 'Params', $n );
-
+			echo '</pre>';
+			
 			return $nb;
 		};
 
