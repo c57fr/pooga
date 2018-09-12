@@ -5,18 +5,30 @@ spl_autoload_register(function ($class) {
     include end($arr) . '.php';
 });
 
-//var_dump( Gc7\Math::withZero( 5 ) );
+$vue = function(){
+    $args = func_get_args();
+    echo '<pre>';
+    print_r ($args);
+    echo '</pre>';
+};
 
-$merlin  = new Personnage( 'Merlin' );
-$harry   = new Personnage( 'Harry' );
-$legolas = new Archer( 'Legolas', 70 );
-$legolas->attaque( $harry );
-var_dump( $merlin, $harry, $legolas );
+$merlin  = new Personnage('Merlin');
+$harry   = new Personnage('Harry');
+$legolas = new Archer('Legolas', 70);
+
+$vue($harry, $legolas);
+echo 'Legolas attaque Harris';
+$legolas->attaque($harry);
+$vue($harry, $legolas);
+
+
+
 
 echo '<hr>';
 
-$merlin = new Personnage( 'Merlin' );
+$merlin = new Personnage('Merlin');
+$harry  = new Personnage('Harry');
 $merlin->regenerer();
-$harry = new Personnage( 'Harry' );
-var_dump( $merlin, $harry, $legolas );
+
+$vue($merlin, $harry, $legolas);
 

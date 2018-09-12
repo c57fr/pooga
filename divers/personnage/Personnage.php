@@ -113,6 +113,7 @@ class Personnage {
 	 */
 	public function attaque( Personnage $cible )
 	{
+		--$this->fleches; // Celui qui attaque utilise une flèche
 		$cible->vie -= $this->atk;
 		$cible->empecherNegatif();
 	}
