@@ -1,4 +1,4 @@
-let gulp = require('gulp'),
+var gulp = require('gulp'),
     browserSync = require('browser-sync'),
     sass = require('gulp-sass'),
     concat = require('gulp-concat'),
