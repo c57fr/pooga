@@ -12,12 +12,14 @@ $n->setNombre( 22 );
 $vN = new ChaineNumerique();
 $vN->setValeurNum( '33' );
 
-var_dump( [
-	          'n (' . get_class( $n ) . ')'   => $n->getValue(),
+echo '<pre>';
+print_r ( [
+	          'n ('  . get_class( $n ) . ')'  => $n->getValue(),
 	          'vN (' . get_class( $vN ) . ')' => $vN->getValue()
           ] );
+echo '</pre>';
 
 echo '(Nombre) $n + (ChaineNumerique) $vN = ' . Operation::somme( $n, $vN ) . '<hr>';
+echo '<pre>';
 var_dump( Operation::somme( $n, $vN ) );
-
-
+echo '</pre>';
