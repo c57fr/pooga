@@ -11,3 +11,8 @@ function cmp($a, $b) {
 echo '1 <=> 2 = ' . cmp(1,2);
 echo '2 <=> 2 = ' . cmp(2,2);
 echo '3 <=> 2 = ' . cmp(3,2);
+
+
+?>
+
+<hr>
