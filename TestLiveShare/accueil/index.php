@@ -16,4 +16,4 @@
 
 <p>Avis de recherche:<br><br>
 
-<strong>Soluce pour Accès depuis VirtualMachine (Oracle) montées en Kubuntu 18.04 ?</strong></p>o7o
+<strong>Soluce pour Accès depuis VirtualMachine (Oracle) montées en Kubuntu 18.04 ?</strong></p>
