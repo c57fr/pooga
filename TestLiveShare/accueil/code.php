@@ -1,31 +1,21 @@
 <?= 'ICI le résultat de notre code en PHP... '; ?><i class="fa fa-smile-o" aria-hidden="true"></i><hr>
 <?php
 
-// echo null ?? null ?? 7;
+// ICI, vas-y...: for ($i= etc....)
 
-$a = 5;
-$b = 2;
+for ($i = 0; $i <= 100; $i++) {
 
-$arr = [$a, $b];
+  if ($i == 51) echo "<h3 class='cadrecentre'>Ah, enfin, l'heure du 51... !!! Lol</h3>";
 
-echo comp($a, $b);
-sort($arr);
-
-echo "<pre>";
-print_r($arr);
-echo "</pre>";
-
-
-
-
-
-function comp($a, $b) : string
-{
-
-  return '<strong>$a</strong> (' . $a . ') est '
-    . (($a === $b) ? 'égal à' : (($a > $b) ? 'plus grand' : 'plus petit'))
-    . ' <strong>$b</strong> (' . $b . ')';
+  echo $i . ' ';
 }
 
+
+
+
+
+// Note là, tu lui dis: tu pars de 0, tu ajoute 1 à chaque boucle, et tu le fais tant que $i > 100... bref, il va pas le faire du coup !!! ;-)
+
+//Vaut mieux comprendre: Tant que $i < 100 ;-)..... et note c'est " ; " entre les expresqsions, pas ' ,' ;-)
 
 

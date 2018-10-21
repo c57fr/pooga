@@ -15,8 +15,4 @@
 <?php
 include './TestLiveShare/accueil/code.php';
 ?>
-
-Salut Momo <i class="fa fa-smile"></i>
-<hr>
-
 </section>
