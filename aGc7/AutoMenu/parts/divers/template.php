@@ -17,7 +17,12 @@ $dossSuiv  = preg_replace( '/__/', ' ', $Doss_Suiv );
 
 	<!-- Bootstrap core CSS -->
 	<link rel="stylesheet" href="./agc7/assets/css/bootstrap400.min.css">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+	
+	
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
 	<link rel="stylesheet" href="/agc7/assets/css/combined.css">
 	<link rel="icon" href="/favicon.ico" />
 </head>
