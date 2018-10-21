@@ -15,21 +15,6 @@ echo "<pre>";
 print_r($arr);
 echo "</pre>";
 
-?>
-
-Tu vois donc aussi la page en live :-) ?
-oui je l'ai vu en actualisant 
--
-
-OK, super, allez, test.... Un ch'tite bouclle qui va de 1 à 10100... @ toi de jouer !
-
-
-<?php
-
-echo "ICI, c'est du VRAI PHP !!!<hr>";
-echo "j'ai constaté";
-
-
 function comp($a, $b) : string
 {
 

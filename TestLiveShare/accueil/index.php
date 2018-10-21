@@ -13,6 +13,7 @@
 <h2>Salut @ toi... Veux-tu faire un peu de PHP ?</h2>
 <section>
 <?php
+include './TestLiveShare/accueil/code1.php';
 include './TestLiveShare/accueil/code.php';
 ?>
 </section>
