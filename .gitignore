@@ -103,3 +103,4 @@ typings/
 # dotenv environment variables file
 .env
 !/vendor/grcote7/
+/aGc7/AutoMenu/app/choixApp.json
