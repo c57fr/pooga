@@ -1,0 +1,10 @@
+{
+    "firstName": "david",
+    "lastName" : "Sumes",
+    "address"  : {
+      "addr1"  : "4, rue des tulipes",
+      "addr2"  : "Appt. N°21",
+      "zipCode": "75000",
+      "city"   : "PARIS"
+  }
+}
