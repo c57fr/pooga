@@ -17,19 +17,19 @@ gulp.task('serve', ['css'], function () {
             proxy: '127.0.0.1:8000'
         });
     });
-    gulp.watch('./agc7/sass/**/*.scss', ['css']);
-    gulp.watch('./agc7/js/*.js', browserSync.reload);
+    gulp.watch('./aGc7/sass/**/*.scss', ['css']);
+    gulp.watch('./aGc7/js/*.js', browserSync.reload);
     gulp.watch('./**/*.php', browserSync.reload);
     gulp.watch('./**/*.html', browserSync.reload);
-    gulp.watch('./agc7/img/**/*', ['img']);
+    gulp.watch('./aGc7/img/**/*', ['img']);
 });
 
 gulp.task('css', function () {
-    return gulp.src('./agc7/sass/**/*.scss')
+    return gulp.src('./aGc7/sass/**/*.scss')
 
         .pipe(sass.sync().on('error', sass.logError))
         .pipe(sass())
-        .pipe(gulp.dest('./agc7/assets/css'))
+        .pipe(gulp.dest('./aGc7/assets/css'))
 
         .pipe(shorthand())
 
@@ -53,7 +53,7 @@ gulp.task('css', function () {
             }
         }))
 
-        .pipe(gulp.dest('./agc7/assets/css'))
+        .pipe(gulp.dest('./aGc7/assets/css'))
 
         .pipe(browserSync.reload({
             stream: true
@@ -61,9 +61,9 @@ gulp.task('css', function () {
 });
 
 gulp.task('img', function () {
-    gulp.src('./agc7/img/**/*')
+    gulp.src('./aGc7/img/**/*')
         .pipe(imagemin({verbose: true}))
-        .pipe(gulp.dest('./agc7/assets/img'))
+        .pipe(gulp.dest('./aGc7/assets/img'))
 });
 
 gulp.task('default', ['serve', 'img']);

@@ -45,7 +45,7 @@ class AutoMenu extends Gc7 {
 		parent::__construct();
 		if ( $this->setFolder( $folder ) ) {
 			//echo 'Mon dossier: ' . $folder;
-			$doss          = explode( '\\', $folder );
+			$doss          = explode( '/', $folder );
 			self::$dossier = end( $doss );
 			$this->getAutoMenu();
 		}

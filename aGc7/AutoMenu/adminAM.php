@@ -4,7 +4,7 @@ require './../../vendor/autoload.php';
 
 //var_dump($_POST);
 
-// todoli Vériff de la cohérence json // folders
+// todoli Vérif de la cohérence json // folders
 
 include 'parts/header.php';
 $adm = Admin::getInstance();

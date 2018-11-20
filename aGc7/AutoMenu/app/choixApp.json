@@ -1,1 +1,1 @@
-{"apps":[{"nom":"blog","chemin":"blog/public"}],"activeApp":0}
+{"apps":[{"nom":"blog","chemin":"/blog/public"},{"nom":"aaa","chemin":"aaa"}],"activeApp":1}

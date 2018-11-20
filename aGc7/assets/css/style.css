@@ -261,7 +261,7 @@ button {
   font-weight: 800;
   color: white;
   /*  color: red;*/
-  text-shadow: .01em -.01em 0 black, .015em -.015em 0 black, .02em -.02em 0 black, .025em -.025em 0 black, .03em -.03em 0 black, .035em -.035em 0 black, .04em -.04em 0 black, .045em -.045em 0 black, .05em -.05em 0 black, .055em -.055em 0 black, .055em -.06em 0 black, .06em -.065em 0 black, .06em -.07em 0 black; }
+  text-shadow: .01em -.01em 0 black, .015em -.015em 0 black, .02em -.02em 0 black, .025em -.025em 0 black, .03em -.03em 0 black, .035em -.035em 0 black, .04em -.04em 0 black, .045em -.045em 0 black, .05em -.05em 0 black, .055em -.055em 0 black, .055em -.06em 0 black, .06em -.065em 0 black, .06em -.07em 0 black; }
 
 #encart .sz05 {
   letter-spacing: .001em;
@@ -272,7 +272,7 @@ button {
 
 #encart span:first-letter, #encart .maj {
   font-size: 130%;
-  text-shadow: .01em -.01em 0 black, .015em -.015em 0 black, .02em -.02em 0 black, .025em -.025em 0 black, .03em -.03em 0 black, .035em -.035em 0 black, .04em -.04em 0 black, .045em -.045em 0 black, .05em -.05em 0 black, .055em -.055em 0 black, .06em -.05em 0 black, .065em -.06em 0 black, .07em -.06em 0 black, .072em -.062em 0 black, .075em -.065em 0 black; }
+  text-shadow: .01em -.01em 0 black, .015em -.015em 0 black, .02em -.02em 0 black, .025em -.025em 0 black, .03em -.03em 0 black, .035em -.035em 0 black, .04em -.04em 0 black, .045em -.045em 0 black, .05em -.05em 0 black, .055em -.055em 0 black, .06em -.05em 0 black, .065em -.06em 0 black, .07em -.06em 0 black, .072em -.062em 0 black, .075em -.065em 0 black; }
 
 #encart .smaller {
   font-size: .7em;

@@ -5,16 +5,17 @@ session_start();
 //ini_set( 'xdebug.collect_params', '4' );
 //ini_set('xdebug.dump_globals', 'on');
 //ini_set('xdebug.dump.SERVER', 'REQUEST_URI');
-ini_set( 'xdebug.show_local_vars', 'on' );
+//ini_set( 'xdebug.show_local_vars', 'on' );
 
 
 //Error reporting
 //error_reporting( E_ALL );
 
-define( 'ROOT', dirname( __DIR__ ) . '\\' );
+define( 'ROOT', dirname( __DIR__ ) . '/' );
 //var_dump( ROOT );
 
 require ROOT . 'app/App.php';
+
 App::load();
 
 //$pdo = null !== new PDO( 'mysql:host=localhost;dbname=pooga', 'root', '' );
@@ -33,12 +34,12 @@ $p = $_GET[ 'p' ] ?? 'home';
 
 
 if ( $a ) {
-	var_dump( $a );
+	//var_dump( $a );
 	$page = explode( '.', $a );
 	if ( $page[ 0 ] === 'admin' ) {
 		$controller = 'App\Controller\\' . ucfirst( $page[ 0 ] ) . '\\' . ucfirst( $page[ 1 ] ) . 'Controller';
 		$action     = $page[ 2 ];
-		var_dump( $page, $controller, $action );
+		//var_dump( $page, $controller, $action );
 		$controller = new $controller();
 		$controller->$action();
 	}
@@ -58,7 +59,7 @@ else {
 			echo '<h1>Pour afficher la page du blog du tuto de GA, MySQL doit "tourner", et la BdD \'pooga\' doit y être
 importée (<em>./blog/config/pooga.sql.gz</em>)</h1>';
 			echo '<h2>Dans l\'attente...: <a href="/?c=c">Page suivante</a></h2>';
-			//echo "Connection failed: " . $e->getMessage();
+			echo "Connection failed: " . $e->getMessage();
 			exit();
 		}
 

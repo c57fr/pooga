@@ -1,5 +1,8 @@
 <?php namespace App\Controller\Admin;
 
+// 2doli À suppr (Normalement chargé par l'auto-loader)
+require 'blog/core/auth/DBAuth.php';
+
 use Core\HTML\BootstrapForm;
 use Core\Auth\DBAuth;
 use App;

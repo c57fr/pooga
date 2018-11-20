@@ -13,7 +13,6 @@ class PostsController extends AppController {
 
 	public function index () {
 		$posts = $this->Post->last();
-		//var_dump($posts);
 
 		$this->setTitle( 'Admin' );
 

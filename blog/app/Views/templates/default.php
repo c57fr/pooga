@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,7 +10,7 @@
 	<title><?= App::getInstance()->title ?></title>
 
 	<!-- Bootstrap core CSS -->
-	<link rel="stylesheet" href="./agc7/assets/css/bootstrap400.min.css">
+	<link rel="stylesheet" href="./aGc7/assets/css/bootstrap400.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="aGc7/assets/css/combined.css">
 	<link rel="icon" href="./blog/favicon.ico"/>

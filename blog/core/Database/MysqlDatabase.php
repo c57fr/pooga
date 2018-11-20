@@ -15,7 +15,7 @@ class MysqlDatabase extends Database {
 	 */
 	private $pdo;
 
-	public function __construct ( $db_name, $db_user = 'root', $db_host = 'mysqlserver', $db_pass = 'docker' ) {
+	public function __construct ( $db_name, $db_user = 'root', $db_host = 'localhost', $db_pass = '' ) {
 		$this->db_host = $db_host;
 		$this->db_user = $db_user;
 		$this->db_name = $db_name;
