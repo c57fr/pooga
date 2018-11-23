@@ -39,7 +39,7 @@ composer update
 
 NB: Outils conseillés: 
 
-- Sous Win, **Laragon**, AMPS sous Linux & MLac
+- Sous Win, **Laragon**, Xampp sous Linux & MLac
 - **[ungit](https://github.com/FredrikNoren/ungit)** (Intégré facilement dans les éditeurs Brackets ou **Visual Studio Code** grâce à leurs plugins respectifs)
 - **[GitKraken / Glo](https://www.gitkraken.com/)**
 
