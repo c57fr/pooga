@@ -6,7 +6,8 @@
   "dependencies": {
     "mime": "^1.4.1",
     "gulp-connect-php": "^1.0.1",
-    "hoek": "^4.2.1"
+    "hoek": "^4.2.1",
+    "marked": ">=0.3.18"
   },
   "devDependencies": {
     "browser-sync": "^2.26.3",
