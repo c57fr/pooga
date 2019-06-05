@@ -85,7 +85,7 @@ Gulp
 ## Contenu:
 
 - Blog (Tuto **POO G**rafik**A**rt): Pour avoir le contenu des pages nécessiatant la Base de donnée, importer la Base de Données
-  /blog/config/**pooga.sql.gz**
+  /blog/config/**pooga.sql**
 - Un dossier d'exemples 'Divers'
 - Rubriques 'DP' (Design Patterns)
   - Création
