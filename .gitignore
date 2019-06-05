@@ -104,3 +104,4 @@ typings/
 .env
 !/vendor/grcote7/
 /aGc7/AutoMenu/app/choixApp.json
+package-lock.json
